@@ -31,7 +31,7 @@
             this.privGridView = new System.Windows.Forms.DataGridView();
             this.refreshButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.usrTB = new System.Windows.Forms.TextBox();
+            this.objTB = new System.Windows.Forms.TextBox();
             this.roleTB = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.privCB = new System.Windows.Forms.ComboBox();
@@ -42,6 +42,7 @@
             this.revokeButton = new System.Windows.Forms.Button();
             this.grantRlButton = new System.Windows.Forms.Button();
             this.grantUsrButton = new System.Windows.Forms.Button();
+            this.checkPrivilegeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.privGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +53,7 @@
             this.privGridView.Name = "privGridView";
             this.privGridView.RowHeadersWidth = 51;
             this.privGridView.RowTemplate.Height = 24;
-            this.privGridView.Size = new System.Drawing.Size(573, 451);
+            this.privGridView.Size = new System.Drawing.Size(573, 469);
             this.privGridView.TabIndex = 2;
             // 
             // refreshButton
@@ -76,14 +77,14 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "User/Role";
             // 
-            // usrTB
+            // objTB
             // 
-            this.usrTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.usrTB.Location = new System.Drawing.Point(97, 128);
-            this.usrTB.Name = "usrTB";
-            this.usrTB.Size = new System.Drawing.Size(122, 28);
-            this.usrTB.TabIndex = 11;
-            this.usrTB.TextChanged += new System.EventHandler(this.usrTB_TextChanged);
+            this.objTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.objTB.Location = new System.Drawing.Point(97, 128);
+            this.objTB.Name = "objTB";
+            this.objTB.Size = new System.Drawing.Size(122, 28);
+            this.objTB.TabIndex = 11;
+            this.objTB.TextChanged += new System.EventHandler(this.usrTB_TextChanged);
             // 
             // roleTB
             // 
@@ -168,17 +169,18 @@
             // revokeButton
             // 
             this.revokeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.revokeButton.Location = new System.Drawing.Point(16, 411);
+            this.revokeButton.Location = new System.Drawing.Point(16, 402);
             this.revokeButton.Name = "revokeButton";
             this.revokeButton.Size = new System.Drawing.Size(203, 39);
             this.revokeButton.TabIndex = 21;
             this.revokeButton.Text = "Revoke ";
             this.revokeButton.UseVisualStyleBackColor = true;
+            this.revokeButton.Click += new System.EventHandler(this.revokeButton_Click);
             // 
             // grantRlButton
             // 
             this.grantRlButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grantRlButton.Location = new System.Drawing.Point(16, 357);
+            this.grantRlButton.Location = new System.Drawing.Point(16, 347);
             this.grantRlButton.Name = "grantRlButton";
             this.grantRlButton.Size = new System.Drawing.Size(203, 39);
             this.grantRlButton.TabIndex = 22;
@@ -188,19 +190,33 @@
             // grantUsrButton
             // 
             this.grantUsrButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grantUsrButton.Location = new System.Drawing.Point(16, 303);
+            this.grantUsrButton.Location = new System.Drawing.Point(16, 293);
             this.grantUsrButton.Name = "grantUsrButton";
             this.grantUsrButton.Size = new System.Drawing.Size(203, 39);
             this.grantUsrButton.TabIndex = 23;
             this.grantUsrButton.Text = "Grant For User";
             this.grantUsrButton.UseVisualStyleBackColor = true;
+            this.grantUsrButton.Click += new System.EventHandler(this.grantUsrButton_Click);
+            // 
+            // checkPrivilegeButton
+            // 
+            this.checkPrivilegeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.checkPrivilegeButton.Location = new System.Drawing.Point(16, 454);
+            this.checkPrivilegeButton.Name = "checkPrivilegeButton";
+            this.checkPrivilegeButton.Size = new System.Drawing.Size(203, 39);
+            this.checkPrivilegeButton.TabIndex = 24;
+            this.checkPrivilegeButton.Text = "Check Privilege";
+            this.checkPrivilegeButton.UseVisualStyleBackColor = true;
+            this.checkPrivilegeButton.Click += new System.EventHandler(this.checkPrivilegeButton_Click);
             // 
             // Privilege
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 501);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(856, 512);
+            this.Controls.Add(this.checkPrivilegeButton);
             this.Controls.Add(this.grantUsrButton);
             this.Controls.Add(this.grantRlButton);
             this.Controls.Add(this.revokeButton);
@@ -211,12 +227,13 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.usrTB);
+            this.Controls.Add(this.objTB);
             this.Controls.Add(this.roleTB);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.privGridView);
             this.Name = "Privilege";
             this.Text = "Privilege";
+            this.Load += new System.EventHandler(this.Privilege_Load);
             ((System.ComponentModel.ISupportInitialize)(this.privGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -228,7 +245,7 @@
         private System.Windows.Forms.DataGridView privGridView;
         private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox usrTB;
+        private System.Windows.Forms.TextBox objTB;
         private System.Windows.Forms.TextBox roleTB;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox privCB;
@@ -239,5 +256,6 @@
         private System.Windows.Forms.Button revokeButton;
         private System.Windows.Forms.Button grantRlButton;
         private System.Windows.Forms.Button grantUsrButton;
+        private System.Windows.Forms.Button checkPrivilegeButton;
     }
 }
