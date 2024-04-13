@@ -301,7 +301,7 @@ create or replace PROCEDURE SP_CHECKROLE
 (p_username in varchar2,
 c2 out sys_refcursor)
 AUTHID CURRENT_USER AS
-    l_check NVARCHAR2(20) :=p_username;
+    l_check NVARCHAR2(20) := upper(p_username);
 BEGIN
     open c2 for
     SELECT * from DBA_ROLE_PRIVS  where GRANTEE= l_check;
@@ -313,7 +313,7 @@ create or replace PROCEDURE SP_CHECKPRIV
 (p_username in varchar2,
 c2 out sys_refcursor)
 AUTHID CURRENT_USER AS
-    l_check NVARCHAR2(20) :=p_username;
+    l_check NVARCHAR2(20) := upper(p_username);
 BEGIN
     open c2 for
     SELECT * from USER_TAB_PRIVS  where GRANTEE= l_check;
