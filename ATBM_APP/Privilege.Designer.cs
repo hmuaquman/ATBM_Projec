@@ -40,7 +40,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.colCB = new System.Windows.Forms.ComboBox();
             this.revokeButton = new System.Windows.Forms.Button();
-            this.grantRlButton = new System.Windows.Forms.Button();
             this.grantUsrButton = new System.Windows.Forms.Button();
             this.checkPrivilegeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.privGridView)).BeginInit();
@@ -140,6 +139,7 @@
             this.privcheckBox.TabIndex = 17;
             this.privcheckBox.Text = "With Grant Option";
             this.privcheckBox.UseVisualStyleBackColor = true;
+            this.privcheckBox.CheckedChanged += new System.EventHandler(this.privcheckBox_CheckedChanged);
             // 
             // label4
             // 
@@ -157,19 +157,17 @@
             this.colCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.colCB.FormattingEnabled = true;
             this.colCB.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4"});
+            "None"});
             this.colCB.Location = new System.Drawing.Point(97, 246);
             this.colCB.Name = "colCB";
             this.colCB.Size = new System.Drawing.Size(122, 28);
             this.colCB.TabIndex = 19;
+            this.colCB.SelectedIndexChanged += new System.EventHandler(this.colCB_SelectedIndexChanged);
             // 
             // revokeButton
             // 
             this.revokeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.revokeButton.Location = new System.Drawing.Point(16, 402);
+            this.revokeButton.Location = new System.Drawing.Point(16, 377);
             this.revokeButton.Name = "revokeButton";
             this.revokeButton.Size = new System.Drawing.Size(203, 39);
             this.revokeButton.TabIndex = 21;
@@ -177,31 +175,21 @@
             this.revokeButton.UseVisualStyleBackColor = true;
             this.revokeButton.Click += new System.EventHandler(this.revokeButton_Click);
             // 
-            // grantRlButton
-            // 
-            this.grantRlButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grantRlButton.Location = new System.Drawing.Point(16, 347);
-            this.grantRlButton.Name = "grantRlButton";
-            this.grantRlButton.Size = new System.Drawing.Size(203, 39);
-            this.grantRlButton.TabIndex = 22;
-            this.grantRlButton.Text = "Grant For Role";
-            this.grantRlButton.UseVisualStyleBackColor = true;
-            // 
             // grantUsrButton
             // 
             this.grantUsrButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grantUsrButton.Location = new System.Drawing.Point(16, 293);
+            this.grantUsrButton.Location = new System.Drawing.Point(16, 304);
             this.grantUsrButton.Name = "grantUsrButton";
-            this.grantUsrButton.Size = new System.Drawing.Size(203, 39);
+            this.grantUsrButton.Size = new System.Drawing.Size(203, 47);
             this.grantUsrButton.TabIndex = 23;
-            this.grantUsrButton.Text = "Grant For User";
+            this.grantUsrButton.Text = "Grant For User/Role";
             this.grantUsrButton.UseVisualStyleBackColor = true;
             this.grantUsrButton.Click += new System.EventHandler(this.grantUsrButton_Click);
             // 
             // checkPrivilegeButton
             // 
             this.checkPrivilegeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.checkPrivilegeButton.Location = new System.Drawing.Point(16, 454);
+            this.checkPrivilegeButton.Location = new System.Drawing.Point(16, 439);
             this.checkPrivilegeButton.Name = "checkPrivilegeButton";
             this.checkPrivilegeButton.Size = new System.Drawing.Size(203, 39);
             this.checkPrivilegeButton.TabIndex = 24;
@@ -218,7 +206,6 @@
             this.ClientSize = new System.Drawing.Size(856, 512);
             this.Controls.Add(this.checkPrivilegeButton);
             this.Controls.Add(this.grantUsrButton);
-            this.Controls.Add(this.grantRlButton);
             this.Controls.Add(this.revokeButton);
             this.Controls.Add(this.colCB);
             this.Controls.Add(this.label4);
@@ -254,7 +241,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox colCB;
         private System.Windows.Forms.Button revokeButton;
-        private System.Windows.Forms.Button grantRlButton;
         private System.Windows.Forms.Button grantUsrButton;
         private System.Windows.Forms.Button checkPrivilegeButton;
     }

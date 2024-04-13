@@ -86,6 +86,7 @@
             this.passTextbox.Size = new System.Drawing.Size(193, 32);
             this.passTextbox.TabIndex = 7;
             this.passTextbox.UseSystemPasswordChar = true;
+            this.passTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passTextbox_KeyPress);
             // 
             // usnTextbox
             // 
@@ -94,7 +95,6 @@
             this.usnTextbox.Name = "usnTextbox";
             this.usnTextbox.Size = new System.Drawing.Size(193, 32);
             this.usnTextbox.TabIndex = 6;
-            this.usnTextbox.TextChanged += new System.EventHandler(this.usnTextbox_TextChanged);
             // 
             // LoginForm
             // 

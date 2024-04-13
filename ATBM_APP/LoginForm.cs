@@ -18,20 +18,18 @@ namespace ATBM_APP
             InitializeComponent();
         }
 
-        private void usnTextbox_TextChanged(object sender, EventArgs e)
-        {
 
-        }
+
+        
 
         private void loginButton_Click(object sender, EventArgs e)
         {
             string username = usnTextbox.Text;
             string password = passTextbox.Text;
 
-            // Kiểm tra thông tin đăng nhập
             if (username == "admin" && password == "admin")
             {
-                this.Hide();
+                this.Close();
                 AdminForm admin = new AdminForm();
                 admin.Show();
             }
@@ -44,6 +42,28 @@ namespace ATBM_APP
         private void cancelButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        
+
+        private void passTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                string username = usnTextbox.Text;
+                string password = passTextbox.Text;
+
+                if (username == "admin" && password == "admin")
+                {
+                    this.Hide();
+                    AdminForm admin = new AdminForm();
+                    admin.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Tên người dùng hoặc mật khẩu không chính xác. Vui lòng thử lại!");
+                }
+            }
         }
     }
 }

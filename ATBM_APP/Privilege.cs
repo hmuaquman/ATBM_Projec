@@ -1,4 +1,4 @@
-using Oracle.ManagedDataAccess.Client;
+﻿using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +21,10 @@ namespace ATBM_APP
             colCB.DropDownStyle = ComboBoxStyle.DropDownList;
             colCB.Enabled = false;
             privcheckBox.Checked = false;
-            
+            if(!string.IsNullOrEmpty(colCB.Text))
+            {
+                privcheckBox.Enabled = false;
+            }
 
         }
 
@@ -92,6 +95,7 @@ namespace ATBM_APP
                         colCB.Items.Clear();
 
                         // Đọc và thêm các tên cột vào ComboBox
+                        colCB.Items.Add("");
                         while (reader.Read())
                         {
                             string columnName = reader.GetString(0);
@@ -277,6 +281,16 @@ namespace ATBM_APP
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void privcheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void colCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

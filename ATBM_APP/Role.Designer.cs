@@ -38,7 +38,7 @@
             this.dropRoleButton = new System.Windows.Forms.Button();
             this.grantRoleButton = new System.Windows.Forms.Button();
             this.revokeRoleButton = new System.Windows.Forms.Button();
-            this.checkPrivButton = new System.Windows.Forms.Button();
+            this.checkRoleButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.roleGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,6 +61,7 @@
             this.refreshButton.TabIndex = 2;
             this.refreshButton.Text = "Refresh";
             this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // label2
             // 
@@ -107,6 +108,7 @@
             this.createRoleButton.TabIndex = 11;
             this.createRoleButton.Text = "Create Role";
             this.createRoleButton.UseVisualStyleBackColor = true;
+            this.createRoleButton.Click += new System.EventHandler(this.createRoleButton_Click);
             // 
             // dropRoleButton
             // 
@@ -117,6 +119,7 @@
             this.dropRoleButton.TabIndex = 12;
             this.dropRoleButton.Text = "Drop Role";
             this.dropRoleButton.UseVisualStyleBackColor = true;
+            this.dropRoleButton.Click += new System.EventHandler(this.dropRoleButton_Click);
             // 
             // grantRoleButton
             // 
@@ -127,6 +130,7 @@
             this.grantRoleButton.TabIndex = 13;
             this.grantRoleButton.Text = "Grant Role";
             this.grantRoleButton.UseVisualStyleBackColor = true;
+            this.grantRoleButton.Click += new System.EventHandler(this.grantRoleButton_Click);
             // 
             // revokeRoleButton
             // 
@@ -137,23 +141,25 @@
             this.revokeRoleButton.TabIndex = 14;
             this.revokeRoleButton.Text = "Revoke Role";
             this.revokeRoleButton.UseVisualStyleBackColor = true;
+            this.revokeRoleButton.Click += new System.EventHandler(this.revokeRoleButton_Click);
             // 
-            // checkPrivButton
+            // checkRoleButton
             // 
-            this.checkPrivButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.checkPrivButton.Location = new System.Drawing.Point(34, 438);
-            this.checkPrivButton.Name = "checkPrivButton";
-            this.checkPrivButton.Size = new System.Drawing.Size(159, 39);
-            this.checkPrivButton.TabIndex = 15;
-            this.checkPrivButton.Text = "Check Privilege";
-            this.checkPrivButton.UseVisualStyleBackColor = true;
+            this.checkRoleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.checkRoleButton.Location = new System.Drawing.Point(34, 438);
+            this.checkRoleButton.Name = "checkRoleButton";
+            this.checkRoleButton.Size = new System.Drawing.Size(159, 39);
+            this.checkRoleButton.TabIndex = 15;
+            this.checkRoleButton.Text = "Check Role";
+            this.checkRoleButton.UseVisualStyleBackColor = true;
+            this.checkRoleButton.Click += new System.EventHandler(this.checkRoleButton_Click);
             // 
             // Role
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(848, 498);
-            this.Controls.Add(this.checkPrivButton);
+            this.Controls.Add(this.checkRoleButton);
             this.Controls.Add(this.revokeRoleButton);
             this.Controls.Add(this.grantRoleButton);
             this.Controls.Add(this.dropRoleButton);
@@ -166,6 +172,7 @@
             this.Controls.Add(this.roleGridView);
             this.Name = "Role";
             this.Text = "Role";
+            this.Load += new System.EventHandler(this.Role_Load);
             ((System.ComponentModel.ISupportInitialize)(this.roleGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -184,6 +191,6 @@
         private System.Windows.Forms.Button dropRoleButton;
         private System.Windows.Forms.Button grantRoleButton;
         private System.Windows.Forms.Button revokeRoleButton;
-        private System.Windows.Forms.Button checkPrivButton;
+        private System.Windows.Forms.Button checkRoleButton;
     }
 }
