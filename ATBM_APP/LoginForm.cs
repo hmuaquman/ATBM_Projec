@@ -29,9 +29,10 @@ namespace ATBM_APP
 
             if (username == "admin" && password == "admin")
             {
-                this.Close();
+                this.Hide();
                 AdminForm admin = new AdminForm();
                 admin.Show();
+                
             }
             else
             {
@@ -50,19 +51,7 @@ namespace ATBM_APP
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                string username = usnTextbox.Text;
-                string password = passTextbox.Text;
-
-                if (username == "admin" && password == "admin")
-                {
-                    this.Hide();
-                    AdminForm admin = new AdminForm();
-                    admin.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Tên người dùng hoặc mật khẩu không chính xác. Vui lòng thử lại!");
-                }
+                loginButton_Click(sender, e);
             }
         }
     }

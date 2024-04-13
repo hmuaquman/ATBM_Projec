@@ -21,10 +21,8 @@ namespace ATBM_APP
             colCB.DropDownStyle = ComboBoxStyle.DropDownList;
             colCB.Enabled = false;
             privcheckBox.Checked = false;
-            if(!string.IsNullOrEmpty(colCB.Text))
-            {
-                privcheckBox.Enabled = false;
-            }
+            privcheckBox.Enabled = true;
+   
 
         }
 
@@ -32,10 +30,12 @@ namespace ATBM_APP
         {
             if (!string.IsNullOrEmpty(objTB.Text) && (privCB.SelectedItem.ToString() == "Select" || privCB.SelectedItem.ToString() == "Update"))
             {
+                
                 colCB.Enabled = true;
             }
             else
             {
+                colCB.Text = "";
                 colCB.Enabled = false;
             }
         }
@@ -290,7 +290,14 @@ namespace ATBM_APP
 
         private void colCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (colCB.Text == "")
+            {
+                privcheckBox.Enabled = true;
+            } else
+            {
+                privcheckBox.Checked = false;
+                privcheckBox.Enabled = false;
+            }
         }
     }
 }
