@@ -47,7 +47,7 @@
             this.userGridView.Name = "userGridView";
             this.userGridView.RowHeadersWidth = 51;
             this.userGridView.RowTemplate.Height = 24;
-            this.userGridView.Size = new System.Drawing.Size(559, 395);
+            this.userGridView.Size = new System.Drawing.Size(1142, 395);
             this.userGridView.TabIndex = 0;
             // 
             // refreshButton
@@ -135,7 +135,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1388, 450);
             this.Controls.Add(this.createUsButton);
             this.Controls.Add(this.dropUsButton);
             this.Controls.Add(this.changePassButtton);

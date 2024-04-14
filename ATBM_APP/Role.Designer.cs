@@ -49,7 +49,7 @@
             this.roleGridView.Name = "roleGridView";
             this.roleGridView.RowHeadersWidth = 51;
             this.roleGridView.RowTemplate.Height = 24;
-            this.roleGridView.Size = new System.Drawing.Size(573, 451);
+            this.roleGridView.Size = new System.Drawing.Size(823, 451);
             this.roleGridView.TabIndex = 1;
             // 
             // refreshButton
@@ -158,7 +158,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(848, 498);
+            this.ClientSize = new System.Drawing.Size(1109, 498);
             this.Controls.Add(this.checkRoleButton);
             this.Controls.Add(this.revokeRoleButton);
             this.Controls.Add(this.grantRoleButton);

@@ -16,6 +16,7 @@ namespace ATBM_APP
         public Role()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void createRoleButton_Click(object sender, EventArgs e)

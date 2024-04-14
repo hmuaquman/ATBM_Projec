@@ -16,6 +16,7 @@ namespace ATBM_APP
         public User()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void Refresh_Click(object sender, EventArgs e)

@@ -31,7 +31,6 @@
             this.privGridView = new System.Windows.Forms.DataGridView();
             this.refreshButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.objTB = new System.Windows.Forms.TextBox();
             this.roleTB = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.privCB = new System.Windows.Forms.ComboBox();
@@ -42,6 +41,7 @@
             this.revokeButton = new System.Windows.Forms.Button();
             this.grantUsrButton = new System.Windows.Forms.Button();
             this.checkPrivilegeButton = new System.Windows.Forms.Button();
+            this.objCB = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.privGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@
             this.privGridView.Name = "privGridView";
             this.privGridView.RowHeadersWidth = 51;
             this.privGridView.RowTemplate.Height = 24;
-            this.privGridView.Size = new System.Drawing.Size(573, 469);
+            this.privGridView.Size = new System.Drawing.Size(985, 469);
             this.privGridView.TabIndex = 2;
             // 
             // refreshButton
@@ -75,15 +75,6 @@
             this.label1.Size = new System.Drawing.Size(84, 20);
             this.label1.TabIndex = 12;
             this.label1.Text = "User/Role";
-            // 
-            // objTB
-            // 
-            this.objTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.objTB.Location = new System.Drawing.Point(97, 128);
-            this.objTB.Name = "objTB";
-            this.objTB.Size = new System.Drawing.Size(122, 28);
-            this.objTB.TabIndex = 11;
-            this.objTB.TextChanged += new System.EventHandler(this.usrTB_TextChanged);
             // 
             // roleTB
             // 
@@ -197,13 +188,32 @@
             this.checkPrivilegeButton.UseVisualStyleBackColor = true;
             this.checkPrivilegeButton.Click += new System.EventHandler(this.checkPrivilegeButton_Click);
             // 
+            // objCB
+            // 
+            this.objCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.objCB.FormattingEnabled = true;
+            this.objCB.Items.AddRange(new object[] {
+            "SINHVIEN",
+            "NHANSU",
+            "HOCPHAN",
+            "DONVI",
+            "PHANCONG",
+            "KHMO",
+            "DANGKY"});
+            this.objCB.Location = new System.Drawing.Point(97, 128);
+            this.objCB.Name = "objCB";
+            this.objCB.Size = new System.Drawing.Size(121, 30);
+            this.objCB.TabIndex = 25;
+            this.objCB.SelectedIndexChanged += new System.EventHandler(this.objCB_SelectedIndexChanged);
+            // 
             // Privilege
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(856, 512);
+            this.ClientSize = new System.Drawing.Size(1271, 512);
+            this.Controls.Add(this.objCB);
             this.Controls.Add(this.checkPrivilegeButton);
             this.Controls.Add(this.grantUsrButton);
             this.Controls.Add(this.revokeButton);
@@ -214,7 +224,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.objTB);
             this.Controls.Add(this.roleTB);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.privGridView);
@@ -232,7 +241,6 @@
         private System.Windows.Forms.DataGridView privGridView;
         private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox objTB;
         private System.Windows.Forms.TextBox roleTB;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox privCB;
@@ -243,5 +251,6 @@
         private System.Windows.Forms.Button revokeButton;
         private System.Windows.Forms.Button grantUsrButton;
         private System.Windows.Forms.Button checkPrivilegeButton;
+        private System.Windows.Forms.ComboBox objCB;
     }
 }

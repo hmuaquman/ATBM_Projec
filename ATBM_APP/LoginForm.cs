@@ -16,6 +16,7 @@ namespace ATBM_APP
         public LoginForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
 

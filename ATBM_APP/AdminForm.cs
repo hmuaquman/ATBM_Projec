@@ -16,7 +16,7 @@ namespace ATBM_APP
         public AdminForm()
         {
             InitializeComponent();
-            
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             Account.username = "QUAN";
             Account.password = "quan";

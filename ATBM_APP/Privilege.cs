@@ -19,16 +19,18 @@ namespace ATBM_APP
             InitializeComponent();
             privCB.DropDownStyle = ComboBoxStyle.DropDownList;
             colCB.DropDownStyle = ComboBoxStyle.DropDownList;
+            objCB.DropDownStyle = ComboBoxStyle.DropDownList;
             colCB.Enabled = false;
             privcheckBox.Checked = false;
             privcheckBox.Enabled = true;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
    
 
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(objTB.Text) && (privCB.SelectedItem.ToString() == "Select" || privCB.SelectedItem.ToString() == "Update"))
+            if (!string.IsNullOrEmpty(objCB.Text) && (privCB.SelectedItem.ToString() == "Select" || privCB.SelectedItem.ToString() == "Update"))
             {
                 
                 colCB.Enabled = true;
@@ -69,47 +71,7 @@ namespace ATBM_APP
 
         }
 
-        private void usrTB_TextChanged(object sender, EventArgs e)
-        {
-            using (OracleConnection connection = new OracleConnection(Account.connectString))
-            {
-                try
-                {
-                    // Mở kết nối
-                    connection.Open();
-
-                    // Lấy tên bảng từ TextBox
-                    string tableName = objTB.Text;
-
-                    // Kiểm tra nếu TextBox không rỗng
-                    if (!string.IsNullOrEmpty(tableName))
-                    {
-                        // Truy vấn SQL để lấy tên các cột của bảng
-                        string query = $"SELECT column_name FROM user_tab_columns WHERE table_name = '{tableName}'";
-
-                        // Tạo đối tượng Command và thực thi truy vấn
-                        OracleCommand command = new OracleCommand(query, connection);
-                        OracleDataReader reader = command.ExecuteReader();
-
-                        // Xóa các mục hiện có trong ComboBox (nếu có)
-                        colCB.Items.Clear();
-
-                        // Đọc và thêm các tên cột vào ComboBox
-                        colCB.Items.Add("");
-                        while (reader.Read())
-                        {
-                            string columnName = reader.GetString(0);
-                            colCB.Items.Add(columnName);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    // Xử lý các ngoại lệ nếu có
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
-        }
+        
         private void Privilege_Load(object sender, EventArgs e)
         {
             using (OracleConnection conn = new OracleConnection(Account.connectString))
@@ -155,7 +117,7 @@ namespace ATBM_APP
 
                 cmd.Parameters.Add("n_object", OracleDbType.Varchar2);
                 cmd.Parameters["n_object"].Direction = ParameterDirection.Input;
-                cmd.Parameters["n_object"].Value = objTB.Text;
+                cmd.Parameters["n_object"].Value = objCB.Text;
 
                 cmd.Parameters.Add("n_option", OracleDbType.Int32);
                 cmd.Parameters["n_option"].Direction = ParameterDirection.Input;
@@ -185,7 +147,7 @@ namespace ATBM_APP
 
                 cmd.Parameters.Add("n_object", OracleDbType.Varchar2);
                 cmd.Parameters["n_object"].Direction = ParameterDirection.Input;
-                cmd.Parameters["n_object"].Value = objTB.Text;
+                cmd.Parameters["n_object"].Value = objCB.Text;
 
                 cmd.Parameters.Add("n_column", OracleDbType.Varchar2);
                 cmd.Parameters["n_column"].Direction = ParameterDirection.Input;
@@ -235,7 +197,7 @@ namespace ATBM_APP
 
             cmd.Parameters.Add("n_object", OracleDbType.Varchar2);
             cmd.Parameters["n_object"].Direction = ParameterDirection.Input;
-            cmd.Parameters["n_object"].Value = objTB.Text;
+            cmd.Parameters["n_object"].Value = objCB.Text;
             cmd.Connection = conn;
             try
             {
@@ -297,6 +259,48 @@ namespace ATBM_APP
             {
                 privcheckBox.Checked = false;
                 privcheckBox.Enabled = false;
+            }
+        }
+
+        private void objCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            using (OracleConnection connection = new OracleConnection(Account.connectString))
+            {
+                try
+                {
+                    // Mở kết nối
+                    connection.Open();
+
+                    // Lấy tên bảng từ TextBox
+                    string tableName = objCB.Text;
+
+                    // Kiểm tra nếu TextBox không rỗng
+                    if (!string.IsNullOrEmpty(tableName))
+                    {
+                        // Truy vấn SQL để lấy tên các cột của bảng
+                        string query = $"SELECT column_name FROM user_tab_columns WHERE table_name = '{tableName}'";
+
+                        // Tạo đối tượng Command và thực thi truy vấn
+                        OracleCommand command = new OracleCommand(query, connection);
+                        OracleDataReader reader = command.ExecuteReader();
+
+                        // Xóa các mục hiện có trong ComboBox (nếu có)
+                        colCB.Items.Clear();
+
+                        // Đọc và thêm các tên cột vào ComboBox
+                        colCB.Items.Add("");
+                        while (reader.Read())
+                        {
+                            string columnName = reader.GetString(0);
+                            colCB.Items.Add(columnName);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Xử lý các ngoại lệ nếu có
+                    MessageBox.Show("Error: " + ex.Message);
+                }
             }
         }
     }
