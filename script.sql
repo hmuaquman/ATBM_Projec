@@ -122,7 +122,7 @@ BEGIN
     END IF;
 END;
 
---Store procedure grant quyền người dùng trên mức cột (select, update)
+--Store procedure grant quyền người dùng trên mức cột (update)
 CREATE OR REPLACE PROCEDURE SP_GRANTPRIVUSERCOL(
     p_user IN VARCHAR2,
     priv IN VARCHAR2,
@@ -181,6 +181,20 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20001, 'Username or role does not exist');
     END IF;
 END;
+
+--Stored Procedure kiểm tra quyền của người dùng
+create or replace PROCEDURE SP_CHECKPRIV
+(p_username in varchar2,
+c2 out sys_refcursor)
+AUTHID CURRENT_USER AS
+    l_check NVARCHAR2(20) := upper(p_username);
+BEGIN
+    open c2 for
+    SELECT * from USER_TAB_PRIVS  where GRANTEE= l_check;
+    --dbms_sql.return_result(c2);
+END;
+
+
 /
 --Stored Procedure tạo role
 CREATE OR REPLACE PROCEDURE SP_CREATEROLE (
@@ -311,7 +325,7 @@ BEGIN
         EXECUTE IMMEDIATE(STRSQL);
 END;
 /
---Stored Procedure check role
+--Stored Procedure kiểm tra role của người dùng
 create or replace PROCEDURE SP_CHECKROLE
 (p_username in varchar2,
 c2 out sys_refcursor)
@@ -323,14 +337,4 @@ BEGIN
     --dbms_sql.return_result(c2);
 END;
 
---Stored Procedure check priv
-create or replace PROCEDURE SP_CHECKPRIV
-(p_username in varchar2,
-c2 out sys_refcursor)
-AUTHID CURRENT_USER AS
-    l_check NVARCHAR2(20) := upper(p_username);
-BEGIN
-    open c2 for
-    SELECT * from USER_TAB_PRIVS  where GRANTEE= l_check;
-    --dbms_sql.return_result(c2);
-END;
+
