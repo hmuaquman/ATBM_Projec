@@ -136,11 +136,6 @@ namespace ATBM_APP
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void User_Load(object sender, EventArgs e)
         {
             using (OracleConnection conn = new OracleConnection(Account.connectString))

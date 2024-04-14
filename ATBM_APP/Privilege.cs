@@ -30,7 +30,7 @@ namespace ATBM_APP
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(objCB.Text) && (privCB.SelectedItem.ToString() == "Select" || privCB.SelectedItem.ToString() == "Update"))
+            if (!string.IsNullOrEmpty(objCB.Text) && privCB.SelectedItem.ToString() == "Update")
             {
                 
                 colCB.Enabled = true;
@@ -64,11 +64,6 @@ namespace ATBM_APP
                     }
                 }
             }
-        }
-
-        private void roleTB_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         
@@ -243,11 +238,6 @@ namespace ATBM_APP
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void privcheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void colCB_SelectedIndexChanged(object sender, EventArgs e)

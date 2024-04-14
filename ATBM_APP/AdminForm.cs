@@ -47,11 +47,6 @@ namespace ATBM_APP
             role.Show();
         }
 
-        private void AdminForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
         {
             User user = new User();
@@ -76,15 +71,7 @@ namespace ATBM_APP
             priv.Show();
         }
 
-        private void usrLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void userPB_MouseHover(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         private void rolePB_MouseEnter(object sender, EventArgs e)
         {
@@ -102,11 +89,6 @@ namespace ATBM_APP
         {
             usrLabel.ForeColor = Color.LightGray;
             userPB.BackColor = Color.LightGray;
-        }
-
-        private void userPB_Paint(object sender, PaintEventArgs e)
-        {
-           
         }
 
         private void rolePB_MouseLeave(object sender, EventArgs e)

@@ -59,7 +59,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(706, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(706, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -70,7 +70,7 @@
             this.settingToolStripMenuItem,
             this.logoutToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(77, 26);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // profileToolStripMenuItem
@@ -99,7 +99,7 @@
             this.roleToolStripMenuItem,
             this.privilegeToolStripMenuItem});
             this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
-            this.managementToolStripMenuItem.Size = new System.Drawing.Size(111, 26);
+            this.managementToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
             this.managementToolStripMenuItem.Text = "Management";
             // 
             // userToolStripMenuItem
@@ -126,7 +126,7 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // userPB
@@ -138,7 +138,6 @@
             this.userPB.TabIndex = 1;
             this.userPB.TabStop = false;
             this.userPB.Click += new System.EventHandler(this.userPB_Click);
-            this.userPB.Paint += new System.Windows.Forms.PaintEventHandler(this.userPB_Paint);
             this.userPB.MouseEnter += new System.EventHandler(this.userPB_MouseEnter);
             this.userPB.MouseLeave += new System.EventHandler(this.userPB_MouseLeave);
             // 
@@ -177,7 +176,6 @@
             this.usrLabel.Size = new System.Drawing.Size(79, 29);
             this.usrLabel.TabIndex = 4;
             this.usrLabel.Text = "USER";
-            this.usrLabel.Click += new System.EventHandler(this.usrLabel_Click);
             // 
             // roleLabel
             // 
@@ -214,7 +212,6 @@
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Name = "AdminForm";
             this.Text = "AdminForm";
-            this.Load += new System.EventHandler(this.AdminForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPB)).EndInit();

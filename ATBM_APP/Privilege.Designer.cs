@@ -83,7 +83,6 @@
             this.roleTB.Name = "roleTB";
             this.roleTB.Size = new System.Drawing.Size(122, 28);
             this.roleTB.TabIndex = 10;
-            this.roleTB.TextChanged += new System.EventHandler(this.roleTB_TextChanged);
             // 
             // label3
             // 
@@ -130,7 +129,6 @@
             this.privcheckBox.TabIndex = 17;
             this.privcheckBox.Text = "With Grant Option";
             this.privcheckBox.UseVisualStyleBackColor = true;
-            this.privcheckBox.CheckedChanged += new System.EventHandler(this.privcheckBox_CheckedChanged);
             // 
             // label4
             // 

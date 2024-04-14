@@ -68,7 +68,6 @@
             this.usrTB.Name = "usrTB";
             this.usrTB.Size = new System.Drawing.Size(158, 28);
             this.usrTB.TabIndex = 2;
-            this.usrTB.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // pwTB
             // 
