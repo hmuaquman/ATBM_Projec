@@ -108,7 +108,7 @@
             this.Controls.Add(this.passTextbox);
             this.Controls.Add(this.usnTextbox);
             this.Name = "LoginForm";
-            this.Text = "LoginForm";
+            this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 

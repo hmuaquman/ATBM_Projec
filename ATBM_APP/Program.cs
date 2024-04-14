@@ -6,8 +6,9 @@ using System.Windows.Forms;
 
 namespace ATBM_APP
 {
-    public static class Account
+    public static class Account 
     {
+        //thông tin kết nối đến cơ sở dữ liệu
         public static string username = "";
         public static string password = "";
         public static string connectString = "";

@@ -171,7 +171,7 @@
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.roleGridView);
             this.Name = "Role";
-            this.Text = "Role";
+            this.Text = "Role Management";
             this.Load += new System.EventHandler(this.Role_Load);
             ((System.ComponentModel.ISupportInitialize)(this.roleGridView)).EndInit();
             this.ResumeLayout(false);

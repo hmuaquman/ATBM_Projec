@@ -18,17 +18,19 @@ namespace ATBM_APP
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
-
+        //Xử lí sự kiện khi nhấn vào nút Create Role
         private void createRoleButton_Click(object sender, EventArgs e)
         {
+            //Khai báo và truyền thông tin kết nối
             OracleConnection conn = new OracleConnection();
             conn.ConnectionString = Account.connectString;
 
-
+            //Khai báo procedure sử dụng
             OracleCommand cmd = new OracleCommand();
             cmd.CommandText = "SP_CREATEROLE";
             cmd.CommandType = CommandType.StoredProcedure;
 
+            //Khai báo và truyền tham số nhập từ form
             cmd.Parameters.Add("n_role_name", OracleDbType.Varchar2);
             cmd.Parameters["n_role_name"].Direction = ParameterDirection.Input;
             cmd.Parameters["n_role_name"].Value = roleTB.Text;
@@ -36,6 +38,7 @@ namespace ATBM_APP
 
             try
             {
+                //Mở kết nối
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Create Role successfully");
@@ -46,15 +49,17 @@ namespace ATBM_APP
                 MessageBox.Show(ex.Message);
             }
         }
-
+        //Xử lí sự kiện khi load from ROLE
         private void Role_Load(object sender, EventArgs e)
         {
+            //Khai báo và truyền thông tin kết nối
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {
+                //Khai báo câu lệnh SQL sử dụng
                 using (OracleCommand cmd = new OracleCommand("SELECT * FROM dba_roles", conn))
                 {
                     try
-                    {
+                    {//Mở kết nối
                         conn.Open();
                         using (OracleDataAdapter da = new OracleDataAdapter(cmd))
                         {
@@ -70,15 +75,18 @@ namespace ATBM_APP
                 }
             }
         }
-
+        //Xử lí sự kiện khi nhấn nút Refresh
         private void refreshButton_Click(object sender, EventArgs e)
         {
+            //Khai báo và truyền thông tin kết nối
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {
+                //Khai báo câu lệnh SQL sử dụng
                 using (OracleCommand cmd = new OracleCommand("SELECT * FROM dba_roles", conn))
                 {
                     try
-                    {
+                    {   
+                        //Mở kết nối
                         conn.Open();
                         using (OracleDataAdapter da = new OracleDataAdapter(cmd))
                         {
@@ -94,17 +102,19 @@ namespace ATBM_APP
                 }
             }
         }
-
+        //Xử lí sự kiện khi nhấp nút Drop Role
         private void dropRoleButton_Click(object sender, EventArgs e)
         {
+            //Khai báo và truyền thông tin kết nối
             OracleConnection conn = new OracleConnection();
             conn.ConnectionString = Account.connectString;
 
-
+            //Khai báo procedure sử dụng
             OracleCommand cmd = new OracleCommand();
             cmd.CommandText = "SP_DROPROLE";
             cmd.CommandType = CommandType.StoredProcedure;
 
+            //khai báo và truyền dữ liệu tham số từ form
             cmd.Parameters.Add("n_role", OracleDbType.Varchar2);
             cmd.Parameters["n_role"].Direction = ParameterDirection.Input;
             cmd.Parameters["n_role"].Value = roleTB.Text;
@@ -123,17 +133,20 @@ namespace ATBM_APP
                 MessageBox.Show(ex.Message);
             }
         }
-
+        //Xử lí sự kiện khi nhấp nút Grant Role
         private void grantRoleButton_Click(object sender, EventArgs e)
         {
+            //Khai báo và truyền thông tin kết nối
             OracleConnection conn = new OracleConnection();
             conn.ConnectionString = Account.connectString;
 
-
+            //Khai báo procedure sử dụng
             OracleCommand cmd = new OracleCommand();
             cmd.CommandText = "SP_GRANTROLE";
             cmd.CommandType = CommandType.StoredProcedure;
 
+
+            //Khai báo và truyền các tham số nhập từ form
             cmd.Parameters.Add("n_role", OracleDbType.Varchar2);
             cmd.Parameters["n_role"].Direction = ParameterDirection.Input;
             cmd.Parameters["n_role"].Value = roleTB.Text;
@@ -145,7 +158,7 @@ namespace ATBM_APP
             cmd.Connection = conn;
 
             try
-            {
+            {//Mở kết nối
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Grant Role successfully");
@@ -156,17 +169,19 @@ namespace ATBM_APP
                 MessageBox.Show(ex.Message);
             }
         }
-
+        //Xử lí sự kiện khi nhấp nút revoke role
         private void revokeRoleButton_Click(object sender, EventArgs e)
         {
+            //Khai báo và truyền thông tin kết nối
             OracleConnection conn = new OracleConnection();
             conn.ConnectionString = Account.connectString;
 
-
+            //Khai báo procedure 
             OracleCommand cmd = new OracleCommand();
             cmd.CommandText = "SP_REVOKEROLE";
             cmd.CommandType = CommandType.StoredProcedure;
 
+            //khai báo và truyền tham số nhập từ form
             cmd.Parameters.Add("n_role", OracleDbType.Varchar2);
             cmd.Parameters["n_role"].Direction = ParameterDirection.Input;
             cmd.Parameters["n_role"].Value = roleTB.Text;
@@ -179,6 +194,7 @@ namespace ATBM_APP
 
             try
             {
+                //Mở kết nối
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Revoke Role successfully");
@@ -189,16 +205,19 @@ namespace ATBM_APP
                 MessageBox.Show(ex.Message);
             }
         }
-
+        //Xử lí sự kiện khi nhấp nút Check Role
         private void checkRoleButton_Click(object sender, EventArgs e)
         {
+            //Khai báo và truyền thông tin kết nối
             OracleConnection conn = new OracleConnection();
             conn.ConnectionString = Account.connectString;
 
+            //Khai báo procedure sử dụng
             OracleCommand cmd = new OracleCommand();
             cmd.CommandText = "SP_CHECKROLE";
             cmd.CommandType = CommandType.StoredProcedure;
 
+            //Khai báo và truyền tham số từ form
             cmd.Parameters.Add("n_username", OracleDbType.Varchar2);
             cmd.Parameters["n_username"].Direction = ParameterDirection.Input;
             cmd.Parameters["n_username"].Value = usrTB.Text;
@@ -210,6 +229,7 @@ namespace ATBM_APP
 
             try
             {
+                //Mở kết nối
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 OracleDataAdapter da = new OracleDataAdapter(cmd);

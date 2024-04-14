@@ -145,7 +145,7 @@
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.userGridView);
             this.Name = "User";
-            this.Text = "User";
+            this.Text = "User Management";
             this.Load += new System.EventHandler(this.User_Load);
             ((System.ComponentModel.ISupportInitialize)(this.userGridView)).EndInit();
             this.ResumeLayout(false);

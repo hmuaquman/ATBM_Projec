@@ -226,7 +226,7 @@
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.privGridView);
             this.Name = "Privilege";
-            this.Text = "Privilege";
+            this.Text = "Privilege Management";
             this.Load += new System.EventHandler(this.Privilege_Load);
             ((System.ComponentModel.ISupportInitialize)(this.privGridView)).EndInit();
             this.ResumeLayout(false);
