@@ -19,8 +19,8 @@ namespace ATBM_APP
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             //Account chứa thông tin liên quan đến connection của admin sử dụng ứng dụng
-            Account.username = "QUAN";
-            Account.password = "quan";
+            Account.username = "ADMIN";
+            Account.password = "ADMIN";
             Account.connectString = @"Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = "
                 + Account.host + ")(PORT = " + Account.port + "))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = "
                 + Account.sid + ")));Password=" + Account.password + ";User ID=" + Account.username;
@@ -125,6 +125,11 @@ namespace ATBM_APP
             this.Close();
             LoginForm login = new LoginForm();
             login.Show();
+        }
+
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -12,8 +12,8 @@ namespace ATBM_APP
         public static string username = "";
         public static string password = "";
         public static string connectString = "";
-        public static string host = "192.168.174.1";
-        public static int port = 1522;
+        public static string host = "localhost";
+        public static int port = 1521;
         public static string sid = "xe";
 
     }

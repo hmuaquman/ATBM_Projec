@@ -25,7 +25,7 @@ namespace ATBM_APP
             string username = usnTextbox.Text;
             string password = passTextbox.Text;
             //Kiểm tra thông tin tài khoản, mật khẩu
-            if (username == "admin" && password == "admin")
+            if (username == "ADMIN" && password == "ADMIN")
             {
                 this.Hide();
                 AdminForm admin = new AdminForm();
@@ -51,6 +51,16 @@ namespace ATBM_APP
             {
                 loginButton_Click(sender, e);
             }
+        }
+
+        private void usnTextbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

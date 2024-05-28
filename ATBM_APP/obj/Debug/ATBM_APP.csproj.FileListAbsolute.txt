@@ -35,3 +35,40 @@ J:\wf\ATBM_APP\ATBM_APP\obj\Debug\ATBM_APP.LoginForm.resources
 J:\wf\ATBM_APP\ATBM_APP\obj\Debug\ATBM_APP.User.resources
 J:\wf\ATBM_APP\ATBM_APP\obj\Debug\ATBM_APP.Privilege.resources
 J:\wf\ATBM_APP\ATBM_APP\obj\Debug\ATBM_APP.Role.resources
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\ATBM_APP.exe.config
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\ATBM_APP.exe
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\ATBM_APP.pdb
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\System.Buffers.dll
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\System.Formats.Asn1.dll
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\System.Memory.dll
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\System.Text.Json.dll
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\System.ValueTuple.dll
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\System.Buffers.xml
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\System.Formats.Asn1.xml
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\System.Memory.xml
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\System.Text.Json.xml
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\bin\Debug\System.ValueTuple.xml
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\obj\Debug\ATBM_APP.csproj.AssemblyReference.cache
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\obj\Debug\ATBM_APP.csproj.SuggestedBindingRedirects.cache
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\obj\Debug\ATBM_APP.AdminForm.resources
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\obj\Debug\ATBM_APP.LoginForm.resources
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\obj\Debug\ATBM_APP.Privilege.resources
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\obj\Debug\ATBM_APP.Properties.Resources.resources
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\obj\Debug\ATBM_APP.Role.resources
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\obj\Debug\ATBM_APP.User.resources
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\obj\Debug\ATBM_APP.csproj.GenerateResource.cache
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\obj\Debug\ATBM_APP.csproj.CoreCompileInputs.cache
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\obj\Debug\ATBM_APP.csproj.CopyComplete
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\obj\Debug\ATBM_APP.exe
+C:\Users\DAT TRONG\Desktop\ĐỒ ÁN ATBM\ATBM_Project\ATBM_APP\obj\Debug\ATBM_APP.pdb

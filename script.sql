@@ -39,7 +39,7 @@ BEGIN
         EXECUTE IMMEDIATE(STRSQL);
     END IF;
 END;
-
+/
 --Stored Procedure drop user
 CREATE OR REPLACE PROCEDURE SP_DROPUSER(
     p_username IN VARCHAR2
@@ -63,7 +63,7 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20001, 'Username does not exist');
     END IF;
 END;
-
+/
 --Stored procedure đổi mật khẩu người dùng
 CREATE OR REPLACE PROCEDURE SP_CHANGEUSRPW(
     p_username IN VARCHAR2,
@@ -88,7 +88,7 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20001, 'Username does not exist');
     END IF;
 END;
-
+/
 --Stored procedure Grant quyền truy cập đến role/user
 CREATE OR REPLACE PROCEDURE SP_GRANTPRIVUSER(
     p_user IN VARCHAR2,
@@ -121,7 +121,7 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20001, 'Username or role does not exist');
     END IF;
 END;
-
+/
 --Store procedure grant quyền người dùng trên mức cột (update)
 CREATE OR REPLACE PROCEDURE SP_GRANTPRIVUSERCOL(
     p_user IN VARCHAR2,
@@ -154,7 +154,7 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20001, 'Username or role does not exist');
     END IF;
 END;
-
+/
 --Stored procedure thu hồi quyền người dùng
 CREATE OR REPLACE PROCEDURE SP_REVOKEPRIVUSER(
     p_user IN VARCHAR2,
@@ -181,7 +181,7 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20001, 'Username or role does not exist');
     END IF;
 END;
-
+/
 --Stored Procedure kiểm tra quyền của người dùng
 create or replace PROCEDURE SP_CHECKPRIV
 (p_username in varchar2,
@@ -193,8 +193,6 @@ BEGIN
     SELECT * from USER_TAB_PRIVS  where GRANTEE= l_check;
     --dbms_sql.return_result(c2);
 END;
-
-
 /
 --Stored Procedure tạo role
 CREATE OR REPLACE PROCEDURE SP_CREATEROLE (
@@ -336,5 +334,6 @@ BEGIN
     SELECT * from DBA_ROLE_PRIVS  where GRANTEE= l_check;
     --dbms_sql.return_result(c2);
 END;
+/
 
 
