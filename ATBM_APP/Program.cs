@@ -15,6 +15,7 @@ namespace ATBM_APP
         public static string host = "localhost";
         public static int port = 1521;
         public static string sid = "xe";
+        public static string service = "pdbqldlnb";
 
     }
     internal static class Program

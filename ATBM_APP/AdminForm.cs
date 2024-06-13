@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,123 +13,595 @@ namespace ATBM_APP
 {
     public partial class AdminForm : Form
     {
-        public AdminForm()
+        private LoginForm loginForm;
+        public AdminForm(LoginForm loginForm)
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-
-            //Account chứa thông tin liên quan đến connection của admin sử dụng ứng dụng
-            Account.username = "ADMIN";
-            Account.password = "ADMIN";
+            this.loginForm = loginForm;
             Account.connectString = @"Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = "
                 + Account.host + ")(PORT = " + Account.port + "))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = "
-                + Account.sid + ")));Password=" + Account.password + ";User ID=" + Account.username;
+                + Account.service + ")));Password=" + Account.password + ";User ID=" + Account.username;
+            logo.Image = Image.FromFile(@"..\\..\\icon\\hcmus.png");
+            icon.Image = Image.FromFile(@"..\\..\\icon\\admin_avatar.png");
+            logo.SizeMode = PictureBoxSizeMode.Zoom;
+            icon.SizeMode = PictureBoxSizeMode.Zoom;
+            privPLComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            colPLComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            objPLComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            //Căn chỉnh và gắn nguồn ảnh từ thư mục icon vào các picture box
-            privPB.Image = Image.FromFile(@"..\\..\\icon\\privilege2.png");
-            rolePB.Image = Image.FromFile(@"..\\..\\icon\\role2.png");
-            userPB.Image = Image.FromFile(@"..\\..\\icon\\user2.png");
-            userPB.SizeMode = PictureBoxSizeMode.Zoom;
-            privPB.SizeMode = PictureBoxSizeMode.Zoom;
-            rolePB.SizeMode = PictureBoxSizeMode.Zoom;
+            colPLComboBox.Enabled = false;
+            privPLCheckBox.Checked = false;
+            privPLCheckBox.Enabled = true;
+
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
-        
-        //Xử lí sự kiện khi click ảnh user
-        private void userPB_Click(object sender, EventArgs e)
+        private void LoadDataUSR()
         {
-            User user = new User();
-            user.Show();
+            //Khai báo và truyền thông tin kết nối
+            using (OracleConnection conn = new OracleConnection(Account.connectString))
+            {
+                //Khai báo câu SQL sử dụng
+                using (OracleCommand cmd = new OracleCommand("SELECT * FROM dba_users", conn))
+                {
+                    try
+                    {  //Mở kết nối
+                        conn.Open();
+                        using (OracleDataAdapter da = new OracleDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            userGridView.DataSource = dt;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
+        private void LoadDataRole()
+        {
+            //Khai báo và truyền thông tin kết nối
+            using (OracleConnection conn = new OracleConnection(Account.connectString))
+            {
+                //Khai báo câu lệnh SQL sử dụng
+                using (OracleCommand cmd = new OracleCommand("SELECT * FROM dba_roles", conn))
+                {
+                    try
+                    {
+                        //Mở kết nối
+                        conn.Open();
+                        using (OracleDataAdapter da = new OracleDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            roleGridView.DataSource = dt;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
+        private void LoadDataPriv()
+        {//Khai báo kết nối và truyền thông tin kết nối
+            using (OracleConnection conn = new OracleConnection(Account.connectString))
+            {//Khai báo câu lệnh SQL sử dụng
+                using (OracleCommand cmd = new OracleCommand("SELECT * FROM USER_TAB_PRIVS", conn))
+                {
+                    try
+                    {
+                        //Mở kết nối
+                        conn.Open();
+                        using (OracleDataAdapter da = new OracleDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            privGridView.DataSource = dt;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
+        private void userTabPage_Enter(object sender, EventArgs e)
+        {
+            LoadDataUSR();
         }
 
-        //Xử lí sự kiện khi click ảnh role
-        private void rolePB_Click(object sender, EventArgs e)
+        private void roleTabPage_Enter(object sender, EventArgs e)
         {
-            Role role = new Role();
-            role.Show();
+            LoadDataRole();
         }
 
-        //Xử lí sự kiện khi nhấp user trên toolstripmenu
-        private void userToolStripMenuItem_Click(object sender, EventArgs e)
+        private void privTabPage_Enter(object sender, EventArgs e)
         {
-            User user = new User();
-            user.Show();
+            LoadDataPriv();
         }
 
-        //Xử lí sự kiện khi nhấp role trên tool strip menu
-        private void roleToolStripMenuItem_Click(object sender, EventArgs e)
+        private void createUsButton_Click(object sender, EventArgs e)
         {
-            Role role = new Role();
-            role.Show();
+            OracleConnection conn = new OracleConnection();
+            conn.ConnectionString = Account.connectString;
+
+            
+            OracleCommand cmd = new OracleCommand();
+            cmd.CommandText = "SP_CREATEUSER";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+           
+            cmd.Parameters.Add("n_username", OracleDbType.Varchar2);
+            cmd.Parameters["n_username"].Direction = ParameterDirection.Input;
+            cmd.Parameters["n_username"].Value = usrUSTextBox.Text;
+
+            cmd.Parameters.Add("n_password", OracleDbType.Varchar2);
+            cmd.Parameters["n_password"].Direction = ParameterDirection.Input;
+            cmd.Parameters["n_password"].Value = pwUSTextBox.Text;
+            cmd.Connection = conn;
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Create User successfully");
+                LoadDataUSR();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        //Xử lí sự kiện khi nhấp privilege trên tool strip menu
-        private void privilegeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void dropUsButton_Click(object sender, EventArgs e)
         {
-            Privilege priv = new Privilege();
-            priv.Show();
+            OracleConnection conn = new OracleConnection();
+            conn.ConnectionString = Account.connectString;
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.CommandText = "SP_DROPUSER";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("n_username", OracleDbType.Varchar2);
+            cmd.Parameters["n_username"].Direction = ParameterDirection.Input;
+            cmd.Parameters["n_username"].Value = usrUSTextBox.Text;
+
+            cmd.Connection = conn;
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Drop User successfully");
+                LoadDataUSR();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        //Xử lí sự kiện nhấp ảnh Privilege
-        private void privPB_Click(object sender, EventArgs e)
+        private void changePassButtton_Click(object sender, EventArgs e)
         {
-            Privilege priv = new Privilege();
-            priv.Show();
-        }
+            OracleConnection conn = new OracleConnection();
+            conn.ConnectionString = Account.connectString;
 
-        
-        //Xử lí sự kiện khi đưa chuột vào vùng ảnh role
-        private void rolePB_MouseEnter(object sender, EventArgs e)
-        {
-            roleLabel.ForeColor = Color.LightGray;
-            rolePB.BackColor = Color.LightGray;
-        }
-        // Xử lí sự kiện khi đưa chuột ra khỏi ảnh user
-        private void userPB_MouseLeave(object sender, EventArgs e)
-        {
-            usrLabel.ForeColor = Color.Black;
-            userPB.BackColor = default(Color);
-        }
+            OracleCommand cmd = new OracleCommand();
+            cmd.CommandText = "SP_CHANGEUSRPW";
+            cmd.CommandType = CommandType.StoredProcedure;
 
-        //Xử lí sự kiện khi đưa chuột vào vùng ảnh user
-        private void userPB_MouseEnter(object sender, EventArgs e)
-        {
-            usrLabel.ForeColor = Color.LightGray;
-            userPB.BackColor = Color.LightGray;
-        }
+            cmd.Parameters.Add("n_username", OracleDbType.Varchar2);
+            cmd.Parameters["n_username"].Direction = ParameterDirection.Input;
+            cmd.Parameters["n_username"].Value = usrUSTextBox.Text;
 
-        //Xử lí sự kiện khi đưa chuột ra khỏi ảnh role
-        private void rolePB_MouseLeave(object sender, EventArgs e)
-        {
-            roleLabel.ForeColor= Color.Black;
-            rolePB.BackColor = default(Color);
-        }
+            cmd.Parameters.Add("n_password", OracleDbType.Varchar2);
+            cmd.Parameters["n_password"].Direction = ParameterDirection.Input;
+            cmd.Parameters["n_password"].Value = pwUSTextBox.Text;
+            cmd.Connection = conn;
 
-        //Xử lí sự kiện khi đưa chuột vào vùng ảnh privilege
-        private void privPB_MouseEnter(object sender, EventArgs e)
-        {
-            privLabel.ForeColor = Color.LightGray;
-            privPB.BackColor = Color.LightGray;
-        }
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Change user password successfully");
 
-        //Xử lí sự kiện khi đưa chuột ra khỏi vùng ảnh privilege
-        private void privPB_MouseLeave(object sender, EventArgs e)
-        {
-            privPB.BackColor= default(Color);
-            privLabel.ForeColor = Color.Black;
-        }
-
-        //Xử lí sự kiện đăng xuất khi click logout trên toolstrip menu
-        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            LoginForm login = new LoginForm();
-            login.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
+            admTabControl.SelectedTab = userTabPage;
+        }
 
+        private void logoutItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            loginForm.Show();
+        }
+
+        private void icon_Click(object sender, EventArgs e)
+        {
+            Point menuLocation = new Point(icon.Left - 82, icon.Bottom);
+            menu.Show(this, menuLocation);
+        }
+
+
+        private void checkRoleButton_Click(object sender, EventArgs e)
+        {
+            OracleConnection conn = new OracleConnection();
+            conn.ConnectionString = Account.connectString;
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.CommandText = "SP_CHECKROLE";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("n_username", OracleDbType.Varchar2);
+            cmd.Parameters["n_username"].Direction = ParameterDirection.Input;
+            cmd.Parameters["n_username"].Value = userRLTextBox.Text;
+
+            cmd.Parameters.Add("c2", OracleDbType.RefCursor);
+            cmd.Parameters["c2"].Direction = ParameterDirection.Output;
+            //cmd.Parameters["c2"].Value = textBox2.Text;
+            cmd.Connection = conn;
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                roleGridView.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void revokeRoleButton_Click(object sender, EventArgs e)
+        {
+            OracleConnection conn = new OracleConnection();
+            conn.ConnectionString = Account.connectString;
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.CommandText = "SP_REVOKEROLE";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("n_role", OracleDbType.Varchar2);
+            cmd.Parameters["n_role"].Direction = ParameterDirection.Input;
+            cmd.Parameters["n_role"].Value = roleRLTextBox.Text;
+
+            cmd.Parameters.Add("n_username", OracleDbType.Varchar2);
+            cmd.Parameters["n_username"].Direction = ParameterDirection.Input;
+            cmd.Parameters["n_username"].Value = userRLTextBox.Text;
+
+            cmd.Connection = conn;
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Revoke Role successfully");
+                LoadDataRole();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void grantRoleButton_Click(object sender, EventArgs e)
+        {
+            OracleConnection conn = new OracleConnection();
+            conn.ConnectionString = Account.connectString;
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.CommandText = "SP_GRANTROLE";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            cmd.Parameters.Add("n_role", OracleDbType.Varchar2);
+            cmd.Parameters["n_role"].Direction = ParameterDirection.Input;
+            cmd.Parameters["n_role"].Value = roleRLTextBox.Text;
+
+            cmd.Parameters.Add("n_username", OracleDbType.Varchar2);
+            cmd.Parameters["n_username"].Direction = ParameterDirection.Input;
+            cmd.Parameters["n_username"].Value = userRLTextBox.Text;
+
+            cmd.Connection = conn;
+
+            try
+            {//Mở kết nối
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Grant Role successfully");
+                LoadDataRole();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dropRoleButton_Click(object sender, EventArgs e)
+        {
+            OracleConnection conn = new OracleConnection();
+            conn.ConnectionString = Account.connectString;
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.CommandText = "SP_DROPROLE";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("n_role", OracleDbType.Varchar2);
+            cmd.Parameters["n_role"].Direction = ParameterDirection.Input;
+            cmd.Parameters["n_role"].Value = roleRLTextBox.Text;
+
+            cmd.Connection = conn;
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Drop Role successfully");
+                LoadDataRole();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void createRoleButton_Click(object sender, EventArgs e)
+        { 
+            OracleConnection conn = new OracleConnection();
+            conn.ConnectionString = Account.connectString;
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.CommandText = "SP_CREATEROLE";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("n_role_name", OracleDbType.Varchar2);
+            cmd.Parameters["n_role_name"].Direction = ParameterDirection.Input;
+            cmd.Parameters["n_role_name"].Value = roleRLTextBox.Text;
+            cmd.Connection = conn;
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Create Role successfully");
+                LoadDataRole();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void grantUsrButton_Click(object sender, EventArgs e)
+        {
+            OracleConnection conn = new OracleConnection();
+            conn.ConnectionString = Account.connectString;
+            OracleCommand cmd = new OracleCommand();
+            if (string.IsNullOrEmpty(colPLComboBox.Text))
+            {
+                cmd.CommandText = "SP_GRANTPRIVUSER";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("n_username", OracleDbType.Varchar2);
+                cmd.Parameters["n_username"].Direction = ParameterDirection.Input;
+                cmd.Parameters["n_username"].Value = userPLTextBox.Text;
+
+                cmd.Parameters.Add("n_privilege", OracleDbType.Varchar2);
+                cmd.Parameters["n_privilege"].Direction = ParameterDirection.Input;
+                cmd.Parameters["n_privilege"].Value = privPLComboBox.Text;
+
+                cmd.Parameters.Add("n_object", OracleDbType.Varchar2);
+                cmd.Parameters["n_object"].Direction = ParameterDirection.Input;
+                cmd.Parameters["n_object"].Value = objPLComboBox.Text;
+
+                cmd.Parameters.Add("n_option", OracleDbType.Int32);
+                cmd.Parameters["n_option"].Direction = ParameterDirection.Input;
+                
+                if (privPLCheckBox.Checked == true)
+                {
+                    cmd.Parameters["n_option"].Value = 1;
+                }
+                else
+                {
+                    cmd.Parameters["n_option"].Value = 0;
+                }
+                cmd.Connection = conn;
+            }
+            else
+            {
+                cmd.CommandText = "SP_GRANTPRIVUSERCOL";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("n_username", OracleDbType.Varchar2);
+                cmd.Parameters["n_username"].Direction = ParameterDirection.Input;
+                cmd.Parameters["n_username"].Value = userPLTextBox.Text;
+
+                cmd.Parameters.Add("n_privilege", OracleDbType.Varchar2);
+                cmd.Parameters["n_privilege"].Direction = ParameterDirection.Input;
+                cmd.Parameters["n_privilege"].Value = privPLComboBox.Text;
+
+                cmd.Parameters.Add("n_object", OracleDbType.Varchar2);
+                cmd.Parameters["n_object"].Direction = ParameterDirection.Input;
+                cmd.Parameters["n_object"].Value = objPLComboBox.Text;
+
+                cmd.Parameters.Add("n_column", OracleDbType.Varchar2);
+                cmd.Parameters["n_column"].Direction = ParameterDirection.Input;
+                cmd.Parameters["n_column"].Value = colPLComboBox.Text;
+
+                cmd.Parameters.Add("n_option", OracleDbType.Int32);
+                cmd.Parameters["n_option"].Direction = ParameterDirection.Input;
+
+                if (privPLCheckBox.Checked == true)
+                {
+                    cmd.Parameters["n_option"].Value = 1;
+                }
+                else
+                {
+                    cmd.Parameters["n_option"].Value = 0;
+                }
+                cmd.Connection = conn;
+            }
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Grant privilege to user successfully");
+                LoadDataPriv();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void revokePrivButton_Click(object sender, EventArgs e)
+        {
+            OracleConnection conn = new OracleConnection();
+            conn.ConnectionString = Account.connectString;
+            OracleCommand cmd = new OracleCommand();
+
+            cmd.CommandText = "SP_REVOKEPRIVUSER";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("n_username", OracleDbType.Varchar2);
+            cmd.Parameters["n_username"].Direction = ParameterDirection.Input;
+            cmd.Parameters["n_username"].Value = userPLTextBox.Text;
+
+            cmd.Parameters.Add("n_privilege", OracleDbType.Varchar2);
+            cmd.Parameters["n_privilege"].Direction = ParameterDirection.Input;
+            cmd.Parameters["n_privilege"].Value = privPLComboBox.Text;
+
+            cmd.Parameters.Add("n_object", OracleDbType.Varchar2);
+            cmd.Parameters["n_object"].Direction = ParameterDirection.Input;
+            cmd.Parameters["n_object"].Value = objPLComboBox.Text;
+            cmd.Connection = conn;
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Revoke privilege to user successfully");
+                LoadDataPriv();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void checkPrivilegeButton_Click(object sender, EventArgs e)
+        {
+            OracleConnection conn = new OracleConnection();
+            conn.ConnectionString = Account.connectString;
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.CommandText = "SP_CHECKPRIV";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("n_username", OracleDbType.Varchar2);
+            cmd.Parameters["n_username"].Direction = ParameterDirection.Input;
+            cmd.Parameters["n_username"].Value = userPLTextBox.Text;
+
+            cmd.Parameters.Add("c2", OracleDbType.RefCursor);
+            cmd.Parameters["c2"].Direction = ParameterDirection.Output;
+            cmd.Connection = conn;
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                OracleDataAdapter da = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                privGridView.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        
+
+        private void colPLComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (colPLComboBox.Text == "")
+            {
+                privPLCheckBox.Enabled = true;
+            }
+            else
+            {
+                privPLCheckBox.Checked = false;
+                privPLCheckBox.Enabled = false;
+            }
+        }
+
+        private void objPLComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            using (OracleConnection connection = new OracleConnection(Account.connectString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string tableName = objPLComboBox.Text;
+
+                    if (!string.IsNullOrEmpty(tableName))
+                    {
+                        string query = $"SELECT column_name FROM user_tab_columns WHERE table_name = '{tableName}'";
+
+                        OracleCommand command = new OracleCommand(query, connection);
+                        OracleDataReader reader = command.ExecuteReader();
+
+                        colPLComboBox.Items.Clear();
+
+                        colPLComboBox.Items.Add("");
+                        while (reader.Read())
+                        {
+                            string columnName = reader.GetString(0);
+                            colPLComboBox.Items.Add(columnName);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+        private void privPLComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(objPLComboBox.Text) && privPLComboBox.SelectedItem.ToString() == "Update")
+            {
+
+                colPLComboBox.Enabled = true;
+            }
+            else
+            {
+                colPLComboBox.Text = "";
+                colPLComboBox.Enabled = false;
+            }
         }
     }
 }
