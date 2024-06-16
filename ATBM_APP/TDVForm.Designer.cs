@@ -46,7 +46,6 @@
             this.titleLabel = new System.Windows.Forms.Label();
             this.menu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.infoItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.noticeItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nhTextBox = new System.Windows.Forms.TextBox();
             this.icon = new System.Windows.Forms.PictureBox();
@@ -103,6 +102,8 @@
             this.temp3 = new System.Windows.Forms.Label();
             this.temp5 = new System.Windows.Forms.Label();
             this.temp4 = new System.Windows.Forms.Label();
+            this.notificationPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.bellButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon)).BeginInit();
@@ -253,7 +254,7 @@
             // 
             this.helloLabel.AutoSize = true;
             this.helloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic);
-            this.helloLabel.Location = new System.Drawing.Point(630, 28);
+            this.helloLabel.Location = new System.Drawing.Point(512, 31);
             this.helloLabel.Name = "helloLabel";
             this.helloLabel.Size = new System.Drawing.Size(69, 18);
             this.helloLabel.TabIndex = 19;
@@ -274,11 +275,10 @@
             this.menu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.infoItem,
-            this.noticeItem,
             this.logoutItem});
             this.menu.Name = "contextMenuStrip1";
             this.menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menu.Size = new System.Drawing.Size(201, 76);
+            this.menu.Size = new System.Drawing.Size(201, 52);
             // 
             // infoItem
             // 
@@ -286,13 +286,6 @@
             this.infoItem.Size = new System.Drawing.Size(200, 24);
             this.infoItem.Text = "Thông tin cá nhân ";
             this.infoItem.Click += new System.EventHandler(this.infoItem_Click);
-            // 
-            // noticeItem
-            // 
-            this.noticeItem.Name = "noticeItem";
-            this.noticeItem.Size = new System.Drawing.Size(200, 24);
-            this.noticeItem.Text = "Thông báo";
-            this.noticeItem.Click += new System.EventHandler(this.noticeItem_Click);
             // 
             // logoutItem
             // 
@@ -897,11 +890,32 @@
             this.temp4.Text = "label3";
             this.temp4.Visible = false;
             // 
+            // notificationPanel
+            // 
+            this.notificationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.notificationPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.notificationPanel.Location = new System.Drawing.Point(639, 60);
+            this.notificationPanel.Name = "notificationPanel";
+            this.notificationPanel.Size = new System.Drawing.Size(200, 100);
+            this.notificationPanel.TabIndex = 26;
+            // 
+            // bellButton
+            // 
+            this.bellButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.bellButton.Location = new System.Drawing.Point(781, 16);
+            this.bellButton.Name = "bellButton";
+            this.bellButton.Size = new System.Drawing.Size(50, 50);
+            this.bellButton.TabIndex = 25;
+            this.bellButton.UseVisualStyleBackColor = true;
+            this.bellButton.Click += new System.EventHandler(this.bellButton_Click);
+            // 
             // TDVForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(977, 596);
+            this.Controls.Add(this.notificationPanel);
+            this.Controls.Add(this.bellButton);
             this.Controls.Add(this.temp4);
             this.Controls.Add(this.temp5);
             this.Controls.Add(this.temp3);
@@ -957,7 +971,6 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.ContextMenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem infoItem;
-        private System.Windows.Forms.ToolStripMenuItem noticeItem;
         private System.Windows.Forms.ToolStripMenuItem logoutItem;
         private System.Windows.Forms.TextBox nhTextBox;
         private System.Windows.Forms.PictureBox icon;
@@ -1014,5 +1027,7 @@
         private System.Windows.Forms.Label temp3;
         private System.Windows.Forms.Label temp5;
         private System.Windows.Forms.Label temp4;
+        private System.Windows.Forms.FlowLayoutPanel notificationPanel;
+        private System.Windows.Forms.Button bellButton;
     }
 }

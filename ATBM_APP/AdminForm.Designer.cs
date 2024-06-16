@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.auditGridView = new System.Windows.Forms.DataGridView();
+            this.saGridView = new System.Windows.Forms.DataGridView();
             this.privGridView = new System.Windows.Forms.DataGridView();
             this.privTabPage = new System.Windows.Forms.TabPage();
             this.objPLComboBox = new System.Windows.Forms.ComboBox();
@@ -64,7 +64,11 @@
             this.usrUSLabel = new System.Windows.Forms.Label();
             this.pwUSTextBox = new System.Windows.Forms.TextBox();
             this.usrUSTextBox = new System.Windows.Forms.TextBox();
-            this.auditTabPage = new System.Windows.Forms.TabPage();
+            this.saTabPage = new System.Windows.Forms.TabPage();
+            this.usrSALabel = new System.Windows.Forms.Label();
+            this.saauditSearchTextBox = new System.Windows.Forms.TextBox();
+            this.offsaButton = new System.Windows.Forms.Button();
+            this.onSAButton = new System.Windows.Forms.Button();
             this.helloLabel = new System.Windows.Forms.Label();
             this.logoutItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -72,30 +76,40 @@
             this.icon = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
             this.admTabControl = new System.Windows.Forms.TabControl();
+            this.fgaTabPage = new System.Windows.Forms.TabPage();
+            this.fgausrPCLabel = new System.Windows.Forms.Label();
+            this.fgaPCSearchTextBox = new System.Windows.Forms.TextBox();
+            this.fgapcnsGridView = new System.Windows.Forms.DataGridView();
+            this.fgausrDKLabel = new System.Windows.Forms.Label();
+            this.fgaDKSearchTextBox = new System.Windows.Forms.TextBox();
+            this.fgadkGridView = new System.Windows.Forms.DataGridView();
             this.noticeTabPage = new System.Windows.Forms.TabPage();
-            ((System.ComponentModel.ISupportInitialize)(this.auditGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.privGridView)).BeginInit();
             this.privTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roleGridView)).BeginInit();
             this.roleTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userGridView)).BeginInit();
             this.userTabPage.SuspendLayout();
-            this.auditTabPage.SuspendLayout();
+            this.saTabPage.SuspendLayout();
             this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.admTabControl.SuspendLayout();
+            this.fgaTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fgapcnsGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fgadkGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // auditGridView
+            // saGridView
             // 
-            this.auditGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.auditGridView.Location = new System.Drawing.Point(25, 22);
-            this.auditGridView.Name = "auditGridView";
-            this.auditGridView.RowHeadersWidth = 51;
-            this.auditGridView.RowTemplate.Height = 24;
-            this.auditGridView.Size = new System.Drawing.Size(887, 384);
-            this.auditGridView.TabIndex = 2;
+            this.saGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.saGridView.Location = new System.Drawing.Point(25, 55);
+            this.saGridView.Name = "saGridView";
+            this.saGridView.RowHeadersWidth = 51;
+            this.saGridView.RowTemplate.Height = 24;
+            this.saGridView.Size = new System.Drawing.Size(888, 371);
+            this.saGridView.TabIndex = 2;
             // 
             // privGridView
             // 
@@ -104,7 +118,7 @@
             this.privGridView.Name = "privGridView";
             this.privGridView.RowHeadersWidth = 51;
             this.privGridView.RowTemplate.Height = 24;
-            this.privGridView.Size = new System.Drawing.Size(633, 384);
+            this.privGridView.Size = new System.Drawing.Size(633, 410);
             this.privGridView.TabIndex = 2;
             // 
             // privTabPage
@@ -125,7 +139,7 @@
             this.privTabPage.Location = new System.Drawing.Point(4, 27);
             this.privTabPage.Name = "privTabPage";
             this.privTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.privTabPage.Size = new System.Drawing.Size(936, 420);
+            this.privTabPage.Size = new System.Drawing.Size(936, 449);
             this.privTabPage.TabIndex = 2;
             this.privTabPage.Text = "Privilege";
             this.privTabPage.UseVisualStyleBackColor = true;
@@ -294,7 +308,7 @@
             this.roleTabPage.Location = new System.Drawing.Point(4, 27);
             this.roleTabPage.Name = "roleTabPage";
             this.roleTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.roleTabPage.Size = new System.Drawing.Size(936, 420);
+            this.roleTabPage.Size = new System.Drawing.Size(936, 449);
             this.roleTabPage.TabIndex = 1;
             this.roleTabPage.Text = "Role";
             this.roleTabPage.UseVisualStyleBackColor = true;
@@ -414,7 +428,7 @@
             this.userTabPage.Location = new System.Drawing.Point(4, 27);
             this.userTabPage.Name = "userTabPage";
             this.userTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.userTabPage.Size = new System.Drawing.Size(936, 420);
+            this.userTabPage.Size = new System.Drawing.Size(936, 449);
             this.userTabPage.TabIndex = 0;
             this.userTabPage.Text = "User";
             this.userTabPage.UseVisualStyleBackColor = true;
@@ -489,16 +503,58 @@
             this.usrUSTextBox.Size = new System.Drawing.Size(158, 28);
             this.usrUSTextBox.TabIndex = 11;
             // 
-            // auditTabPage
+            // saTabPage
             // 
-            this.auditTabPage.Controls.Add(this.auditGridView);
-            this.auditTabPage.Location = new System.Drawing.Point(4, 27);
-            this.auditTabPage.Name = "auditTabPage";
-            this.auditTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.auditTabPage.Size = new System.Drawing.Size(936, 420);
-            this.auditTabPage.TabIndex = 3;
-            this.auditTabPage.Text = "Audit";
-            this.auditTabPage.UseVisualStyleBackColor = true;
+            this.saTabPage.Controls.Add(this.usrSALabel);
+            this.saTabPage.Controls.Add(this.saauditSearchTextBox);
+            this.saTabPage.Controls.Add(this.offsaButton);
+            this.saTabPage.Controls.Add(this.onSAButton);
+            this.saTabPage.Controls.Add(this.saGridView);
+            this.saTabPage.Location = new System.Drawing.Point(4, 27);
+            this.saTabPage.Name = "saTabPage";
+            this.saTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.saTabPage.Size = new System.Drawing.Size(936, 449);
+            this.saTabPage.TabIndex = 3;
+            this.saTabPage.Text = "Standard Audit";
+            this.saTabPage.UseVisualStyleBackColor = true;
+            this.saTabPage.Enter += new System.EventHandler(this.saTabPage_Enter);
+            // 
+            // usrSALabel
+            // 
+            this.usrSALabel.AutoSize = true;
+            this.usrSALabel.Location = new System.Drawing.Point(34, 23);
+            this.usrSALabel.Name = "usrSALabel";
+            this.usrSALabel.Size = new System.Drawing.Size(40, 18);
+            this.usrSALabel.TabIndex = 6;
+            this.usrSALabel.Text = "User";
+            // 
+            // saauditSearchTextBox
+            // 
+            this.saauditSearchTextBox.Location = new System.Drawing.Point(80, 20);
+            this.saauditSearchTextBox.Name = "saauditSearchTextBox";
+            this.saauditSearchTextBox.Size = new System.Drawing.Size(179, 24);
+            this.saauditSearchTextBox.TabIndex = 5;
+            this.saauditSearchTextBox.TextChanged += new System.EventHandler(this.saauditSearchTextBox_TextChanged);
+            // 
+            // offsaButton
+            // 
+            this.offsaButton.Location = new System.Drawing.Point(838, 16);
+            this.offsaButton.Name = "offsaButton";
+            this.offsaButton.Size = new System.Drawing.Size(75, 33);
+            this.offsaButton.TabIndex = 4;
+            this.offsaButton.Text = "Tắt";
+            this.offsaButton.UseVisualStyleBackColor = true;
+            this.offsaButton.Click += new System.EventHandler(this.offsaButton_Click);
+            // 
+            // onSAButton
+            // 
+            this.onSAButton.Location = new System.Drawing.Point(743, 16);
+            this.onSAButton.Name = "onSAButton";
+            this.onSAButton.Size = new System.Drawing.Size(75, 33);
+            this.onSAButton.TabIndex = 3;
+            this.onSAButton.Text = "Bật ";
+            this.onSAButton.UseVisualStyleBackColor = true;
+            this.onSAButton.Click += new System.EventHandler(this.onSAButton_Click);
             // 
             // helloLabel
             // 
@@ -559,21 +615,93 @@
             this.admTabControl.Controls.Add(this.userTabPage);
             this.admTabControl.Controls.Add(this.roleTabPage);
             this.admTabControl.Controls.Add(this.privTabPage);
-            this.admTabControl.Controls.Add(this.auditTabPage);
+            this.admTabControl.Controls.Add(this.saTabPage);
+            this.admTabControl.Controls.Add(this.fgaTabPage);
             this.admTabControl.Controls.Add(this.noticeTabPage);
             this.admTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.admTabControl.Location = new System.Drawing.Point(16, 129);
             this.admTabControl.Name = "admTabControl";
             this.admTabControl.SelectedIndex = 0;
-            this.admTabControl.Size = new System.Drawing.Size(944, 451);
+            this.admTabControl.Size = new System.Drawing.Size(944, 480);
             this.admTabControl.TabIndex = 18;
+            // 
+            // fgaTabPage
+            // 
+            this.fgaTabPage.Controls.Add(this.fgausrPCLabel);
+            this.fgaTabPage.Controls.Add(this.fgaPCSearchTextBox);
+            this.fgaTabPage.Controls.Add(this.fgapcnsGridView);
+            this.fgaTabPage.Controls.Add(this.fgausrDKLabel);
+            this.fgaTabPage.Controls.Add(this.fgaDKSearchTextBox);
+            this.fgaTabPage.Controls.Add(this.fgadkGridView);
+            this.fgaTabPage.Location = new System.Drawing.Point(4, 27);
+            this.fgaTabPage.Name = "fgaTabPage";
+            this.fgaTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.fgaTabPage.Size = new System.Drawing.Size(936, 449);
+            this.fgaTabPage.TabIndex = 5;
+            this.fgaTabPage.Text = "Fine Grained Audit";
+            this.fgaTabPage.UseVisualStyleBackColor = true;
+            this.fgaTabPage.Enter += new System.EventHandler(this.fgaTabPage_Enter);
+            // 
+            // fgausrPCLabel
+            // 
+            this.fgausrPCLabel.AutoSize = true;
+            this.fgausrPCLabel.Location = new System.Drawing.Point(33, 237);
+            this.fgausrPCLabel.Name = "fgausrPCLabel";
+            this.fgausrPCLabel.Size = new System.Drawing.Size(40, 18);
+            this.fgausrPCLabel.TabIndex = 14;
+            this.fgausrPCLabel.Text = "User";
+            // 
+            // fgaPCSearchTextBox
+            // 
+            this.fgaPCSearchTextBox.Location = new System.Drawing.Point(79, 234);
+            this.fgaPCSearchTextBox.Name = "fgaPCSearchTextBox";
+            this.fgaPCSearchTextBox.Size = new System.Drawing.Size(179, 24);
+            this.fgaPCSearchTextBox.TabIndex = 13;
+            this.fgaPCSearchTextBox.TextChanged += new System.EventHandler(this.fgaPCSearchTextBox_TextChanged);
+            // 
+            // fgapcnsGridView
+            // 
+            this.fgapcnsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.fgapcnsGridView.Location = new System.Drawing.Point(24, 264);
+            this.fgapcnsGridView.Name = "fgapcnsGridView";
+            this.fgapcnsGridView.RowHeadersWidth = 51;
+            this.fgapcnsGridView.RowTemplate.Height = 24;
+            this.fgapcnsGridView.Size = new System.Drawing.Size(888, 158);
+            this.fgapcnsGridView.TabIndex = 12;
+            // 
+            // fgausrDKLabel
+            // 
+            this.fgausrDKLabel.AutoSize = true;
+            this.fgausrDKLabel.Location = new System.Drawing.Point(33, 22);
+            this.fgausrDKLabel.Name = "fgausrDKLabel";
+            this.fgausrDKLabel.Size = new System.Drawing.Size(40, 18);
+            this.fgausrDKLabel.TabIndex = 11;
+            this.fgausrDKLabel.Text = "User";
+            // 
+            // fgaDKSearchTextBox
+            // 
+            this.fgaDKSearchTextBox.Location = new System.Drawing.Point(79, 19);
+            this.fgaDKSearchTextBox.Name = "fgaDKSearchTextBox";
+            this.fgaDKSearchTextBox.Size = new System.Drawing.Size(179, 24);
+            this.fgaDKSearchTextBox.TabIndex = 10;
+            this.fgaDKSearchTextBox.TextChanged += new System.EventHandler(this.fgaDKSearchTextBox_TextChanged);
+            // 
+            // fgadkGridView
+            // 
+            this.fgadkGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.fgadkGridView.Location = new System.Drawing.Point(24, 54);
+            this.fgadkGridView.Name = "fgadkGridView";
+            this.fgadkGridView.RowHeadersWidth = 51;
+            this.fgadkGridView.RowTemplate.Height = 24;
+            this.fgadkGridView.Size = new System.Drawing.Size(888, 158);
+            this.fgadkGridView.TabIndex = 7;
             // 
             // noticeTabPage
             // 
             this.noticeTabPage.Location = new System.Drawing.Point(4, 27);
             this.noticeTabPage.Name = "noticeTabPage";
             this.noticeTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.noticeTabPage.Size = new System.Drawing.Size(936, 420);
+            this.noticeTabPage.Size = new System.Drawing.Size(936, 449);
             this.noticeTabPage.TabIndex = 4;
             this.noticeTabPage.Text = "Thông báo";
             this.noticeTabPage.UseVisualStyleBackColor = true;
@@ -582,16 +710,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 596);
+            this.ClientSize = new System.Drawing.Size(977, 621);
+            this.Controls.Add(this.admTabControl);
             this.Controls.Add(this.helloLabel);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.icon);
             this.Controls.Add(this.logo);
-            this.Controls.Add(this.admTabControl);
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.Load += new System.EventHandler(this.AdminForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.auditGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.privGridView)).EndInit();
             this.privTabPage.ResumeLayout(false);
             this.privTabPage.PerformLayout();
@@ -601,11 +729,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.userGridView)).EndInit();
             this.userTabPage.ResumeLayout(false);
             this.userTabPage.PerformLayout();
-            this.auditTabPage.ResumeLayout(false);
+            this.saTabPage.ResumeLayout(false);
+            this.saTabPage.PerformLayout();
             this.menu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.icon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.admTabControl.ResumeLayout(false);
+            this.fgaTabPage.ResumeLayout(false);
+            this.fgaTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fgapcnsGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fgadkGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -613,14 +746,14 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView auditGridView;
+        private System.Windows.Forms.DataGridView saGridView;
         private System.Windows.Forms.DataGridView privGridView;
         private System.Windows.Forms.TabPage privTabPage;
         private System.Windows.Forms.DataGridView roleGridView;
         private System.Windows.Forms.TabPage roleTabPage;
         private System.Windows.Forms.DataGridView userGridView;
         private System.Windows.Forms.TabPage userTabPage;
-        private System.Windows.Forms.TabPage auditTabPage;
+        private System.Windows.Forms.TabPage saTabPage;
         private System.Windows.Forms.Label helloLabel;
         private System.Windows.Forms.ToolStripMenuItem logoutItem;
         private System.Windows.Forms.ContextMenuStrip menu;
@@ -657,5 +790,16 @@
         private System.Windows.Forms.Label objPLLabel;
         private System.Windows.Forms.Label userPLLabel;
         private System.Windows.Forms.TextBox userPLTextBox;
+        private System.Windows.Forms.Button onSAButton;
+        private System.Windows.Forms.Button offsaButton;
+        private System.Windows.Forms.Label usrSALabel;
+        private System.Windows.Forms.TextBox saauditSearchTextBox;
+        private System.Windows.Forms.TabPage fgaTabPage;
+        private System.Windows.Forms.Label fgausrDKLabel;
+        private System.Windows.Forms.TextBox fgaDKSearchTextBox;
+        private System.Windows.Forms.DataGridView fgadkGridView;
+        private System.Windows.Forms.Label fgausrPCLabel;
+        private System.Windows.Forms.TextBox fgaPCSearchTextBox;
+        private System.Windows.Forms.DataGridView fgapcnsGridView;
     }
 }

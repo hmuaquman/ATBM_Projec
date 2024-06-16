@@ -24,14 +24,16 @@ namespace ATBM_APP
             gtTextBox.Enabled = false;
             dvTextBox.Enabled = false;
             nsTextBox.Enabled = false;
+            csTextBox.Enabled = false;
         }
 
         private void TTNVForm_Load(object sender, EventArgs e)
         {
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT * FROM ADMIN.NHANSU ns JOIN ADMIN.DONVI dv ON ns.MADV = dv.MADV ", conn))
+                using (OracleCommand cmd = new OracleCommand("SELECT * FROM ADMIN.NHANSU ns JOIN ADMIN.DONVI dv ON ns.MADV = dv.MADV AND MANV = :MANHANVIEN", conn))
                 {
+                    cmd.Parameters.Add(new OracleParameter("MANHANVIEN", Account.username));
                     try
                     {
                         conn.Open();
@@ -49,6 +51,7 @@ namespace ATBM_APP
                                 sdtTextBox.Text = reader["DT"].ToString();
                                 pcTextBox.Text = reader["PHUCAP"].ToString();
                                 dvTextBox.Text = reader["TENDV"].ToString();
+                                csTextBox.Text = reader["COSO"].ToString();
                             }
                         }
 

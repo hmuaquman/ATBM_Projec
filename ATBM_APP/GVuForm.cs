@@ -37,6 +37,7 @@ namespace ATBM_APP
             mctSVTextBox.Enabled = false;
             tctlSVTextBox.Enabled = false;
             dtbSVTextBox.Enabled = false;
+            csSVTextBox.Enabled = false;
 
             mhpHPTextBox.Enabled = false;
             thpHPTextBox.Enabled = false;
@@ -82,8 +83,75 @@ namespace ATBM_APP
             hkPCTextBox.Enabled = false;
             nhPCTextBox.Enabled = false;
             mctPCTextBox.Enabled = false;
+
+            bellButton.Image = Image.FromFile(@"..\\..\\icon\\notice.png");
+            bellButton.ImageAlign = ContentAlignment.MiddleCenter;
+            InitializeNotificationPanel();
+            LoadNotifications();
         }
 
+        private void InitializeNotificationPanel()
+        {
+            notificationPanel = new FlowLayoutPanel();
+            notificationPanel.WrapContents = true; // Cho phép xuống dòng
+            notificationPanel.AutoScroll = true;
+            notificationPanel.FlowDirection = FlowDirection.TopDown;
+            notificationPanel.BorderStyle = BorderStyle.FixedSingle;
+            notificationPanel.Visible = false; // Ẩn panel ban đầu
+            notificationPanel.Size = new Size(250, 300);
+            this.Controls.Add(notificationPanel);
+            notificationPanel.BringToFront(); // Đưa panel lên phía trước các control khác
+        }
+        private void LoadNotifications()
+        {
+            notificationPanel.Controls.Clear();
+
+            string query = "SELECT NOIDUNG FROM ADMIN_OLS.OLS_THONGBAO"; // Thay đổi tên bảng và cột theo cơ sở dữ liệu của bạn
+
+            try
+            {
+                using (OracleConnection connection = new OracleConnection(Account.connectString))
+                {
+                    OracleCommand command = new OracleCommand(query, connection);
+                    connection.Open();
+                    OracleDataReader reader = command.ExecuteReader();
+                    int totalHeight = 0;
+                    while (reader.Read())
+                    {
+                        string notificationText = reader["NOIDUNG"].ToString();
+                        Label label = new Label();
+                        label.Text = notificationText;
+
+                        label.Width = 220; // Chiều rộng cố định của label
+                        label.AutoSize = true;
+                        label.MaximumSize = new Size(notificationPanel.Width - 50, 0);
+                        label.BorderStyle = BorderStyle.FixedSingle; // Thêm khung cho mỗi label
+                        label.Padding = new Padding(5); // Thêm khoảng cách bên trong khung
+                        label.Margin = new Padding(4); // Thêm khoảng cách giữa các label
+                        label.BackColor = Color.White;
+                        notificationPanel.Controls.Add(label);
+                        totalHeight += label.PreferredSize.Height + label.Margin.Vertical;
+                    }
+
+                    reader.Close();
+                    totalHeight += notificationPanel.Padding.Vertical;
+                    int panelHeight = Math.Min(totalHeight, 292); // Giới hạn chiều cao tối đa của panel
+                    notificationPanel.Size = new Size(notificationPanel.Width - 20, panelHeight + 8);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void bellButton_Click(object sender, EventArgs e)
+        {
+            //Point menuLocation = new Point(icon.Left - 82, icon.Bottom);
+            //menu.Show(this, menuLocation);
+            notificationPanel.Location = new Point(bellButton.Left - 192, bellButton.Bottom);
+            notificationPanel.Visible = !notificationPanel.Visible;
+        }
         private void label9_Click(object sender, EventArgs e)
         {
 
@@ -113,6 +181,8 @@ namespace ATBM_APP
             mctSVTextBox.Enabled = true;
             tctlSVTextBox.Enabled = true;
             dtbSVTextBox.Enabled = true;
+            csSVTextBox.Enabled = true;
+            svGridView.Enabled = false;
         }
 
         private void savesvSVbutton_Click(object sender, EventArgs e)
@@ -125,11 +195,12 @@ namespace ATBM_APP
                         "MASV = :MASV," +
                         "HOTEN = :HOTEN, " +
                         "PHAI = :PHAI, " +
-                        "NGSINH = :NGSINH, " +
+                        "NGSINH = TO_DATE(:NGSINH,'DD-MM-YYYY'), " +
                         "DCHI = :DCHI, " +
                         "DT = :DT, " +
                         "MACT = :MACT, " +
                         "MANGANH = :MANGANH, " +
+                        "COSO = :COSO, " +
                         "SOTCTL = :SOTCTL, " +
                         "DTBTL = :DTBTL " +
                         "WHERE MASV = :MASINHVIEN", conn))
@@ -144,11 +215,12 @@ namespace ATBM_APP
                         cmd.Parameters.Add(new OracleParameter("MASV", masvSVTextBox.Text));
                         cmd.Parameters.Add(new OracleParameter("HOTEN", OracleDbType.NVarchar2)).Value = htsvSVTextBox.Text;
                         cmd.Parameters.Add(new OracleParameter("PHAI", OracleDbType.NVarchar2)).Value = gtSVTextBox.Text;
-                        cmd.Parameters.Add(new OracleParameter("NGSINH", OracleDbType.Date)).Value = nsSVTextBox.Text;
+                        cmd.Parameters.Add(new OracleParameter("NGSINH",nsSVTextBox.Text));
                         cmd.Parameters.Add(new OracleParameter("DCHI", OracleDbType.NVarchar2)).Value = dcSVTextBox.Text;
                         cmd.Parameters.Add(new OracleParameter("DT", sdtSVTextBox.Text));
                         cmd.Parameters.Add(new OracleParameter("MACT", mctSVTextBox.Text));
                         cmd.Parameters.Add(new OracleParameter("MANGANH", mnSVTextBox.Text));
+                        cmd.Parameters.Add(new OracleParameter("COSO", csSVTextBox.Text));
                         cmd.Parameters.Add(new OracleParameter("MASINHVIEN", temp1.Text));
                        
 
@@ -177,6 +249,8 @@ namespace ATBM_APP
                 mctSVTextBox.Enabled = false;
                 tctlSVTextBox.Enabled = false;
                 dtbSVTextBox.Enabled = false;
+                csSVTextBox.Enabled = false;
+                svGridView.Enabled = true;
             }
         }
 
@@ -227,6 +301,7 @@ namespace ATBM_APP
                 mctSVTextBox.Text = row.Cells["MACT"].Value.ToString();
                 tctlSVTextBox.Text = row.Cells["SOTCTL"].Value.ToString();
                 dtbSVTextBox.Text = row.Cells["DTBTL"].Value.ToString();
+                csSVTextBox.Text = row.Cells["COSO"].Value.ToString();
             }
         }
         private void LoadDataSV()
@@ -263,6 +338,7 @@ namespace ATBM_APP
             tthHPTextBox.Enabled = true;
             svtdHPTextBox.Enabled = true;
             mdvHPTextBox.Enabled = true;
+            hpGridView.Enabled = false;
         }
 
         private void hpGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -330,6 +406,7 @@ namespace ATBM_APP
                 tthHPTextBox.Enabled = false;
                 svtdHPTextBox.Enabled = false;
                 mdvHPTextBox.Enabled = false;
+                hpGridView.Enabled = true;
 
             }
         }
@@ -699,6 +776,7 @@ namespace ATBM_APP
             tdvDVTextBox.Enabled = true;
             mtdvDVTextBox.Enabled = true;
             ttdvDVTextBox.Enabled = true;
+            dvGridView.Enabled = false;
         }
 
         private void savedvDVButton_Click(object sender, EventArgs e)
@@ -736,6 +814,7 @@ namespace ATBM_APP
                 tdvDVTextBox.Enabled = false;
                 mtdvDVTextBox.Enabled = false;
                 ttdvDVTextBox.Enabled = false;
+                dvGridView.Enabled = true;
             }
         }
 
@@ -890,6 +969,7 @@ namespace ATBM_APP
             nhKHTextBox.Enabled = true;
             hkKHTextBox.Enabled = true;
             mctKHTextBox.Enabled = true;
+            khmoGridView.Enabled = false;
         }
 
         private void savekhKHButton_Click(object sender, EventArgs e)
@@ -932,6 +1012,7 @@ namespace ATBM_APP
                 hkKHTextBox.Enabled = false;
                 nhKHTextBox.Enabled = false;
                 mctKHTextBox.Enabled = false;
+                khmoGridView.Enabled = true;
             }
         }
         private void LoadDataKH()
@@ -1014,6 +1095,7 @@ namespace ATBM_APP
                 mctPCTextBox.Enabled = false;
                 mhpPCComboBox.DropDownStyle = ComboBoxStyle.DropDown;
                 magvPCComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+                pcGridView.Enabled = true;
             }
         }
 
@@ -1028,6 +1110,7 @@ namespace ATBM_APP
                 hkPCTextBox.Enabled = true;
                 nhPCTextBox.Enabled = true;
                 mctPCTextBox.Enabled = true;
+                pcGridView.Enabled = false;
             }
             else
             {

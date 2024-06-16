@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ATBM_APP
 {
@@ -601,6 +602,232 @@ namespace ATBM_APP
             {
                 colPLComboBox.Text = "";
                 colPLComboBox.Enabled = false;
+            }
+        }
+
+        private void saTabPage_Enter(object sender, EventArgs e)
+        {
+            LoadDataSA();
+        }
+        private void LoadDataSA()
+        {
+            using (OracleConnection conn = new OracleConnection(Account.connectString))
+            {//Khai báo câu lệnh SQL sử dụng
+                using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN", conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter("ADMIN", "ADMIN"));
+                    try
+                    {
+                        //Mở kết nối
+                        conn.Open();
+                        using (OracleDataAdapter da = new OracleDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            saGridView.DataSource = dt;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
+        private void onSAButton_Click(object sender, EventArgs e)
+        {
+            using (OracleConnection conn = new OracleConnection(Account.connectString))
+            {
+                // Khai báo câu lệnh SQL sử dụng
+                using (OracleCommand cmd = new OracleCommand("BEGIN USP_ENABLE_TABLE_AUDIT_POLICY; END;", conn))
+                {
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery(); // Thực thi câu lệnh
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message); // Hiển thị thông báo lỗi nếu có
+                    }
+                }
+                
+            }
+        }
+
+        private void offsaButton_Click(object sender, EventArgs e)
+        {
+            using (OracleConnection conn = new OracleConnection(Account.connectString))
+            {//Khai báo câu lệnh SQL sử dụng
+                using (OracleCommand cmd = new OracleCommand("BEGIN USP_DISABLE_TABLE_AUDIT_POLICY; END;", conn))
+                {
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                
+            }
+        }
+
+        private void saauditSearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (saauditSearchTextBox.Text == "")
+            {
+                LoadDataSA();
+            }
+            else
+            {
+                using (OracleConnection conn = new OracleConnection(Account.connectString))
+                {//Khai báo câu lệnh SQL sử dụng
+                    using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL  WHERE INSTR(DBUSERNAME,:MA) > 0", conn))
+                    {
+                        cmd.Parameters.Add(new OracleParameter("MA", saauditSearchTextBox.Text));
+                        try
+                        {
+                            //Mở kết nối
+                            conn.Open();
+                            using (OracleDataAdapter da = new OracleDataAdapter(cmd))
+                            {
+                                DataTable dt = new DataTable();
+                                da.Fill(dt);
+                                saGridView.DataSource = dt;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                }
+            }
+        }
+        private void LoadDataFGADK()
+        {
+            using (OracleConnection conn = new OracleConnection(Account.connectString))
+            {//Khai báo câu lệnh SQL sử dụng
+                using (OracleCommand cmd = new OracleCommand("SELECT * FROM AUDIT_DANGKY", conn))
+                {
+                    
+                    try
+                    {
+                        //Mở kết nối
+                        conn.Open();
+                        using (OracleDataAdapter da = new OracleDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            fgadkGridView.DataSource = dt;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void LoadDataFGANS()
+        {
+            using (OracleConnection conn = new OracleConnection(Account.connectString))
+            {//Khai báo câu lệnh SQL sử dụng
+                using (OracleCommand cmd = new OracleCommand("SELECT * FROM AUDIT_SELECT_PHUCAP", conn))
+                { 
+                    try
+                    {
+                        //Mở kết nối
+                        conn.Open();
+                        using (OracleDataAdapter da = new OracleDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            fgapcnsGridView.DataSource = dt;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void fgaTabPage_Enter(object sender, EventArgs e)
+        {
+            LoadDataFGADK();
+            LoadDataFGANS();
+        }
+
+        private void fgaDKSearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (fgaDKSearchTextBox.Text == "")
+            {
+                LoadDataFGADK();
+            }
+            else
+            {
+                using (OracleConnection conn = new OracleConnection(Account.connectString))
+                {//Khai báo câu lệnh SQL sử dụng
+                    using (OracleCommand cmd = new OracleCommand("SELECT * FROM AUDIT_DANGKY  WHERE INSTR(user_current,:MA) > 0", conn))
+                    {
+                        cmd.Parameters.Add(new OracleParameter("MA", fgaDKSearchTextBox.Text));
+                        try
+                        {
+                            //Mở kết nối
+                            conn.Open();
+                            using (OracleDataAdapter da = new OracleDataAdapter(cmd))
+                            {
+                                DataTable dt = new DataTable();
+                                da.Fill(dt);
+                                fgadkGridView.DataSource = dt;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void fgaPCSearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (fgaPCSearchTextBox.Text == "")
+            {
+                LoadDataFGANS();
+            }
+            else
+            {
+                using (OracleConnection conn = new OracleConnection(Account.connectString))
+                {//Khai báo câu lệnh SQL sử dụng
+                    using (OracleCommand cmd = new OracleCommand("SELECT * FROM AUDIT_SELECT_PHUCAP WHERE INSTR(user_current,:MA) > 0", conn))
+                    {
+                        cmd.Parameters.Add(new OracleParameter("MA", fgaPCSearchTextBox.Text));
+                        try
+                        {
+                            //Mở kết nối
+                            conn.Open();
+                            using (OracleDataAdapter da = new OracleDataAdapter(cmd))
+                            {
+                                DataTable dt = new DataTable();
+                                da.Fill(dt);
+                                fgapcnsGridView.DataSource = dt;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                }
             }
         }
     }

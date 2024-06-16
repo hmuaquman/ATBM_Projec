@@ -59,7 +59,6 @@
             this.temp2 = new System.Windows.Forms.Label();
             this.temp1 = new System.Windows.Forms.Label();
             this.temp4 = new System.Windows.Forms.Label();
-            this.noticeItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.logoutItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -140,6 +139,10 @@
             this.editkhKHButton = new System.Windows.Forms.Button();
             this.addkhKHButton = new System.Windows.Forms.Button();
             this.temp6 = new System.Windows.Forms.Label();
+            this.notificationPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.bellButton = new System.Windows.Forms.Button();
+            this.csSVTextBox = new System.Windows.Forms.TextBox();
+            this.csSVLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.khmoGridView)).BeginInit();
             this.dkTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dkGridView)).BeginInit();
@@ -471,12 +474,6 @@
             this.temp4.Text = "label3";
             this.temp4.Visible = false;
             // 
-            // noticeItem
-            // 
-            this.noticeItem.Name = "noticeItem";
-            this.noticeItem.Size = new System.Drawing.Size(200, 24);
-            this.noticeItem.Text = "Thông báo";
-            // 
             // infoItem
             // 
             this.infoItem.Name = "infoItem";
@@ -489,11 +486,10 @@
             this.menu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.infoItem,
-            this.noticeItem,
             this.logoutItem});
             this.menu.Name = "contextMenuStrip1";
             this.menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menu.Size = new System.Drawing.Size(201, 76);
+            this.menu.Size = new System.Drawing.Size(201, 52);
             // 
             // logoutItem
             // 
@@ -514,7 +510,7 @@
             // 
             this.helloLabel.AutoSize = true;
             this.helloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic);
-            this.helloLabel.Location = new System.Drawing.Point(632, 28);
+            this.helloLabel.Location = new System.Drawing.Point(517, 31);
             this.helloLabel.Name = "helloLabel";
             this.helloLabel.Size = new System.Drawing.Size(69, 18);
             this.helloLabel.TabIndex = 29;
@@ -559,6 +555,8 @@
             // 
             // svTabPage
             // 
+            this.svTabPage.Controls.Add(this.csSVTextBox);
+            this.svTabPage.Controls.Add(this.csSVLabel);
             this.svTabPage.Controls.Add(this.tctlSVTextBox);
             this.svTabPage.Controls.Add(this.dtbSVTextBox);
             this.svTabPage.Controls.Add(this.tctlSVLabel);
@@ -699,7 +697,7 @@
             this.mnSVTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.mnSVTextBox.Location = new System.Drawing.Point(610, 294);
             this.mnSVTextBox.Name = "mnSVTextBox";
-            this.mnSVTextBox.Size = new System.Drawing.Size(295, 26);
+            this.mnSVTextBox.Size = new System.Drawing.Size(114, 26);
             this.mnSVTextBox.TabIndex = 81;
             // 
             // mnSVLabel
@@ -1318,11 +1316,50 @@
             this.temp6.Text = "label5";
             this.temp6.Visible = false;
             // 
+            // notificationPanel
+            // 
+            this.notificationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.notificationPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.notificationPanel.Location = new System.Drawing.Point(643, 60);
+            this.notificationPanel.Name = "notificationPanel";
+            this.notificationPanel.Size = new System.Drawing.Size(200, 100);
+            this.notificationPanel.TabIndex = 37;
+            // 
+            // bellButton
+            // 
+            this.bellButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.bellButton.Location = new System.Drawing.Point(785, 16);
+            this.bellButton.Name = "bellButton";
+            this.bellButton.Size = new System.Drawing.Size(50, 50);
+            this.bellButton.TabIndex = 36;
+            this.bellButton.UseVisualStyleBackColor = true;
+            this.bellButton.Click += new System.EventHandler(this.bellButton_Click);
+            // 
+            // csSVTextBox
+            // 
+            this.csSVTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.csSVTextBox.Location = new System.Drawing.Point(826, 294);
+            this.csSVTextBox.Name = "csSVTextBox";
+            this.csSVTextBox.Size = new System.Drawing.Size(81, 26);
+            this.csSVTextBox.TabIndex = 95;
+            // 
+            // csSVLabel
+            // 
+            this.csSVLabel.AutoSize = true;
+            this.csSVLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.csSVLabel.Location = new System.Drawing.Point(759, 297);
+            this.csSVLabel.Name = "csSVLabel";
+            this.csSVLabel.Size = new System.Drawing.Size(53, 20);
+            this.csSVLabel.TabIndex = 94;
+            this.csSVLabel.Text = "Cơ sở";
+            // 
             // GVuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(977, 596);
+            this.Controls.Add(this.notificationPanel);
+            this.Controls.Add(this.bellButton);
             this.Controls.Add(this.temp6);
             this.Controls.Add(this.temp5);
             this.Controls.Add(this.temp3);
@@ -1392,7 +1429,6 @@
         private System.Windows.Forms.Label temp2;
         private System.Windows.Forms.Label temp1;
         private System.Windows.Forms.Label temp4;
-        private System.Windows.Forms.ToolStripMenuItem noticeItem;
         private System.Windows.Forms.ToolStripMenuItem infoItem;
         private System.Windows.Forms.ContextMenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem logoutItem;
@@ -1477,5 +1513,9 @@
         private System.Windows.Forms.Label dkSearchLabel;
         private System.Windows.Forms.TextBox dkSearchTextBox;
         private System.Windows.Forms.Label temp6;
+        private System.Windows.Forms.FlowLayoutPanel notificationPanel;
+        private System.Windows.Forms.Button bellButton;
+        private System.Windows.Forms.TextBox csSVTextBox;
+        private System.Windows.Forms.Label csSVLabel;
     }
 }

@@ -51,6 +51,8 @@
             this.nsSVLabel = new System.Windows.Forms.Label();
             this.editButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
+            this.csTextBox = new System.Windows.Forms.TextBox();
+            this.csLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // title
@@ -66,7 +68,7 @@
             // tctlSVTextBox
             // 
             this.tctlSVTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.tctlSVTextBox.Location = new System.Drawing.Point(147, 341);
+            this.tctlSVTextBox.Location = new System.Drawing.Point(147, 403);
             this.tctlSVTextBox.Name = "tctlSVTextBox";
             this.tctlSVTextBox.Size = new System.Drawing.Size(81, 26);
             this.tctlSVTextBox.TabIndex = 134;
@@ -74,7 +76,7 @@
             // dtbSVTextBox
             // 
             this.dtbSVTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dtbSVTextBox.Location = new System.Drawing.Point(353, 341);
+            this.dtbSVTextBox.Location = new System.Drawing.Point(353, 403);
             this.dtbSVTextBox.Name = "dtbSVTextBox";
             this.dtbSVTextBox.Size = new System.Drawing.Size(81, 26);
             this.dtbSVTextBox.TabIndex = 133;
@@ -83,7 +85,7 @@
             // 
             this.tctlSVLabel.AutoSize = true;
             this.tctlSVLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.tctlSVLabel.Location = new System.Drawing.Point(49, 344);
+            this.tctlSVLabel.Location = new System.Drawing.Point(49, 406);
             this.tctlSVLabel.Name = "tctlSVLabel";
             this.tctlSVLabel.Size = new System.Drawing.Size(76, 20);
             this.tctlSVLabel.TabIndex = 132;
@@ -93,7 +95,7 @@
             // 
             this.dtbSVLabel.AutoSize = true;
             this.dtbSVLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dtbSVLabel.Location = new System.Drawing.Point(244, 344);
+            this.dtbSVLabel.Location = new System.Drawing.Point(244, 406);
             this.dtbSVLabel.Name = "dtbSVLabel";
             this.dtbSVLabel.Size = new System.Drawing.Size(95, 20);
             this.dtbSVLabel.TabIndex = 131;
@@ -136,16 +138,16 @@
             // mnSVTextBox
             // 
             this.mnSVTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.mnSVTextBox.Location = new System.Drawing.Point(137, 263);
+            this.mnSVTextBox.Location = new System.Drawing.Point(179, 263);
             this.mnSVTextBox.Name = "mnSVTextBox";
-            this.mnSVTextBox.Size = new System.Drawing.Size(295, 26);
+            this.mnSVTextBox.Size = new System.Drawing.Size(255, 26);
             this.mnSVTextBox.TabIndex = 126;
             // 
             // mnSVLabel
             // 
             this.mnSVLabel.AutoSize = true;
             this.mnSVLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.mnSVLabel.Location = new System.Drawing.Point(49, 266);
+            this.mnSVLabel.Location = new System.Drawing.Point(53, 266);
             this.mnSVLabel.Name = "mnSVLabel";
             this.mnSVLabel.Size = new System.Drawing.Size(82, 20);
             this.mnSVLabel.TabIndex = 125;
@@ -244,7 +246,7 @@
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(53, 391);
+            this.editButton.Location = new System.Drawing.Point(53, 453);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(125, 47);
             this.editButton.TabIndex = 136;
@@ -254,7 +256,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(307, 391);
+            this.saveButton.Location = new System.Drawing.Point(309, 453);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(125, 47);
             this.saveButton.TabIndex = 137;
@@ -262,11 +264,31 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // csTextBox
+            // 
+            this.csTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.csTextBox.Location = new System.Drawing.Point(179, 350);
+            this.csTextBox.Name = "csTextBox";
+            this.csTextBox.Size = new System.Drawing.Size(253, 26);
+            this.csTextBox.TabIndex = 139;
+            // 
+            // csLabel
+            // 
+            this.csLabel.AutoSize = true;
+            this.csLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.csLabel.Location = new System.Drawing.Point(53, 356);
+            this.csLabel.Name = "csLabel";
+            this.csLabel.Size = new System.Drawing.Size(53, 20);
+            this.csLabel.TabIndex = 138;
+            this.csLabel.Text = "Cơ sở";
+            // 
             // TTSVForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 450);
+            this.ClientSize = new System.Drawing.Size(488, 542);
+            this.Controls.Add(this.csTextBox);
+            this.Controls.Add(this.csLabel);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.title);
@@ -323,5 +345,7 @@
         private System.Windows.Forms.Label nsSVLabel;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.TextBox csTextBox;
+        private System.Windows.Forms.Label csLabel;
     }
 }

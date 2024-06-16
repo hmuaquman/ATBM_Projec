@@ -47,6 +47,8 @@
             this.gtTextBox = new System.Windows.Forms.TextBox();
             this.cvTextBox = new System.Windows.Forms.TextBox();
             this.manvTextBox = new System.Windows.Forms.TextBox();
+            this.csLabel = new System.Windows.Forms.Label();
+            this.csTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -225,11 +227,31 @@
             this.manvTextBox.Size = new System.Drawing.Size(105, 26);
             this.manvTextBox.TabIndex = 20;
             // 
+            // csLabel
+            // 
+            this.csLabel.AutoSize = true;
+            this.csLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.csLabel.Location = new System.Drawing.Point(258, 266);
+            this.csLabel.Name = "csLabel";
+            this.csLabel.Size = new System.Drawing.Size(53, 20);
+            this.csLabel.TabIndex = 40;
+            this.csLabel.Text = "Cơ sở";
+            // 
+            // csTextBox
+            // 
+            this.csTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.csTextBox.Location = new System.Drawing.Point(262, 289);
+            this.csTextBox.Name = "csTextBox";
+            this.csTextBox.Size = new System.Drawing.Size(102, 26);
+            this.csTextBox.TabIndex = 39;
+            // 
             // ThemNSForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(431, 476);
+            this.Controls.Add(this.csLabel);
+            this.Controls.Add(this.csTextBox);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.addNSButton);
             this.Controls.Add(this.exitADDNSButton);
@@ -277,5 +299,7 @@
         private System.Windows.Forms.TextBox gtTextBox;
         private System.Windows.Forms.TextBox cvTextBox;
         private System.Windows.Forms.TextBox manvTextBox;
+        private System.Windows.Forms.Label csLabel;
+        private System.Windows.Forms.TextBox csTextBox;
     }
 }

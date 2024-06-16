@@ -47,6 +47,8 @@
             this.editButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
+            this.csLabel = new System.Windows.Forms.Label();
+            this.csTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // manvTextBox
@@ -161,7 +163,7 @@
             // 
             this.dvLabel.AutoSize = true;
             this.dvLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dvLabel.Location = new System.Drawing.Point(169, 328);
+            this.dvLabel.Location = new System.Drawing.Point(50, 390);
             this.dvLabel.Name = "dvLabel";
             this.dvLabel.Size = new System.Drawing.Size(56, 20);
             this.dvLabel.TabIndex = 13;
@@ -170,7 +172,7 @@
             // dvTextBox
             // 
             this.dvTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dvTextBox.Location = new System.Drawing.Point(173, 351);
+            this.dvTextBox.Location = new System.Drawing.Point(54, 413);
             this.dvTextBox.Name = "dvTextBox";
             this.dvTextBox.Size = new System.Drawing.Size(183, 26);
             this.dvTextBox.TabIndex = 14;
@@ -225,11 +227,31 @@
             this.titleLabel.TabIndex = 19;
             this.titleLabel.Text = "Thông tin nhân viên";
             // 
+            // csLabel
+            // 
+            this.csLabel.AutoSize = true;
+            this.csLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.csLabel.Location = new System.Drawing.Point(192, 328);
+            this.csLabel.Name = "csLabel";
+            this.csLabel.Size = new System.Drawing.Size(53, 20);
+            this.csLabel.TabIndex = 21;
+            this.csLabel.Text = "Cơ sở";
+            // 
+            // csTextBox
+            // 
+            this.csTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.csTextBox.Location = new System.Drawing.Point(196, 351);
+            this.csTextBox.Name = "csTextBox";
+            this.csTextBox.Size = new System.Drawing.Size(109, 26);
+            this.csTextBox.TabIndex = 20;
+            // 
             // TTNVForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(417, 421);
+            this.ClientSize = new System.Drawing.Size(417, 461);
+            this.Controls.Add(this.csLabel);
+            this.Controls.Add(this.csTextBox);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.editButton);
@@ -278,5 +300,7 @@
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Label csLabel;
+        private System.Windows.Forms.TextBox csTextBox;
     }
 }

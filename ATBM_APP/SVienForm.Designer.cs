@@ -43,6 +43,14 @@
             this.logo = new System.Windows.Forms.PictureBox();
             this.gvTabControl = new System.Windows.Forms.TabControl();
             this.dkTabPage = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.deldkDKButton = new System.Windows.Forms.Button();
+            this.adddkDKButton = new System.Windows.Forms.Button();
             this.savedkButton = new System.Windows.Forms.Button();
             this.editdkButton = new System.Windows.Forms.Button();
             this.mhpTextBox = new System.Windows.Forms.TextBox();
@@ -72,14 +80,8 @@
             this.temp2 = new System.Windows.Forms.Label();
             this.temp1 = new System.Windows.Forms.Label();
             this.temp4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.deldkDKButton = new System.Windows.Forms.Button();
-            this.adddkDKButton = new System.Windows.Forms.Button();
+            this.notificationPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.bellButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.khmoGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hpGridView)).BeginInit();
             this.hpTabPage.SuspendLayout();
@@ -140,7 +142,7 @@
             // 
             this.helloLabel.AutoSize = true;
             this.helloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic);
-            this.helloLabel.Location = new System.Drawing.Point(630, 28);
+            this.helloLabel.Location = new System.Drawing.Point(514, 31);
             this.helloLabel.Name = "helloLabel";
             this.helloLabel.Size = new System.Drawing.Size(69, 18);
             this.helloLabel.TabIndex = 19;
@@ -149,21 +151,21 @@
             // logoutItem
             // 
             this.logoutItem.Name = "logoutItem";
-            this.logoutItem.Size = new System.Drawing.Size(210, 24);
+            this.logoutItem.Size = new System.Drawing.Size(196, 24);
             this.logoutItem.Text = "Đăng xuất";
             this.logoutItem.Click += new System.EventHandler(this.logoutItem_Click);
             // 
             // noticeItem
             // 
             this.noticeItem.Name = "noticeItem";
-            this.noticeItem.Size = new System.Drawing.Size(210, 24);
+            this.noticeItem.Size = new System.Drawing.Size(196, 24);
             this.noticeItem.Text = "Thông báo";
             this.noticeItem.Click += new System.EventHandler(this.noticeItem_Click);
             // 
             // infoItem
             // 
             this.infoItem.Name = "infoItem";
-            this.infoItem.Size = new System.Drawing.Size(210, 24);
+            this.infoItem.Size = new System.Drawing.Size(196, 24);
             this.infoItem.Text = "Thông tin cá nhân";
             this.infoItem.Click += new System.EventHandler(this.infoItem_Click);
             // 
@@ -259,6 +261,87 @@
             this.dkTabPage.Text = "Đăng ký";
             this.dkTabPage.UseVisualStyleBackColor = true;
             this.dkTabPage.Enter += new System.EventHandler(this.dkTabPage_Enter);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(-98, 124);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 18);
+            this.label1.TabIndex = 88;
+            this.label1.Text = "label5";
+            this.label1.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(-91, 124);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 18);
+            this.label2.TabIndex = 86;
+            this.label2.Text = "label3";
+            this.label2.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(-96, 124);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 18);
+            this.label3.TabIndex = 85;
+            this.label3.Text = "label3";
+            this.label3.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(-96, 124);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 18);
+            this.label4.TabIndex = 84;
+            this.label4.Text = "label2";
+            this.label4.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(-96, 124);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 18);
+            this.label5.TabIndex = 83;
+            this.label5.Text = "label5";
+            this.label5.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(-91, 124);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 18);
+            this.label6.TabIndex = 87;
+            this.label6.Text = "label3";
+            this.label6.Visible = false;
+            // 
+            // deldkDKButton
+            // 
+            this.deldkDKButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.deldkDKButton.Location = new System.Drawing.Point(824, 20);
+            this.deldkDKButton.Name = "deldkDKButton";
+            this.deldkDKButton.Size = new System.Drawing.Size(96, 38);
+            this.deldkDKButton.TabIndex = 90;
+            this.deldkDKButton.Text = "Xóa";
+            this.deldkDKButton.UseVisualStyleBackColor = true;
+            // 
+            // adddkDKButton
+            // 
+            this.adddkDKButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.adddkDKButton.Location = new System.Drawing.Point(708, 20);
+            this.adddkDKButton.Name = "adddkDKButton";
+            this.adddkDKButton.Size = new System.Drawing.Size(89, 38);
+            this.adddkDKButton.TabIndex = 89;
+            this.adddkDKButton.Text = "Thêm";
+            this.adddkDKButton.UseVisualStyleBackColor = true;
+            this.adddkDKButton.Click += new System.EventHandler(this.adddkDKButton_Click);
             // 
             // savedkButton
             // 
@@ -533,92 +616,32 @@
             this.temp4.Text = "label3";
             this.temp4.Visible = false;
             // 
-            // label1
+            // notificationPanel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(-98, 124);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 18);
-            this.label1.TabIndex = 88;
-            this.label1.Text = "label5";
-            this.label1.Visible = false;
+            this.notificationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.notificationPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.notificationPanel.Location = new System.Drawing.Point(645, 60);
+            this.notificationPanel.Name = "notificationPanel";
+            this.notificationPanel.Size = new System.Drawing.Size(200, 100);
+            this.notificationPanel.TabIndex = 43;
             // 
-            // label2
+            // bellButton
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(-91, 124);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 18);
-            this.label2.TabIndex = 86;
-            this.label2.Text = "label3";
-            this.label2.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(-96, 124);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 18);
-            this.label3.TabIndex = 85;
-            this.label3.Text = "label3";
-            this.label3.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(-96, 124);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 18);
-            this.label4.TabIndex = 84;
-            this.label4.Text = "label2";
-            this.label4.Visible = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(-96, 124);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 18);
-            this.label5.TabIndex = 83;
-            this.label5.Text = "label5";
-            this.label5.Visible = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(-91, 124);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 18);
-            this.label6.TabIndex = 87;
-            this.label6.Text = "label3";
-            this.label6.Visible = false;
-            // 
-            // deldkDKButton
-            // 
-            this.deldkDKButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.deldkDKButton.Location = new System.Drawing.Point(824, 20);
-            this.deldkDKButton.Name = "deldkDKButton";
-            this.deldkDKButton.Size = new System.Drawing.Size(96, 38);
-            this.deldkDKButton.TabIndex = 90;
-            this.deldkDKButton.Text = "Xóa";
-            this.deldkDKButton.UseVisualStyleBackColor = true;
-            // 
-            // adddkDKButton
-            // 
-            this.adddkDKButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.adddkDKButton.Location = new System.Drawing.Point(708, 20);
-            this.adddkDKButton.Name = "adddkDKButton";
-            this.adddkDKButton.Size = new System.Drawing.Size(89, 38);
-            this.adddkDKButton.TabIndex = 89;
-            this.adddkDKButton.Text = "Thêm";
-            this.adddkDKButton.UseVisualStyleBackColor = true;
-            this.adddkDKButton.Click += new System.EventHandler(this.adddkDKButton_Click);
+            this.bellButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.bellButton.Location = new System.Drawing.Point(787, 16);
+            this.bellButton.Name = "bellButton";
+            this.bellButton.Size = new System.Drawing.Size(50, 50);
+            this.bellButton.TabIndex = 42;
+            this.bellButton.UseVisualStyleBackColor = true;
+            this.bellButton.Click += new System.EventHandler(this.bellButton_Click);
             // 
             // SVienForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(977, 596);
+            this.Controls.Add(this.notificationPanel);
+            this.Controls.Add(this.bellButton);
             this.Controls.Add(this.temp6);
             this.Controls.Add(this.temp5);
             this.Controls.Add(this.temp3);
@@ -702,5 +725,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button deldkDKButton;
         private System.Windows.Forms.Button adddkDKButton;
+        private System.Windows.Forms.FlowLayoutPanel notificationPanel;
+        private System.Windows.Forms.Button bellButton;
     }
 }

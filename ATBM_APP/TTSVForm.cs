@@ -27,6 +27,7 @@ namespace ATBM_APP
             mctSVTextBox.Enabled = false;
             tctlSVTextBox.Enabled = false;
             dtbSVTextBox.Enabled = false;
+            csTextBox.Enabled = false;
         }
 
         
@@ -94,6 +95,7 @@ namespace ATBM_APP
                                 mctSVTextBox.Text = reader["MACT"].ToString();
                                 tctlSVTextBox.Text = reader["STCTL"].ToString();
                                 dtbSVTextBox.Text = reader["DTBTL"].ToString();
+                                csTextBox.Text = reader["COSO"].ToString();
                             }
                         }
 

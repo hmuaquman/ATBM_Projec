@@ -51,12 +51,14 @@
             this.title = new System.Windows.Forms.Label();
             this.cancelSVButton = new System.Windows.Forms.Button();
             this.addSVButton = new System.Windows.Forms.Button();
+            this.csTextBox = new System.Windows.Forms.TextBox();
+            this.csLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tctlSVTextBox
             // 
             this.tctlSVTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.tctlSVTextBox.Location = new System.Drawing.Point(155, 351);
+            this.tctlSVTextBox.Location = new System.Drawing.Point(155, 397);
             this.tctlSVTextBox.Name = "tctlSVTextBox";
             this.tctlSVTextBox.Size = new System.Drawing.Size(81, 26);
             this.tctlSVTextBox.TabIndex = 113;
@@ -64,7 +66,7 @@
             // dtbSVTextBox
             // 
             this.dtbSVTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dtbSVTextBox.Location = new System.Drawing.Point(361, 351);
+            this.dtbSVTextBox.Location = new System.Drawing.Point(361, 397);
             this.dtbSVTextBox.Name = "dtbSVTextBox";
             this.dtbSVTextBox.Size = new System.Drawing.Size(81, 26);
             this.dtbSVTextBox.TabIndex = 112;
@@ -73,7 +75,7 @@
             // 
             this.tctlSVLabel.AutoSize = true;
             this.tctlSVLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.tctlSVLabel.Location = new System.Drawing.Point(57, 354);
+            this.tctlSVLabel.Location = new System.Drawing.Point(57, 400);
             this.tctlSVLabel.Name = "tctlSVLabel";
             this.tctlSVLabel.Size = new System.Drawing.Size(76, 20);
             this.tctlSVLabel.TabIndex = 111;
@@ -83,7 +85,7 @@
             // 
             this.dtbSVLabel.AutoSize = true;
             this.dtbSVLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dtbSVLabel.Location = new System.Drawing.Point(252, 354);
+            this.dtbSVLabel.Location = new System.Drawing.Point(252, 400);
             this.dtbSVLabel.Name = "dtbSVLabel";
             this.dtbSVLabel.Size = new System.Drawing.Size(95, 20);
             this.dtbSVLabel.TabIndex = 110;
@@ -244,7 +246,7 @@
             // 
             // cancelSVButton
             // 
-            this.cancelSVButton.Location = new System.Drawing.Point(89, 398);
+            this.cancelSVButton.Location = new System.Drawing.Point(86, 445);
             this.cancelSVButton.Name = "cancelSVButton";
             this.cancelSVButton.Size = new System.Drawing.Size(112, 40);
             this.cancelSVButton.TabIndex = 115;
@@ -254,7 +256,7 @@
             // 
             // addSVButton
             // 
-            this.addSVButton.Location = new System.Drawing.Point(298, 398);
+            this.addSVButton.Location = new System.Drawing.Point(298, 445);
             this.addSVButton.Name = "addSVButton";
             this.addSVButton.Size = new System.Drawing.Size(114, 40);
             this.addSVButton.TabIndex = 116;
@@ -262,11 +264,31 @@
             this.addSVButton.UseVisualStyleBackColor = true;
             this.addSVButton.Click += new System.EventHandler(this.addSVButton_Click);
             // 
+            // csTextBox
+            // 
+            this.csTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.csTextBox.Location = new System.Drawing.Point(189, 354);
+            this.csTextBox.Name = "csTextBox";
+            this.csTextBox.Size = new System.Drawing.Size(253, 26);
+            this.csTextBox.TabIndex = 141;
+            // 
+            // csLabel
+            // 
+            this.csLabel.AutoSize = true;
+            this.csLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.csLabel.Location = new System.Drawing.Point(63, 360);
+            this.csLabel.Name = "csLabel";
+            this.csLabel.Size = new System.Drawing.Size(53, 20);
+            this.csLabel.TabIndex = 140;
+            this.csLabel.Text = "Cơ sở";
+            // 
             // ThemSVForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 456);
+            this.ClientSize = new System.Drawing.Size(487, 514);
+            this.Controls.Add(this.csTextBox);
+            this.Controls.Add(this.csLabel);
             this.Controls.Add(this.addSVButton);
             this.Controls.Add(this.cancelSVButton);
             this.Controls.Add(this.title);
@@ -322,5 +344,7 @@
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.Button cancelSVButton;
         private System.Windows.Forms.Button addSVButton;
+        private System.Windows.Forms.TextBox csTextBox;
+        private System.Windows.Forms.Label csLabel;
     }
 }

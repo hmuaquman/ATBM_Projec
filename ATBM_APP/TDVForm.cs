@@ -40,7 +40,9 @@ namespace ATBM_APP
             dkGridView.ReadOnly = true;
             pcGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             pcGridView.ReadOnly = true;
-       
+            khmoGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dvGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
             mhpPCComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             magvPCComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             mhpPCComboBox.Enabled = false;
@@ -50,6 +52,73 @@ namespace ATBM_APP
             hkPCTextBox.Enabled=false;
             nhPCTextBox.Enabled=false;
             mctPCTextBox.Enabled=false;
+
+            bellButton.Image = Image.FromFile(@"..\\..\\icon\\notice.png");
+            bellButton.ImageAlign = ContentAlignment.MiddleCenter;
+            InitializeNotificationPanel();
+            LoadNotifications();
+        }
+        private void InitializeNotificationPanel()
+        {
+            notificationPanel = new FlowLayoutPanel();
+            notificationPanel.WrapContents = true; // Cho phép xuống dòng
+            notificationPanel.AutoScroll = true;
+            notificationPanel.FlowDirection = FlowDirection.TopDown;
+            notificationPanel.BorderStyle = BorderStyle.FixedSingle;
+            notificationPanel.Visible = false; // Ẩn panel ban đầu
+            notificationPanel.Size = new Size(250, 300);
+            this.Controls.Add(notificationPanel);
+            notificationPanel.BringToFront(); // Đưa panel lên phía trước các control khác
+        }
+        private void LoadNotifications()
+        {
+            notificationPanel.Controls.Clear();
+
+            string query = "SELECT NOIDUNG FROM ADMIN_OLS.OLS_THONGBAO"; // Thay đổi tên bảng và cột theo cơ sở dữ liệu của bạn
+
+            try
+            {
+                using (OracleConnection connection = new OracleConnection(Account.connectString))
+                {
+                    OracleCommand command = new OracleCommand(query, connection);
+                    connection.Open();
+                    OracleDataReader reader = command.ExecuteReader();
+                    int totalHeight = 0;
+                    while (reader.Read())
+                    {
+                        string notificationText = reader["NOIDUNG"].ToString();
+                        Label label = new Label();
+                        label.Text = notificationText;
+
+                        label.Width = 220; // Chiều rộng cố định của label
+                        label.AutoSize = true;
+                        label.MaximumSize = new Size(notificationPanel.Width - 50, 0);
+                        label.BorderStyle = BorderStyle.FixedSingle; // Thêm khung cho mỗi label
+                        label.Padding = new Padding(5); // Thêm khoảng cách bên trong khung
+                        label.Margin = new Padding(4); // Thêm khoảng cách giữa các label
+                        label.BackColor = Color.White;
+                        notificationPanel.Controls.Add(label);
+                        totalHeight += label.PreferredSize.Height + label.Margin.Vertical;
+                    }
+
+                    reader.Close();
+                    totalHeight += notificationPanel.Padding.Vertical;
+                    int panelHeight = Math.Min(totalHeight, 292); // Giới hạn chiều cao tối đa của panel
+                    notificationPanel.Size = new Size(notificationPanel.Width - 20, panelHeight + 8);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void bellButton_Click(object sender, EventArgs e)
+        {
+            //Point menuLocation = new Point(icon.Left - 82, icon.Bottom);
+            //menu.Show(this, menuLocation);
+            notificationPanel.Location = new Point(bellButton.Left - 192, bellButton.Bottom);
+            notificationPanel.Visible = !notificationPanel.Visible;
         }
         private void icon_Click(object sender, EventArgs e)
         {
@@ -305,13 +374,14 @@ namespace ATBM_APP
         private void editgkButton_Click(object sender, EventArgs e)
         {
             dgkTextBox.Enabled = true;
+            dkGridView.Enabled = false;
         }
 
         private void savegkButton_Click(object sender, EventArgs e)
         {
             if (dgkTextBox.Enabled == true)
             {
-                string dgk = dgkTextBox.Text;
+              
                 string maNV = Account.username;
                 string maSV = masvTextBox.Text;
                 string maHP = mhpTextBox.Text;
@@ -319,10 +389,13 @@ namespace ATBM_APP
                 {//Khai báo câu lệnh SQL sử dụng
                     using (OracleCommand cmd = new OracleCommand("UPDATE ADMIN.DANGKY SET DIEMTHI = :DGK WHERE MAGV = :MANHANVIEN AND MASV = :MASINHVIEN AND MAHP = :MAHOCPHAN", conn))
                     {
+                        cmd.BindByName = true;
+                        double dgk = double.Parse(dgkTextBox.Text);
+                        cmd.Parameters.Add(new OracleParameter("DGK", dgk));
                         cmd.Parameters.Add(new OracleParameter("MASINHVIEN", maSV));
                         cmd.Parameters.Add(new OracleParameter("MANHANVIEN", maNV));
                         cmd.Parameters.Add(new OracleParameter("MAHOCPHAN", maHP));
-                        cmd.Parameters.Add(new OracleParameter("DGK", dgk));
+                        
                         try
                         {
                             conn.Open();
@@ -337,19 +410,21 @@ namespace ATBM_APP
                     }
                 }
                 dgkTextBox.Enabled = false;
+                dkGridView.Enabled = true;
             }
         }
 
         private void editqtButton_Click(object sender, EventArgs e)
         {
             dqtTextBox.Enabled = true;
+            dkGridView.Enabled = false;
         }
 
         private void saveqtButton_Click(object sender, EventArgs e)
         {
             if (dqtTextBox.Enabled == true)
             {
-                string dqt = dqtTextBox.Text;
+                
                 string maNV = Account.username;
                 string maSV = masvTextBox.Text;
                 string maHP = mhpTextBox.Text;
@@ -357,10 +432,13 @@ namespace ATBM_APP
                 {//Khai báo câu lệnh SQL sử dụng
                     using (OracleCommand cmd = new OracleCommand("UPDATE ADMIN.DANGKY SET DIEMQT = :DQT WHERE MAGV = :MANHANVIEN AND MASV = :MASINHVIEN AND MAHP = :MAHOCPHAN", conn))
                     {
+                        cmd.BindByName = true;
+                        double dqt = double.Parse(dqtTextBox.Text);
+                        cmd.Parameters.Add(new OracleParameter("DQT", dqt));
                         cmd.Parameters.Add(new OracleParameter("MASINHVIEN", maSV));
                         cmd.Parameters.Add(new OracleParameter("MANHANVIEN", maNV));
                         cmd.Parameters.Add(new OracleParameter("MAHOCPHAN", maHP));
-                        cmd.Parameters.Add(new OracleParameter("DQT", dqt));
+                       
                         try
                         {
                             conn.Open();
@@ -375,19 +453,21 @@ namespace ATBM_APP
                     }
                 }
                 dqtTextBox.Enabled = false;
+                dkGridView.Enabled = true;
             }
         }
 
         private void editckButton_Click(object sender, EventArgs e)
         {
             dckTextBox.Enabled = true;
+            dkGridView.Enabled = false;
         }
 
         private void saveckButton_Click(object sender, EventArgs e)
         {
             if (dckTextBox.Enabled == true)
             {
-                string dck = dckTextBox.Text;
+               
                 string maNV = Account.username;
                 string maSV = masvTextBox.Text;
                 string maHP = mhpTextBox.Text;
@@ -395,10 +475,13 @@ namespace ATBM_APP
                 {//Khai báo câu lệnh SQL sử dụng
                     using (OracleCommand cmd = new OracleCommand("UPDATE ADMIN.DANGKY SET DIEMCK = :DCK WHERE MAGV = :MANHANVIEN AND MASV = :MASINHVIEN AND MAHP = :MAHOCPHAN", conn))
                     {
+                        cmd.BindByName = true;
+                        double dck = double.Parse(dckTextBox.Text);
+                        cmd.Parameters.Add(new OracleParameter("DCK", dck));
                         cmd.Parameters.Add(new OracleParameter("MASINHVIEN", maSV));
                         cmd.Parameters.Add(new OracleParameter("MANHANVIEN", maNV));
                         cmd.Parameters.Add(new OracleParameter("MAHOCPHAN", maHP));
-                        cmd.Parameters.Add(new OracleParameter("DCK", dck));
+                        
                         try
                         {
                             conn.Open();
@@ -413,19 +496,21 @@ namespace ATBM_APP
                     }
                 }
                 dckTextBox.Enabled = false;
+                dkGridView.Enabled = true;
             }
         }
 
         private void edittkButton_Click(object sender, EventArgs e)
         {
             dtkTextBox.Enabled = true;
+            dkGridView.Enabled = false;
         }
 
         private void savetkButton_Click(object sender, EventArgs e)
         {
             if (dtkTextBox.Enabled == true)
             {
-                string dtk = dtkTextBox.Text;
+              
                 string maNV = Account.username;
                 string maSV = masvTextBox.Text;
                 string maHP = mhpTextBox.Text;
@@ -433,6 +518,9 @@ namespace ATBM_APP
                 {//Khai báo câu lệnh SQL sử dụng
                     using (OracleCommand cmd = new OracleCommand("UPDATE ADMIN.DANGKY SET DIEMTK = :DTK WHERE MAGV = :MANHANVIEN AND MASV = :MASINHVIEN AND MAHP = :MAHOCPHAN", conn))
                     {
+                        cmd.BindByName = true;
+                        double dtk = double.Parse(dtkTextBox.Text);
+                        cmd.Parameters.Add(new OracleParameter("DTK", dtk));
                         cmd.Parameters.Add(new OracleParameter("MASINHVIEN", maSV));
                         cmd.Parameters.Add(new OracleParameter("MANHANVIEN", maNV));
                         cmd.Parameters.Add(new OracleParameter("MAHOCPHAN", maHP));
@@ -451,6 +539,7 @@ namespace ATBM_APP
                     }
                 }
                 dtkTextBox.Enabled = false;
+                dkGridView.Enabled = true;
             }
         }
 
@@ -685,6 +774,7 @@ namespace ATBM_APP
                 hkPCTextBox.Enabled = false;
                 nhPCTextBox.Enabled = false;
                 mctPCTextBox.Enabled = false;
+                pcGridView.Enabled = true;
             }
         }
 
@@ -695,6 +785,7 @@ namespace ATBM_APP
             hkPCTextBox.Enabled = true;
             nhPCTextBox.Enabled = true;
             mctPCTextBox.Enabled = true;
+            pcGridView.Enabled = false;
         }
 
   

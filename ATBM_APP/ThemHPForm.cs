@@ -24,12 +24,17 @@ namespace ATBM_APP
             {//Khai báo câu lệnh SQL sử dụng
                 using (OracleCommand cmd = new OracleCommand("INSERT INTO ADMIN.HOCPHAN(MAHP, TENHP, SOTC, STLT, STTH, SOSVTD, MADV) VALUES (:MAHP,:TENHP, :SOTC,:STLT, :STTH, :SOSVTD, :MADV) ", conn))
                 {
+                    cmd.BindByName = true;
+                    double sotc = double.Parse(tcHPTextBox.Text);
+                    double tlt = double.Parse(tltHPTextBox.Text);
+                    double tth = double.Parse(tthHPTextBox.Text);
+                    double svtd = double.Parse(svtdHPTextBox.Text);
+                    cmd.Parameters.Add(new OracleParameter("SOTC", sotc));
+                    cmd.Parameters.Add(new OracleParameter("STLT", tlt));
+                    cmd.Parameters.Add(new OracleParameter("STTH", tth));
+                    cmd.Parameters.Add(new OracleParameter("SOSVTD", svtd));
                     cmd.Parameters.Add(new OracleParameter("MAHP", mhpHPTextBox.Text));
                     cmd.Parameters.Add(new OracleParameter("TENHP", OracleDbType.NVarchar2)).Value = thpHPTextBox.Text;
-                    cmd.Parameters.Add(new OracleParameter("SOTC", tcHPTextBox.Text));
-                    cmd.Parameters.Add(new OracleParameter("STLT", tltHPTextBox.Text));
-                    cmd.Parameters.Add(new OracleParameter("STTH", tthHPTextBox.Text));
-                    cmd.Parameters.Add(new OracleParameter("SOSVTD", svtdHPTextBox.Text));
                     cmd.Parameters.Add(new OracleParameter("MADV", mdvHPTextBox.Text));
                     try
                     {

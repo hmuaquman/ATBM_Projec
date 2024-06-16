@@ -26,8 +26,75 @@ namespace ATBM_APP
             icon.Image = Image.FromFile(@"..\\..\\icon\\avatar.png");
             logo.SizeMode = PictureBoxSizeMode.Zoom;
             icon.SizeMode = PictureBoxSizeMode.Zoom;
+            khmoGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dvGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            bellButton.Image = Image.FromFile(@"..\\..\\icon\\notice.png");
+            bellButton.ImageAlign = ContentAlignment.MiddleCenter;
+            InitializeNotificationPanel();
+            LoadNotifications();
+        }
+        private void InitializeNotificationPanel()
+        {
+            notificationPanel = new FlowLayoutPanel();
+            notificationPanel.WrapContents = true; // Cho phép xuống dòng
+            notificationPanel.AutoScroll = true;
+            notificationPanel.FlowDirection = FlowDirection.TopDown;
+            notificationPanel.BorderStyle = BorderStyle.FixedSingle;
+            notificationPanel.Visible = false; // Ẩn panel ban đầu
+            notificationPanel.Size = new Size(250, 300);
+            this.Controls.Add(notificationPanel);
+            notificationPanel.BringToFront(); // Đưa panel lên phía trước các control khác
+        }
+        private void LoadNotifications()
+        {
+            notificationPanel.Controls.Clear();
+
+            string query = "SELECT NOIDUNG FROM ADMIN_OLS.OLS_THONGBAO"; // Thay đổi tên bảng và cột theo cơ sở dữ liệu của bạn
+
+            try
+            {
+                using (OracleConnection connection = new OracleConnection(Account.connectString))
+                {
+                    OracleCommand command = new OracleCommand(query, connection);
+                    connection.Open();
+                    OracleDataReader reader = command.ExecuteReader();
+                    int totalHeight = 0;
+                    while (reader.Read())
+                    {
+                        string notificationText = reader["NOIDUNG"].ToString();
+                        Label label = new Label();
+                        label.Text = notificationText;
+
+                        label.Width = 220; // Chiều rộng cố định của label
+                        label.AutoSize = true;
+                        label.MaximumSize = new Size(notificationPanel.Width - 50, 0);
+                        label.BorderStyle = BorderStyle.FixedSingle; // Thêm khung cho mỗi label
+                        label.Padding = new Padding(5); // Thêm khoảng cách bên trong khung
+                        label.Margin = new Padding(4); // Thêm khoảng cách giữa các label
+                        label.BackColor = Color.White;
+                        notificationPanel.Controls.Add(label);
+                        totalHeight += label.PreferredSize.Height + label.Margin.Vertical;
+                    }
+
+                    reader.Close();
+                    totalHeight += notificationPanel.Padding.Vertical;
+                    int panelHeight = Math.Min(totalHeight, 292); // Giới hạn chiều cao tối đa của panel
+                    notificationPanel.Size = new Size(notificationPanel.Width - 20, panelHeight + 8);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
+        private void bellButton_Click(object sender, EventArgs e)
+        {
+            //Point menuLocation = new Point(icon.Left - 82, icon.Bottom);
+            //menu.Show(this, menuLocation);
+            notificationPanel.Location = new Point(bellButton.Left - 192, bellButton.Bottom);
+            notificationPanel.Visible = !notificationPanel.Visible;
+        }
         private void NVCBForm_Load(object sender, EventArgs e)
         {
             gvTabControl.SelectedTab = svTabPage;

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ATBM_APP
 {
@@ -27,8 +28,14 @@ namespace ATBM_APP
         {
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("INSERT INTO ADMIN.SINHVIEN(MASV, HOTEN, PHAI, NGSINH, DCHI, DT, MACT, MANGANH, SOTCTL, DTBTL) VALUES (:MASV,:HOTEN, :PHAI,TO_DATE(:NGSINH, 'DD-MM-YYYY'),:DCHI, :DT, :MACT, :MANGANH, :SOTCTL, :DTBTL) ", conn))
+                using (OracleCommand cmd = new OracleCommand("INSERT INTO ADMIN.SINHVIEN(MASV, HOTEN, PHAI, NGSINH, DCHI, DT, MACT, MANGANH, COSO , SOTCTL, DTBTL) VALUES (:MASV,:HOTEN, :PHAI,TO_DATE(:NGSINH, 'DD-MM-YYYY'),:DCHI, :DT, :MACT, :MANGANH, :COSO, :SOTCTL, :DTBTL) ", conn))
                 {
+                    cmd.BindByName = true;
+                    double tctl = double.Parse(tctlSVTextBox.Text);
+                    double dtb = double.Parse(dtbSVTextBox.Text);
+                    cmd.Parameters.Add(new OracleParameter("SOTCTL", tctlSVTextBox.Text));
+                    cmd.Parameters.Add(new OracleParameter("DTBTL", dtbSVTextBox.Text));
+
                     cmd.Parameters.Add(new OracleParameter("MASV", masvSVTextBox.Text));
                     cmd.Parameters.Add(new OracleParameter("HOTEN", OracleDbType.NVarchar2)).Value = htsvSVTextBox.Text;
                     cmd.Parameters.Add(new OracleParameter("PHAI", OracleDbType.NVarchar2)).Value = gtSVTextBox.Text;
@@ -37,8 +44,8 @@ namespace ATBM_APP
                     cmd.Parameters.Add(new OracleParameter("DT", sdtSVTextBox.Text));
                     cmd.Parameters.Add(new OracleParameter("MACT", mctSVTextBox.Text));
                     cmd.Parameters.Add(new OracleParameter("MANGANH", mnSVTextBox.Text));
-                    cmd.Parameters.Add(new OracleParameter("SOTCTL", tctlSVTextBox.Text));
-                    cmd.Parameters.Add(new OracleParameter("DTBTL", dtbSVTextBox.Text));
+                    cmd.Parameters.Add(new OracleParameter("COSO", csTextBox.Text));
+
                     MessageBox.Show(cmd.CommandText);
                     try
                     {
