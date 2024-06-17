@@ -35,6 +35,9 @@ namespace ATBM_APP
             privPLCheckBox.Enabled = true;
 
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            saGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            fgadkGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            fgapcnsGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void LoadDataUSR()
@@ -613,9 +616,10 @@ namespace ATBM_APP
         {
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN", conn))
+                using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN AND AUDIT_TYPE = :TYPE", conn))
                 {
                     cmd.Parameters.Add(new OracleParameter("ADMIN", "ADMIN"));
+                    cmd.Parameters.Add(new OracleParameter("TYPE", "Standard"));
                     try
                     {
                         //Mở kết nối
@@ -686,8 +690,10 @@ namespace ATBM_APP
             {
                 using (OracleConnection conn = new OracleConnection(Account.connectString))
                 {//Khai báo câu lệnh SQL sử dụng
-                    using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL  WHERE INSTR(DBUSERNAME,:MA) > 0", conn))
+                    using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN AND AUDIT_TYPE = :TYPE  AND INSTR(DBUSERNAME,:MA) > 0", conn))
                     {
+                        cmd.Parameters.Add(new OracleParameter("ADMIN", "ADMIN"));
+                        cmd.Parameters.Add(new OracleParameter("TYPE", "Standard"));
                         cmd.Parameters.Add(new OracleParameter("MA", saauditSearchTextBox.Text));
                         try
                         {
@@ -712,9 +718,11 @@ namespace ATBM_APP
         {
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT * FROM AUDIT_DANGKY", conn))
+                using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN AND AUDIT_TYPE = :TYPE AND FGA_POLICY_NAME = :FGA", conn))
                 {
-                    
+                    cmd.Parameters.Add(new OracleParameter("ADMIN", "ADMIN"));
+                    cmd.Parameters.Add(new OracleParameter("TYPE", "FineGrainedAudit"));
+                    cmd.Parameters.Add(new OracleParameter("FGA", "DANGKY_SCORE_UPDATE_AUDIT"));
                     try
                     {
                         //Mở kết nối
@@ -738,8 +746,11 @@ namespace ATBM_APP
         {
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT * FROM AUDIT_SELECT_PHUCAP", conn))
-                { 
+                using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN AND AUDIT_TYPE = :TYPE AND FGA_POLICY_NAME = :FGA", conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter("ADMIN", "ADMIN"));
+                    cmd.Parameters.Add(new OracleParameter("TYPE", "FineGrainedAudit"));
+                    cmd.Parameters.Add(new OracleParameter("FGA", "NHANSU_SELECT_PHUCAP_AUDIT"));
                     try
                     {
                         //Mở kết nối
@@ -775,9 +786,12 @@ namespace ATBM_APP
             {
                 using (OracleConnection conn = new OracleConnection(Account.connectString))
                 {//Khai báo câu lệnh SQL sử dụng
-                    using (OracleCommand cmd = new OracleCommand("SELECT * FROM AUDIT_DANGKY  WHERE INSTR(user_current,:MA) > 0", conn))
+                    using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN AND AUDIT_TYPE = :TYPE AND FGA_POLICY_NAME = :FGA AND INSTR(DBUSERNAME,:MA) > 0", conn))
                     {
                         cmd.Parameters.Add(new OracleParameter("MA", fgaDKSearchTextBox.Text));
+                        cmd.Parameters.Add(new OracleParameter("ADMIN", "ADMIN"));
+                        cmd.Parameters.Add(new OracleParameter("TYPE", "FineGrainedAudit"));
+                        cmd.Parameters.Add(new OracleParameter("FGA", "DANGKY_SCORE_UPDATE_AUDIT"));
                         try
                         {
                             //Mở kết nối
@@ -808,9 +822,12 @@ namespace ATBM_APP
             {
                 using (OracleConnection conn = new OracleConnection(Account.connectString))
                 {//Khai báo câu lệnh SQL sử dụng
-                    using (OracleCommand cmd = new OracleCommand("SELECT * FROM AUDIT_SELECT_PHUCAP WHERE INSTR(user_current,:MA) > 0", conn))
+                    using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN AND AUDIT_TYPE = :TYPE AND FGA_POLICY_NAME = :FGA AND INSTR(DBUSERNAME,:MA) > 0", conn))
                     {
                         cmd.Parameters.Add(new OracleParameter("MA", fgaPCSearchTextBox.Text));
+                        cmd.Parameters.Add(new OracleParameter("ADMIN", "ADMIN"));
+                        cmd.Parameters.Add(new OracleParameter("TYPE", "FineGrainedAudit"));
+                        cmd.Parameters.Add(new OracleParameter("FGA", "NHANSU_SELECT_PHUCAP_AUDIT"));
                         try
                         {
                             //Mở kết nối

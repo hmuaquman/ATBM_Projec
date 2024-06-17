@@ -1104,37 +1104,19 @@ namespace ATBM_APP
 
         private void nsTabPage_Enter(object sender, EventArgs e)
         {
-            using (OracleConnection conn = new OracleConnection(Account.connectString))
-            {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT * FROM ADMIN.NHANSU", conn))
-                {
-                    try
-                    {
-                        //Mở kết nối
-                        conn.Open();
-                        using (OracleDataAdapter da = new OracleDataAdapter(cmd))
-                        {
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
-                            nsGridView.DataSource = dt;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                }
-            }
+            LoadDataNS();
         }
 
         private void viewpcapButton_Click(object sender, EventArgs e)
         {
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT PHUCAP FROM ADMIN.NHANSU WHERE MANV = :MANHANVIEN", conn))
+                string manv = manvTextBox.Text;
+                string query = $"SELECT PHUCAP FROM ADMIN.NHANSU WHERE MANV = '{manv}'";
+                using (OracleCommand cmd = new OracleCommand(query, conn))
                 {
 
-                    cmd.Parameters.Add(new OracleParameter("MANHANVIEN", manvTextBox.Text));
+                    //cmd.Parameters.Add(new OracleParameter("MANHANVIEN", manvTextBox.Text));
                     try
                     {
                         conn.Open();
