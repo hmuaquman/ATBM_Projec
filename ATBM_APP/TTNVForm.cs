@@ -31,7 +31,7 @@ namespace ATBM_APP
         {
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT * FROM ADMIN.NHANSU ns JOIN ADMIN.DONVI dv ON ns.MADV = dv.MADV AND MANV = :MANHANVIEN", conn))
+                using (OracleCommand cmd = new OracleCommand("SELECT * FROM ADMIN.view_decrypted_nhansu ns JOIN ADMIN.DONVI dv ON ns.MADV = dv.MADV AND MANV = :MANHANVIEN", conn))
                 {
                     cmd.Parameters.Add(new OracleParameter("MANHANVIEN", Account.username));
                     try

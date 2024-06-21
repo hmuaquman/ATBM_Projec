@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+
 
 namespace ATBM_APP
 {
@@ -15,7 +17,7 @@ namespace ATBM_APP
     {
         
         private LoginForm loginForm;
-        private bool selectionFlag = true;
+        
         public TKForm(LoginForm loginForm)
         {
             InitializeComponent();
@@ -23,8 +25,8 @@ namespace ATBM_APP
             Account.connectString = @"Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = "
                + Account.host + ")(PORT = " + Account.port + "))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = "
                + Account.service + ")));Password=" + Account.password + ";User ID=" + Account.username;
-            logo.Image = Image.FromFile(@"..\\..\\icon\\hcmus.png");
-            icon.Image = Image.FromFile(@"..\\..\\icon\\avatar.png");
+            logo.Image = System.Drawing.Image.FromFile(@"..\\..\\icon\\hcmus.png");
+            icon.Image = System.Drawing.Image.FromFile(@"..\\..\\icon\\avatar.png");
             logo.SizeMode = PictureBoxSizeMode.Zoom;
             icon.SizeMode = PictureBoxSizeMode.Zoom;
             masvTextBox.Enabled = false;
@@ -63,7 +65,7 @@ namespace ATBM_APP
             dvTextBox.Enabled = false;
             csTextBox.Enabled = false;
 
-            bellButton.Image = Image.FromFile(@"..\\..\\icon\\notice.png");
+            bellButton.Image = System.Drawing.Image.FromFile(@"..\\..\\icon\\notice.png");
             bellButton.ImageAlign = ContentAlignment.MiddleCenter;
             InitializeNotificationPanel();
             LoadNotifications();
@@ -73,14 +75,17 @@ namespace ATBM_APP
         private void InitializeNotificationPanel()
         {
             notificationPanel = new FlowLayoutPanel();
-            notificationPanel.WrapContents = true; // Cho phép xuống dòng
-            notificationPanel.AutoScroll = true;
+            notificationPanel.WrapContents = false;
             notificationPanel.FlowDirection = FlowDirection.TopDown;
             notificationPanel.BorderStyle = BorderStyle.FixedSingle;
-            notificationPanel.Visible = false; // Ẩn panel ban đầu
-            notificationPanel.Size = new Size(250, 300);
+            notificationPanel.Visible = false; 
+            notificationPanel.Size = new Size(230, 300);
             this.Controls.Add(notificationPanel);
-            notificationPanel.BringToFront(); // Đưa panel lên phía trước các control khác
+            notificationPanel.BringToFront(); 
+
+            notificationPanel.HorizontalScroll.Enabled = false;
+            notificationPanel.HorizontalScroll.Visible = false;
+            notificationPanel.AutoScroll = true;
         }
         private void LoadNotifications()
         {
@@ -94,29 +99,37 @@ namespace ATBM_APP
                 {
                     OracleCommand command = new OracleCommand(query, connection);
                     connection.Open();
-                    OracleDataReader reader = command.ExecuteReader();
                     int totalHeight = 0;
+                    OracleDataReader reader = command.ExecuteReader();
+                    Font font = new Font("Microsoft Sans Serif", 8);
                     while (reader.Read())
                     {
                         string notificationText = reader["NOIDUNG"].ToString();
                         Label label = new Label();
                         label.Text = notificationText;
+                        label.Width = 200;
 
-                        label.Width = 220; // Chiều rộng cố định của label
-                        label.AutoSize = true;
-                        label.MaximumSize = new Size(notificationPanel.Width - 50, 0);
-                        label.BorderStyle = BorderStyle.FixedSingle; // Thêm khung cho mỗi label
-                        label.Padding = new Padding(5); // Thêm khoảng cách bên trong khung
-                        label.Margin = new Padding(4); // Thêm khoảng cách giữa các label
+                        using (Graphics g = notificationPanel.CreateGraphics())
+                        {
+                            SizeF size = g.MeasureString(notificationText, font);
+                            float textWidth = size.Width;
+                            label.Height = (((int)textWidth / label.Width) + 1) * 20;
+                        }
+
+                        label.AutoSize = false;
+
+                        label.BorderStyle = BorderStyle.FixedSingle;
+                        label.Padding = new Padding(5);
+                        label.Margin = new Padding(4);
                         label.BackColor = Color.White;
                         notificationPanel.Controls.Add(label);
-                        totalHeight += label.PreferredSize.Height + label.Margin.Vertical;
+                        totalHeight += label.Height + label.Margin.Vertical;
                     }
 
                     reader.Close();
                     totalHeight += notificationPanel.Padding.Vertical;
-                    int panelHeight = Math.Min(totalHeight, 292); // Giới hạn chiều cao tối đa của panel
-                    notificationPanel.Size = new Size(notificationPanel.Width - 20, panelHeight + 8);
+                    int panelHeight = Math.Min(totalHeight, 292);
+                    notificationPanel.Size = new Size(notificationPanel.Width, panelHeight + 8);
                 }
             }
             catch (Exception ex)
@@ -382,7 +395,7 @@ namespace ATBM_APP
             gvTabControl.SelectedTab = svTabPage;
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT HOTEN FROM ADMIN.NHANSU WHERE MANV = :MANHANVIEN", conn))
+                using (OracleCommand cmd = new OracleCommand("SELECT HOTEN FROM ADMIN.view_decrypted_nhansu WHERE MANV = :MANHANVIEN", conn))
                 {
                     cmd.Parameters.Add(new OracleParameter("MANHANVIEN", Account.username));
                     try
@@ -438,7 +451,7 @@ namespace ATBM_APP
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {
                 // Khai báo câu lệnh SQL
-                string query = "SELECT MANV FROM ADMIN.NHANSU ns JOIN ADMIN.DONVI dv ON ns.MADV = dv.MADV WHERE dv.TRGDV = :TRUONGDV";
+                string query = "SELECT MANV FROM ADMIN.view_decrypted_nhansu ns JOIN ADMIN.DONVI dv ON ns.MADV = dv.MADV WHERE dv.TRGDV = :TRUONGDV";
 
                 using (OracleCommand cmd = new OracleCommand(query, conn))
                 {
@@ -672,7 +685,7 @@ namespace ATBM_APP
                         conn.Open();
 
                         // Truy vấn HOTEN từ ADMIN.NHANSU
-                        using (OracleCommand cmd1 = new OracleCommand("SELECT HOTEN FROM ADMIN.NHANSU WHERE MANV = :MANHANVIEN", conn))
+                        using (OracleCommand cmd1 = new OracleCommand("SELECT HOTEN FROM ADMIN.view_decrypted_nhansu WHERE MANV = :MANHANVIEN", conn))
                         {
                             cmd1.Parameters.Add(new OracleParameter("MANHANVIEN", magvPCComboBox.Text));
                             using (OracleDataReader reader1 = cmd1.ExecuteReader())
@@ -809,7 +822,7 @@ namespace ATBM_APP
         {
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT HOTEN FROM ADMIN.NHANSU WHERE MANV = :MANHANVIEN", conn))
+                using (OracleCommand cmd = new OracleCommand("SELECT HOTEN FROM ADMIN.view_decrypted_nhansu WHERE MANV = :MANHANVIEN", conn))
                 {
 
                     cmd.Parameters.Add(new OracleParameter("MANHANVIEN", magvPCComboBox.Text));
@@ -986,6 +999,7 @@ namespace ATBM_APP
                 string ht = hotenTextBox.Text;
                 string phai = gtTextBox.Text;
                 string ns = nsTextBox.Text;
+                string pc = pcTextBox.Text;
                 
                 string sdt = sdtTextBox.Text;
                 string cv = cvTextBox.Text;
@@ -1004,13 +1018,10 @@ namespace ATBM_APP
                         "                                                                   COSO = :COSO " +
                         "                                                                      WHERE MANV = :MANHANVIEN", conn))
                     {
-                        cmd.BindByName = true;
-                        double pc = double.Parse(pcTextBox.Text);
-                        cmd.Parameters.Add(new OracleParameter("PHUCAP", pc));
-
                         //cmd.Parameters.Add(new OracleParameter("NGSINH", OracleDbType.Date)).Value = ns;
                         cmd.Parameters.Add(new OracleParameter("NGSINH", ns));
                         cmd.Parameters.Add(new OracleParameter("MANV", maNV));
+                        cmd.Parameters.Add(new OracleParameter("PHUCAP", pc));
                         cmd.Parameters.Add(new OracleParameter("HOTEN", OracleDbType.NVarchar2)).Value = ht;
                         cmd.Parameters.Add(new OracleParameter("PHAI", OracleDbType.NVarchar2)).Value = phai;
                         
@@ -1074,7 +1085,7 @@ namespace ATBM_APP
         {
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT MANV, HOTEN, PHAI, NGSINH, DT, VAITRO, MADV, COSO FROM ADMIN.NHANSU", conn))
+                using (OracleCommand cmd = new OracleCommand("SELECT MANV, HOTEN, PHAI, NGSINH, DT, VAITRO, MADV, COSO FROM ADMIN.view_decrypted_nhansu", conn))
                 {
                     try
                     {
@@ -1112,7 +1123,7 @@ namespace ATBM_APP
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {//Khai báo câu lệnh SQL sử dụng
                 string manv = manvTextBox.Text;
-                string query = $"SELECT PHUCAP FROM ADMIN.NHANSU WHERE MANV = '{manv}'";
+                string query = $"SELECT PHUCAP FROM ADMIN.view_decrypted_nhansu WHERE MANV = '{manv}'";
                 using (OracleCommand cmd = new OracleCommand(query, conn))
                 {
 

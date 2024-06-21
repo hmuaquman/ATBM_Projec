@@ -51,14 +51,17 @@ namespace ATBM_APP
         private void InitializeNotificationPanel()
         {
             notificationPanel = new FlowLayoutPanel();
-            notificationPanel.WrapContents = true; // Cho phép xuống dòng
-            notificationPanel.AutoScroll = true;
+            notificationPanel.WrapContents = false;
             notificationPanel.FlowDirection = FlowDirection.TopDown;
             notificationPanel.BorderStyle = BorderStyle.FixedSingle;
-            notificationPanel.Visible = false; // Ẩn panel ban đầu
-            notificationPanel.Size = new Size(250, 300);
+            notificationPanel.Visible = false;
+            notificationPanel.Size = new Size(230, 300);
             this.Controls.Add(notificationPanel);
-            notificationPanel.BringToFront(); // Đưa panel lên phía trước các control khác
+            notificationPanel.BringToFront();
+
+            notificationPanel.HorizontalScroll.Enabled = false;
+            notificationPanel.HorizontalScroll.Visible = false;
+            notificationPanel.AutoScroll = true;
         }
         private void LoadNotifications()
         {
@@ -74,27 +77,35 @@ namespace ATBM_APP
                     connection.Open();
                     OracleDataReader reader = command.ExecuteReader();
                     int totalHeight = 0;
+                    Font font = new Font("Microsoft Sans Serif", 8);
                     while (reader.Read())
                     {
                         string notificationText = reader["NOIDUNG"].ToString();
                         Label label = new Label();
                         label.Text = notificationText;
+                        label.Width = 200;
 
-                        label.Width = 220; // Chiều rộng cố định của label
-                        label.AutoSize = true;
-                        label.MaximumSize = new Size(notificationPanel.Width - 50, 0);
-                        label.BorderStyle = BorderStyle.FixedSingle; // Thêm khung cho mỗi label
-                        label.Padding = new Padding(5); // Thêm khoảng cách bên trong khung
-                        label.Margin = new Padding(4); // Thêm khoảng cách giữa các label
+                        using (Graphics g = notificationPanel.CreateGraphics())
+                        {
+                            SizeF size = g.MeasureString(notificationText, font);
+                            float textWidth = size.Width;
+                            label.Height = (((int)textWidth / label.Width) + 1) * 20;
+                        }
+
+                        label.AutoSize = false;
+
+                        label.BorderStyle = BorderStyle.FixedSingle;
+                        label.Padding = new Padding(5);
+                        label.Margin = new Padding(4);
                         label.BackColor = Color.White;
                         notificationPanel.Controls.Add(label);
-                        totalHeight += label.PreferredSize.Height + label.Margin.Vertical;
+                        totalHeight += label.Height + label.Margin.Vertical;
                     }
 
                     reader.Close();
                     totalHeight += notificationPanel.Padding.Vertical;
-                    int panelHeight = Math.Min(totalHeight, 292); // Giới hạn chiều cao tối đa của panel
-                    notificationPanel.Size = new Size(notificationPanel.Width - 20, panelHeight + 8);
+                    int panelHeight = Math.Min(totalHeight, 292);
+                    notificationPanel.Size = new Size(notificationPanel.Width, panelHeight + 8);
                 }
             }
             catch (Exception ex)
@@ -105,8 +116,6 @@ namespace ATBM_APP
 
         private void bellButton_Click(object sender, EventArgs e)
         {
-            //Point menuLocation = new Point(icon.Left - 82, icon.Bottom);
-            //menu.Show(this, menuLocation);
             notificationPanel.Location = new Point(bellButton.Left - 192, bellButton.Bottom);
             notificationPanel.Visible = !notificationPanel.Visible;
         }

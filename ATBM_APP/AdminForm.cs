@@ -616,9 +616,10 @@ namespace ATBM_APP
         {
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN AND AUDIT_TYPE = :TYPE", conn))
+                using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN AND UNIFIED_AUDIT_POLICIES != :UAP AND AUDIT_TYPE = :TYPE ORDER BY EVENT_TIMESTAMP DESC", conn))
                 {
                     cmd.Parameters.Add(new OracleParameter("ADMIN", "ADMIN"));
+                    cmd.Parameters.Add(new OracleParameter("UAP", "ORA_SECURECONFIG"));
                     cmd.Parameters.Add(new OracleParameter("TYPE", "Standard"));
                     try
                     {
@@ -690,10 +691,11 @@ namespace ATBM_APP
             {
                 using (OracleConnection conn = new OracleConnection(Account.connectString))
                 {//Khai báo câu lệnh SQL sử dụng
-                    using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN AND AUDIT_TYPE = :TYPE  AND INSTR(DBUSERNAME,:MA) > 0", conn))
+                    using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN AND AUDIT_TYPE = :TYPE AND UNIFIED_AUDIT_POLICIES != :UAP  AND INSTR(DBUSERNAME,:MA) > 0 ORDER BY EVENT_TIMESTAMP DESC", conn))
                     {
                         cmd.Parameters.Add(new OracleParameter("ADMIN", "ADMIN"));
                         cmd.Parameters.Add(new OracleParameter("TYPE", "Standard"));
+                        cmd.Parameters.Add(new OracleParameter("UAP", "ORA_SECURECONFIG"));
                         cmd.Parameters.Add(new OracleParameter("MA", saauditSearchTextBox.Text));
                         try
                         {
@@ -718,7 +720,7 @@ namespace ATBM_APP
         {
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN AND AUDIT_TYPE = :TYPE AND FGA_POLICY_NAME = :FGA", conn))
+                using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN AND AUDIT_TYPE = :TYPE AND FGA_POLICY_NAME = :FGA ORDER BY EVENT_TIMESTAMP DESC", conn))
                 {
                     cmd.Parameters.Add(new OracleParameter("ADMIN", "ADMIN"));
                     cmd.Parameters.Add(new OracleParameter("TYPE", "FineGrainedAudit"));
@@ -746,7 +748,7 @@ namespace ATBM_APP
         {
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN AND AUDIT_TYPE = :TYPE AND FGA_POLICY_NAME = :FGA", conn))
+                using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN AND AUDIT_TYPE = :TYPE AND FGA_POLICY_NAME = :FGA ORDER BY EVENT_TIMESTAMP DESC", conn))
                 {
                     cmd.Parameters.Add(new OracleParameter("ADMIN", "ADMIN"));
                     cmd.Parameters.Add(new OracleParameter("TYPE", "FineGrainedAudit"));
@@ -786,7 +788,7 @@ namespace ATBM_APP
             {
                 using (OracleConnection conn = new OracleConnection(Account.connectString))
                 {//Khai báo câu lệnh SQL sử dụng
-                    using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN AND AUDIT_TYPE = :TYPE AND FGA_POLICY_NAME = :FGA AND INSTR(DBUSERNAME,:MA) > 0", conn))
+                    using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN AND AUDIT_TYPE = :TYPE AND FGA_POLICY_NAME = :FGA AND INSTR(DBUSERNAME,:MA) > 0 ORDER BY EVENT_TIMESTAMP DESC", conn))
                     {
                         cmd.Parameters.Add(new OracleParameter("MA", fgaDKSearchTextBox.Text));
                         cmd.Parameters.Add(new OracleParameter("ADMIN", "ADMIN"));
@@ -822,7 +824,7 @@ namespace ATBM_APP
             {
                 using (OracleConnection conn = new OracleConnection(Account.connectString))
                 {//Khai báo câu lệnh SQL sử dụng
-                    using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN AND AUDIT_TYPE = :TYPE AND FGA_POLICY_NAME = :FGA AND INSTR(DBUSERNAME,:MA) > 0", conn))
+                    using (OracleCommand cmd = new OracleCommand("SELECT DBUSERNAME, ACTION_NAME, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP, SQL_TEXT FROM UNIFIED_AUDIT_TRAIL WHERE OBJECT_SCHEMA = :ADMIN AND AUDIT_TYPE = :TYPE AND FGA_POLICY_NAME = :FGA AND INSTR(DBUSERNAME,:MA) > 0 ORDER BY EVENT_TIMESTAMP DESC", conn))
                     {
                         cmd.Parameters.Add(new OracleParameter("MA", fgaPCSearchTextBox.Text));
                         cmd.Parameters.Add(new OracleParameter("ADMIN", "ADMIN"));

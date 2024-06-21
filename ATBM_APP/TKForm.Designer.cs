@@ -91,6 +91,9 @@
             this.msvLabel = new System.Windows.Forms.Label();
             this.dkGridView = new System.Windows.Forms.DataGridView();
             this.nsTabPage = new System.Windows.Forms.TabPage();
+            this.viewpcapButton = new System.Windows.Forms.Button();
+            this.csLabel = new System.Windows.Forms.Label();
+            this.csTextBox = new System.Windows.Forms.TextBox();
             this.delNSButton = new System.Windows.Forms.Button();
             this.editNSButton = new System.Windows.Forms.Button();
             this.saveNSButton = new System.Windows.Forms.Button();
@@ -126,9 +129,6 @@
             this.temp5 = new System.Windows.Forms.Label();
             this.bellButton = new System.Windows.Forms.Button();
             this.notificationPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.csLabel = new System.Windows.Forms.Label();
-            this.csTextBox = new System.Windows.Forms.TextBox();
-            this.viewpcapButton = new System.Windows.Forms.Button();
             this.pcTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcGridView)).BeginInit();
             this.svTabPage.SuspendLayout();
@@ -836,6 +836,35 @@
             this.nsTabPage.UseVisualStyleBackColor = true;
             this.nsTabPage.Enter += new System.EventHandler(this.nsTabPage_Enter);
             // 
+            // viewpcapButton
+            // 
+            this.viewpcapButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.viewpcapButton.Location = new System.Drawing.Point(650, 312);
+            this.viewpcapButton.Name = "viewpcapButton";
+            this.viewpcapButton.Size = new System.Drawing.Size(70, 26);
+            this.viewpcapButton.TabIndex = 43;
+            this.viewpcapButton.Text = "Xem";
+            this.viewpcapButton.UseVisualStyleBackColor = true;
+            this.viewpcapButton.Click += new System.EventHandler(this.viewpcapButton_Click);
+            // 
+            // csLabel
+            // 
+            this.csLabel.AutoSize = true;
+            this.csLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.csLabel.Location = new System.Drawing.Point(798, 225);
+            this.csLabel.Name = "csLabel";
+            this.csLabel.Size = new System.Drawing.Size(53, 20);
+            this.csLabel.TabIndex = 42;
+            this.csLabel.Text = "Cơ sở";
+            // 
+            // csTextBox
+            // 
+            this.csTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.csTextBox.Location = new System.Drawing.Point(802, 248);
+            this.csTextBox.Name = "csTextBox";
+            this.csTextBox.Size = new System.Drawing.Size(111, 26);
+            this.csTextBox.TabIndex = 41;
+            // 
             // delNSButton
             // 
             this.delNSButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
@@ -1165,35 +1194,6 @@
             this.notificationPanel.Name = "notificationPanel";
             this.notificationPanel.Size = new System.Drawing.Size(200, 100);
             this.notificationPanel.TabIndex = 21;
-            // 
-            // csLabel
-            // 
-            this.csLabel.AutoSize = true;
-            this.csLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.csLabel.Location = new System.Drawing.Point(798, 225);
-            this.csLabel.Name = "csLabel";
-            this.csLabel.Size = new System.Drawing.Size(53, 20);
-            this.csLabel.TabIndex = 42;
-            this.csLabel.Text = "Cơ sở";
-            // 
-            // csTextBox
-            // 
-            this.csTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.csTextBox.Location = new System.Drawing.Point(802, 248);
-            this.csTextBox.Name = "csTextBox";
-            this.csTextBox.Size = new System.Drawing.Size(111, 26);
-            this.csTextBox.TabIndex = 41;
-            // 
-            // viewpcapButton
-            // 
-            this.viewpcapButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.viewpcapButton.Location = new System.Drawing.Point(650, 312);
-            this.viewpcapButton.Name = "viewpcapButton";
-            this.viewpcapButton.Size = new System.Drawing.Size(70, 26);
-            this.viewpcapButton.TabIndex = 43;
-            this.viewpcapButton.Text = "Xem";
-            this.viewpcapButton.UseVisualStyleBackColor = true;
-            this.viewpcapButton.Click += new System.EventHandler(this.viewpcapButton_Click);
             // 
             // TKForm
             // 
