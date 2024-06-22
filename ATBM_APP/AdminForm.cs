@@ -644,7 +644,7 @@ namespace ATBM_APP
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {
                 // Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("BEGIN USP_ENABLE_TABLE_AUDIT_POLICY; END;", conn))
+                using (OracleCommand cmd = new OracleCommand("BEGIN USP_ENABLE_TABLE_AUDIT_POLICY; USP_ENABLE_PROCEDURE_AUDIT_POLICY; END;", conn))
                 {
                     try
                     {
@@ -664,7 +664,7 @@ namespace ATBM_APP
         {
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("BEGIN USP_DISABLE_TABLE_AUDIT_POLICY; END;", conn))
+                using (OracleCommand cmd = new OracleCommand("BEGIN USP_DISABLE_TABLE_AUDIT_POLICY; USP_DISABLE_TABLE_AUDIT_POLICY; END;", conn))
                 {
                     try
                     {

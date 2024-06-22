@@ -55,15 +55,6 @@
             this.roleRLLabel = new System.Windows.Forms.Label();
             this.userRLTextBox = new System.Windows.Forms.TextBox();
             this.roleRLTextBox = new System.Windows.Forms.TextBox();
-            this.userGridView = new System.Windows.Forms.DataGridView();
-            this.userTabPage = new System.Windows.Forms.TabPage();
-            this.createUsButton = new System.Windows.Forms.Button();
-            this.dropUsButton = new System.Windows.Forms.Button();
-            this.changePassButtton = new System.Windows.Forms.Button();
-            this.pwUSLabel = new System.Windows.Forms.Label();
-            this.usrUSLabel = new System.Windows.Forms.Label();
-            this.pwUSTextBox = new System.Windows.Forms.TextBox();
-            this.usrUSTextBox = new System.Windows.Forms.TextBox();
             this.saTabPage = new System.Windows.Forms.TabPage();
             this.usrSALabel = new System.Windows.Forms.Label();
             this.saauditSearchTextBox = new System.Windows.Forms.TextBox();
@@ -83,14 +74,20 @@
             this.fgausrDKLabel = new System.Windows.Forms.Label();
             this.fgaDKSearchTextBox = new System.Windows.Forms.TextBox();
             this.fgadkGridView = new System.Windows.Forms.DataGridView();
-            this.noticeTabPage = new System.Windows.Forms.TabPage();
+            this.userGridView = new System.Windows.Forms.DataGridView();
+            this.usrUSTextBox = new System.Windows.Forms.TextBox();
+            this.pwUSTextBox = new System.Windows.Forms.TextBox();
+            this.usrUSLabel = new System.Windows.Forms.Label();
+            this.pwUSLabel = new System.Windows.Forms.Label();
+            this.changePassButtton = new System.Windows.Forms.Button();
+            this.dropUsButton = new System.Windows.Forms.Button();
+            this.createUsButton = new System.Windows.Forms.Button();
+            this.userTabPage = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.saGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.privGridView)).BeginInit();
             this.privTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roleGridView)).BeginInit();
             this.roleTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userGridView)).BeginInit();
-            this.userTabPage.SuspendLayout();
             this.saTabPage.SuspendLayout();
             this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon)).BeginInit();
@@ -99,6 +96,8 @@
             this.fgaTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fgapcnsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fgadkGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userGridView)).BeginInit();
+            this.userTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // saGridView
@@ -405,104 +404,6 @@
             this.roleRLTextBox.Size = new System.Drawing.Size(122, 28);
             this.roleRLTextBox.TabIndex = 17;
             // 
-            // userGridView
-            // 
-            this.userGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.userGridView.Location = new System.Drawing.Point(23, 19);
-            this.userGridView.Name = "userGridView";
-            this.userGridView.RowHeadersWidth = 51;
-            this.userGridView.RowTemplate.Height = 24;
-            this.userGridView.Size = new System.Drawing.Size(707, 384);
-            this.userGridView.TabIndex = 2;
-            // 
-            // userTabPage
-            // 
-            this.userTabPage.Controls.Add(this.createUsButton);
-            this.userTabPage.Controls.Add(this.dropUsButton);
-            this.userTabPage.Controls.Add(this.changePassButtton);
-            this.userTabPage.Controls.Add(this.pwUSLabel);
-            this.userTabPage.Controls.Add(this.usrUSLabel);
-            this.userTabPage.Controls.Add(this.pwUSTextBox);
-            this.userTabPage.Controls.Add(this.usrUSTextBox);
-            this.userTabPage.Controls.Add(this.userGridView);
-            this.userTabPage.Location = new System.Drawing.Point(4, 27);
-            this.userTabPage.Name = "userTabPage";
-            this.userTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.userTabPage.Size = new System.Drawing.Size(936, 449);
-            this.userTabPage.TabIndex = 0;
-            this.userTabPage.Text = "User";
-            this.userTabPage.UseVisualStyleBackColor = true;
-            this.userTabPage.Enter += new System.EventHandler(this.userTabPage_Enter);
-            // 
-            // createUsButton
-            // 
-            this.createUsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.createUsButton.Location = new System.Drawing.Point(751, 176);
-            this.createUsButton.Name = "createUsButton";
-            this.createUsButton.Size = new System.Drawing.Size(159, 39);
-            this.createUsButton.TabIndex = 17;
-            this.createUsButton.Text = "Create User";
-            this.createUsButton.UseVisualStyleBackColor = true;
-            this.createUsButton.Click += new System.EventHandler(this.createUsButton_Click);
-            // 
-            // dropUsButton
-            // 
-            this.dropUsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dropUsButton.Location = new System.Drawing.Point(751, 246);
-            this.dropUsButton.Name = "dropUsButton";
-            this.dropUsButton.Size = new System.Drawing.Size(159, 39);
-            this.dropUsButton.TabIndex = 16;
-            this.dropUsButton.Text = "Drop User";
-            this.dropUsButton.UseVisualStyleBackColor = true;
-            this.dropUsButton.Click += new System.EventHandler(this.dropUsButton_Click);
-            // 
-            // changePassButtton
-            // 
-            this.changePassButtton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.changePassButtton.Location = new System.Drawing.Point(751, 316);
-            this.changePassButtton.Name = "changePassButtton";
-            this.changePassButtton.Size = new System.Drawing.Size(159, 39);
-            this.changePassButtton.TabIndex = 15;
-            this.changePassButtton.Text = "Change Password";
-            this.changePassButtton.UseVisualStyleBackColor = true;
-            this.changePassButtton.Click += new System.EventHandler(this.changePassButtton_Click);
-            // 
-            // pwUSLabel
-            // 
-            this.pwUSLabel.AutoSize = true;
-            this.pwUSLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.pwUSLabel.Location = new System.Drawing.Point(752, 96);
-            this.pwUSLabel.Name = "pwUSLabel";
-            this.pwUSLabel.Size = new System.Drawing.Size(83, 20);
-            this.pwUSLabel.TabIndex = 14;
-            this.pwUSLabel.Text = "Password";
-            // 
-            // usrUSLabel
-            // 
-            this.usrUSLabel.AutoSize = true;
-            this.usrUSLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.usrUSLabel.Location = new System.Drawing.Point(749, 38);
-            this.usrUSLabel.Name = "usrUSLabel";
-            this.usrUSLabel.Size = new System.Drawing.Size(86, 20);
-            this.usrUSLabel.TabIndex = 13;
-            this.usrUSLabel.Text = "Username";
-            // 
-            // pwUSTextBox
-            // 
-            this.pwUSTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.pwUSTextBox.Location = new System.Drawing.Point(752, 128);
-            this.pwUSTextBox.Name = "pwUSTextBox";
-            this.pwUSTextBox.Size = new System.Drawing.Size(158, 28);
-            this.pwUSTextBox.TabIndex = 12;
-            // 
-            // usrUSTextBox
-            // 
-            this.usrUSTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.usrUSTextBox.Location = new System.Drawing.Point(753, 61);
-            this.usrUSTextBox.Name = "usrUSTextBox";
-            this.usrUSTextBox.Size = new System.Drawing.Size(158, 28);
-            this.usrUSTextBox.TabIndex = 11;
-            // 
             // saTabPage
             // 
             this.saTabPage.Controls.Add(this.usrSALabel);
@@ -617,7 +518,6 @@
             this.admTabControl.Controls.Add(this.privTabPage);
             this.admTabControl.Controls.Add(this.saTabPage);
             this.admTabControl.Controls.Add(this.fgaTabPage);
-            this.admTabControl.Controls.Add(this.noticeTabPage);
             this.admTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.admTabControl.Location = new System.Drawing.Point(16, 129);
             this.admTabControl.Name = "admTabControl";
@@ -696,15 +596,101 @@
             this.fgadkGridView.Size = new System.Drawing.Size(888, 158);
             this.fgadkGridView.TabIndex = 7;
             // 
-            // noticeTabPage
+            // userGridView
             // 
-            this.noticeTabPage.Location = new System.Drawing.Point(4, 27);
-            this.noticeTabPage.Name = "noticeTabPage";
-            this.noticeTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.noticeTabPage.Size = new System.Drawing.Size(936, 449);
-            this.noticeTabPage.TabIndex = 4;
-            this.noticeTabPage.Text = "Thông báo";
-            this.noticeTabPage.UseVisualStyleBackColor = true;
+            this.userGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userGridView.Location = new System.Drawing.Point(23, 19);
+            this.userGridView.Name = "userGridView";
+            this.userGridView.RowHeadersWidth = 51;
+            this.userGridView.RowTemplate.Height = 24;
+            this.userGridView.Size = new System.Drawing.Size(707, 384);
+            this.userGridView.TabIndex = 2;
+            // 
+            // usrUSTextBox
+            // 
+            this.usrUSTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.usrUSTextBox.Location = new System.Drawing.Point(753, 61);
+            this.usrUSTextBox.Name = "usrUSTextBox";
+            this.usrUSTextBox.Size = new System.Drawing.Size(158, 28);
+            this.usrUSTextBox.TabIndex = 11;
+            // 
+            // pwUSTextBox
+            // 
+            this.pwUSTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.pwUSTextBox.Location = new System.Drawing.Point(752, 128);
+            this.pwUSTextBox.Name = "pwUSTextBox";
+            this.pwUSTextBox.Size = new System.Drawing.Size(158, 28);
+            this.pwUSTextBox.TabIndex = 12;
+            // 
+            // usrUSLabel
+            // 
+            this.usrUSLabel.AutoSize = true;
+            this.usrUSLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.usrUSLabel.Location = new System.Drawing.Point(749, 38);
+            this.usrUSLabel.Name = "usrUSLabel";
+            this.usrUSLabel.Size = new System.Drawing.Size(0, 20);
+            this.usrUSLabel.TabIndex = 13;
+            // 
+            // pwUSLabel
+            // 
+            this.pwUSLabel.AutoSize = true;
+            this.pwUSLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.pwUSLabel.Location = new System.Drawing.Point(752, 96);
+            this.pwUSLabel.Name = "pwUSLabel";
+            this.pwUSLabel.Size = new System.Drawing.Size(0, 20);
+            this.pwUSLabel.TabIndex = 14;
+            // 
+            // changePassButtton
+            // 
+            this.changePassButtton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.changePassButtton.Location = new System.Drawing.Point(751, 316);
+            this.changePassButtton.Name = "changePassButtton";
+            this.changePassButtton.Size = new System.Drawing.Size(159, 39);
+            this.changePassButtton.TabIndex = 15;
+            this.changePassButtton.Text = "Change Password";
+            this.changePassButtton.UseVisualStyleBackColor = true;
+            this.changePassButtton.Click += new System.EventHandler(this.changePassButtton_Click);
+            // 
+            // dropUsButton
+            // 
+            this.dropUsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.dropUsButton.Location = new System.Drawing.Point(751, 246);
+            this.dropUsButton.Name = "dropUsButton";
+            this.dropUsButton.Size = new System.Drawing.Size(159, 39);
+            this.dropUsButton.TabIndex = 16;
+            this.dropUsButton.Text = "Drop User";
+            this.dropUsButton.UseVisualStyleBackColor = true;
+            this.dropUsButton.Click += new System.EventHandler(this.dropUsButton_Click);
+            // 
+            // createUsButton
+            // 
+            this.createUsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.createUsButton.Location = new System.Drawing.Point(751, 176);
+            this.createUsButton.Name = "createUsButton";
+            this.createUsButton.Size = new System.Drawing.Size(159, 39);
+            this.createUsButton.TabIndex = 17;
+            this.createUsButton.Text = "Create User";
+            this.createUsButton.UseVisualStyleBackColor = true;
+            this.createUsButton.Click += new System.EventHandler(this.createUsButton_Click);
+            // 
+            // userTabPage
+            // 
+            this.userTabPage.Controls.Add(this.createUsButton);
+            this.userTabPage.Controls.Add(this.dropUsButton);
+            this.userTabPage.Controls.Add(this.changePassButtton);
+            this.userTabPage.Controls.Add(this.pwUSLabel);
+            this.userTabPage.Controls.Add(this.usrUSLabel);
+            this.userTabPage.Controls.Add(this.pwUSTextBox);
+            this.userTabPage.Controls.Add(this.usrUSTextBox);
+            this.userTabPage.Controls.Add(this.userGridView);
+            this.userTabPage.Location = new System.Drawing.Point(4, 27);
+            this.userTabPage.Name = "userTabPage";
+            this.userTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.userTabPage.Size = new System.Drawing.Size(936, 449);
+            this.userTabPage.TabIndex = 0;
+            this.userTabPage.Text = "User";
+            this.userTabPage.UseVisualStyleBackColor = true;
+            this.userTabPage.Enter += new System.EventHandler(this.userTabPage_Enter);
             // 
             // AdminForm
             // 
@@ -726,9 +712,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.roleGridView)).EndInit();
             this.roleTabPage.ResumeLayout(false);
             this.roleTabPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userGridView)).EndInit();
-            this.userTabPage.ResumeLayout(false);
-            this.userTabPage.PerformLayout();
             this.saTabPage.ResumeLayout(false);
             this.saTabPage.PerformLayout();
             this.menu.ResumeLayout(false);
@@ -739,6 +722,9 @@
             this.fgaTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fgapcnsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fgadkGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userGridView)).EndInit();
+            this.userTabPage.ResumeLayout(false);
+            this.userTabPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -751,8 +737,6 @@
         private System.Windows.Forms.TabPage privTabPage;
         private System.Windows.Forms.DataGridView roleGridView;
         private System.Windows.Forms.TabPage roleTabPage;
-        private System.Windows.Forms.DataGridView userGridView;
-        private System.Windows.Forms.TabPage userTabPage;
         private System.Windows.Forms.TabPage saTabPage;
         private System.Windows.Forms.Label helloLabel;
         private System.Windows.Forms.ToolStripMenuItem logoutItem;
@@ -761,14 +745,6 @@
         private System.Windows.Forms.PictureBox icon;
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.TabControl admTabControl;
-        private System.Windows.Forms.TabPage noticeTabPage;
-        private System.Windows.Forms.Button createUsButton;
-        private System.Windows.Forms.Button dropUsButton;
-        private System.Windows.Forms.Button changePassButtton;
-        private System.Windows.Forms.Label pwUSLabel;
-        private System.Windows.Forms.Label usrUSLabel;
-        private System.Windows.Forms.TextBox pwUSTextBox;
-        private System.Windows.Forms.TextBox usrUSTextBox;
         private System.Windows.Forms.Button checkRoleButton;
         private System.Windows.Forms.Button revokeRoleButton;
         private System.Windows.Forms.Button grantRoleButton;
@@ -801,5 +777,14 @@
         private System.Windows.Forms.Label fgausrPCLabel;
         private System.Windows.Forms.TextBox fgaPCSearchTextBox;
         private System.Windows.Forms.DataGridView fgapcnsGridView;
+        private System.Windows.Forms.TabPage userTabPage;
+        private System.Windows.Forms.Button createUsButton;
+        private System.Windows.Forms.Button dropUsButton;
+        private System.Windows.Forms.Button changePassButtton;
+        private System.Windows.Forms.Label pwUSLabel;
+        private System.Windows.Forms.Label usrUSLabel;
+        private System.Windows.Forms.TextBox pwUSTextBox;
+        private System.Windows.Forms.TextBox usrUSTextBox;
+        private System.Windows.Forms.DataGridView userGridView;
     }
 }
