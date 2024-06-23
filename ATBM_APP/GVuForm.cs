@@ -625,126 +625,56 @@ namespace ATBM_APP
 
         private void svTabPage_Enter(object sender, EventArgs e)
         {
-            using (OracleConnection conn = new OracleConnection(Account.connectString))
-            {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT * FROM ADMIN.SINHVIEN", conn))
-                {
-                    try
-                    {
-                        //Mở kết nối
-                        conn.Open();
-                        using (OracleDataAdapter da = new OracleDataAdapter(cmd))
-                        {
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
-                            svGridView.DataSource = dt;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                }
+            LoadDataSV();
+            if (svGridView.Rows.Count > 0)
+            {
+                svGridView.Rows[0].Selected = true;
+                DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, 0);
+                svGridView_CellClick(svGridView, args);
             }
         }
 
         private void dvTabPage_Enter(object sender, EventArgs e)
         {
-            using (OracleConnection conn = new OracleConnection(Account.connectString))
-            {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT * FROM ADMIN.DONVI", conn))
-                {
-                    try
-                    {
-                        //Mở kết nối
-                        conn.Open();
-                        using (OracleDataAdapter da = new OracleDataAdapter(cmd))
-                        {
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
-                            dvGridView.DataSource = dt;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                }
+            LoadDataDV();
+            if (dvGridView.Rows.Count > 0)
+            {
+                dvGridView.Rows[0].Selected = true;
+                DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, 0);
+                dvGridView_CellClick(dvGridView, args);
             }
         }
 
         private void hpTabPage_Enter(object sender, EventArgs e)
         {
-            using (OracleConnection conn = new OracleConnection(Account.connectString))
-            {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT * FROM ADMIN.HOCPHAN", conn))
-                {
-                    try
-                    {
-                        //Mở kết nối
-                        conn.Open();
-                        using (OracleDataAdapter da = new OracleDataAdapter(cmd))
-                        {
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
-                            hpGridView.DataSource = dt;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                }
+            LoadDataHP();
+            if (hpGridView.Rows.Count > 0)
+            {
+                hpGridView.Rows[0].Selected = true;
+                DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, 0);
+                hpGridView_CellClick(hpGridView, args);
             }
         }
 
         private void khmoTabPage_Enter(object sender, EventArgs e)
         {
-            using (OracleConnection conn = new OracleConnection(Account.connectString))
-            {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT * FROM ADMIN.KHMO", conn))
-                {
-                    try
-                    {
-                        //Mở kết nối
-                        conn.Open();
-                        using (OracleDataAdapter da = new OracleDataAdapter(cmd))
-                        {
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
-                            khmoGridView.DataSource = dt;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                }
+            LoadDataKH();
+            if (khmoGridView.Rows.Count > 0)
+            {
+                khmoGridView.Rows[0].Selected = true;
+                DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, 0);
+                khmoGridView_CellClick(khmoGridView, args);
             }
         }
 
         private void pcTabPage_Enter(object sender, EventArgs e)
         {
-            using (OracleConnection conn = new OracleConnection(Account.connectString))
-            {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT * FROM ADMIN.PHANCONG", conn))
-                {
-                    try
-                    {
-                        //Mở kết nối
-                        conn.Open();
-                        using (OracleDataAdapter da = new OracleDataAdapter(cmd))
-                        {
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
-                            pcGridView.DataSource = dt;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                }
+            LoadDataPC();
+            if (pcGridView.Rows.Count > 0)
+            {
+                pcGridView.Rows[0].Selected = true;
+                DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, 0);
+                pcGridView_CellClick(pcGridView, args);
             }
         }
 
@@ -836,29 +766,29 @@ namespace ATBM_APP
                 temp3.Text = row.Cells["MADV"].Value.ToString();
                 tdvDVTextBox.Text = row.Cells["TENDV"].Value.ToString();
                 mtdvDVTextBox.Text = row.Cells["TRGDV"].Value.ToString();
-                using (OracleConnection conn = new OracleConnection(Account.connectString))
-                {
-                    using (OracleCommand cmd = new OracleCommand("SELECT HOTEN FROM ADMIN.NHANSU WHERE MANV = :MANHANVIEN", conn))
-                    {
+                //using (OracleConnection conn = new OracleConnection(Account.connectString))
+                //{
+                //    using (OracleCommand cmd = new OracleCommand("SELECT HOTEN FROM ADMIN.NHANSU WHERE MANV = :MANHANVIEN", conn))
+                //    {
 
-                        cmd.Parameters.Add(new OracleParameter("MANHANVIEN", mtdvDVTextBox.Text));
-                        try
-                        {
-                            conn.Open();
-                            using (OracleDataReader reader = cmd.ExecuteReader())
-                            {
-                                if (reader.Read())
-                                {
-                                    ttdvDVTextBox.Text = reader["HOTEN"].ToString();
-                                }
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
-                    }
-                }
+                //        cmd.Parameters.Add(new OracleParameter("MANHANVIEN", mtdvDVTextBox.Text));
+                //        try
+                //        {
+                //            conn.Open();
+                //            using (OracleDataReader reader = cmd.ExecuteReader())
+                //            {
+                //                if (reader.Read())
+                //                {
+                //                    ttdvDVTextBox.Text = reader["HOTEN"].ToString();
+                //                }
+                //            }
+                //        }
+                //        catch (Exception ex)
+                //        {
+                //            MessageBox.Show(ex.Message);
+                //        }
+                //    }
+                //}
             }
         }
         private void LoadDataDV()
@@ -1263,17 +1193,17 @@ namespace ATBM_APP
                         conn.Open();
 
                         // Truy vấn HOTEN từ ADMIN.NHANSU
-                        using (OracleCommand cmd1 = new OracleCommand("SELECT HOTEN FROM ADMIN.NHANSU WHERE MANV = :MANHANVIEN", conn))
-                        {
-                            cmd1.Parameters.Add(new OracleParameter("MANHANVIEN", magvPCComboBox.Text));
-                            using (OracleDataReader reader1 = cmd1.ExecuteReader())
-                            {
-                                if (reader1.Read())
-                                {
-                                    htgvPCTextBox.Text = reader1["HOTEN"].ToString();
-                                }
-                            }
-                        }
+                        //using (OracleCommand cmd1 = new OracleCommand("SELECT HOTEN FROM ADMIN.NHANSU WHERE MANV = :MANHANVIEN", conn))
+                        //{
+                        //    cmd1.Parameters.Add(new OracleParameter("MANHANVIEN", magvPCComboBox.Text));
+                        //    using (OracleDataReader reader1 = cmd1.ExecuteReader())
+                        //    {
+                        //        if (reader1.Read())
+                        //        {
+                        //            htgvPCTextBox.Text = reader1["HOTEN"].ToString();
+                        //        }
+                        //    }
+                        //}
 
                         // Truy vấn TENHP từ ADMIN.HOCPHAN
                         using (OracleCommand cmd2 = new OracleCommand("SELECT TENHP FROM ADMIN.HOCPHAN WHERE MAHP = :MAHOCPHAN", conn))

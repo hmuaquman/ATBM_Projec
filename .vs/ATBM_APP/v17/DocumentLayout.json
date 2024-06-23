@@ -1,0 +1,429 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "J:\\atbm_project\\ATBM_Project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|J:\\atbm_project\\ATBM_Project\\atbm_app\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|J:\\atbm_project\\ATBM_Project\\atbm_app\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|J:\\atbm_project\\ATBM_Project\\atbm_app\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|J:\\atbm_project\\ATBM_Project\\atbm_app\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|J:\\atbm_project\\ATBM_Project\\atbm_app\\gvuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\gvuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|J:\\atbm_project\\ATBM_Project\\atbm_app\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|j:\\atbm_project\\atbm_project\\atbm_app\\thempcform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\thempcform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|J:\\atbm_project\\ATBM_Project\\atbm_app\\ttsvform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\ttsvform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|J:\\atbm_project\\ATBM_Project\\atbm_app\\ttnvform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\ttnvform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|J:\\atbm_project\\ATBM_Project\\atbm_app\\tkform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\tkform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|J:\\atbm_project\\ATBM_Project\\atbm_app\\tkform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\tkform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|J:\\atbm_project\\ATBM_Project\\atbm_app\\themdvform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\themdvform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|J:\\atbm_project\\ATBM_Project\\atbm_app\\themdksvform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\themdksvform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|J:\\atbm_project\\ATBM_Project\\atbm_app\\themdkform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\themdkform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|J:\\atbm_project\\ATBM_Project\\atbm_app\\tdvform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\tdvform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|J:\\atbm_project\\ATBM_Project\\atbm_app\\svienform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\svienform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|J:\\atbm_project\\ATBM_Project\\atbm_app\\gvienform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\gvienform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|J:\\atbm_project\\ATBM_Project\\atbm_app\\gvienform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\gvienform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|J:\\atbm_project\\ATBM_Project\\atbm_app\\nvcbform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\nvcbform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|J:\\atbm_project\\ATBM_Project\\atbm_app\\gvienform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74CBDB12-1CD2-4E5D-9F75-DB037A689CCB}|ATBM_APP\\ATBM_APP.csproj|solutionrelative:atbm_app\\gvienform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|J:\\atbm_project\\ATBM_Project\\ATBM_APP\\Role.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ATBM_APP\\Role.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|J:\\atbm_project\\ATBM_Project\\ATBM_APP\\Role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ATBM_APP\\Role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|J:\\atbm_project\\ATBM_Project\\atbm_app\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:atbm_app\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|J:\\atbm_project\\ATBM_Project\\ATBM_APP\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ATBM_APP\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|J:\\atbm_project\\ATBM_Project\\atbm_app\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:atbm_app\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|J:\\atbm_project\\ATBM_Project\\ATBM_APP\\Privilege.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ATBM_APP\\Privilege.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|J:\\atbm_project\\ATBM_Project\\atbm_app\\privilege.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:atbm_app\\privilege.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ThemPCForm.cs [Design]",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\ThemPCForm.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\ThemPCForm.cs",
+              "ToolTip": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\ThemPCForm.cs [Design]",
+              "RelativeToolTip": "ATBM_APP\\ThemPCForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T03:31:45.035Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AdminForm.cs",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\AdminForm.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\AdminForm.cs",
+              "ToolTip": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\AdminForm.cs",
+              "RelativeToolTip": "ATBM_APP\\AdminForm.cs",
+              "ViewState": "AQIAALMCAAAAAAAAAAAcwMACAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T03:31:45.059Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GVuForm.cs [Design]",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\GVuForm.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\GVuForm.cs",
+              "ToolTip": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\GVuForm.cs [Design]",
+              "RelativeToolTip": "ATBM_APP\\GVuForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T03:31:45.061Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginForm.cs [Design]",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\LoginForm.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\LoginForm.cs",
+              "ToolTip": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\LoginForm.cs [Design]",
+              "RelativeToolTip": "ATBM_APP\\LoginForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T03:31:45.071Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoginForm.cs",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\LoginForm.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\LoginForm.cs",
+              "ToolTip": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\LoginForm.cs",
+              "RelativeToolTip": "ATBM_APP\\LoginForm.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T03:31:45.087Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\Program.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\Program.cs",
+              "ToolTip": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\Program.cs",
+              "RelativeToolTip": "ATBM_APP\\Program.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA0AAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T03:31:45.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminForm.cs [Design]",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\AdminForm.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\AdminForm.cs",
+              "ToolTip": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\AdminForm.cs [Design]",
+              "RelativeToolTip": "ATBM_APP\\AdminForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T03:31:45.075Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TKForm.cs [Design]",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\TKForm.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\TKForm.cs",
+              "ToolTip": "C:\\Users\\DAT TRONG\\OneDrive - VNU-HCMUS\\Desktop\\\u0110\u1ED2 \u00C1N\\ATBM_Project\\ATBM_APP\\TKForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-06-23T03:31:45.056Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TKForm.cs",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\TKForm.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\TKForm.cs",
+              "ToolTip": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\TKForm.cs",
+              "RelativeToolTip": "ATBM_APP\\TKForm.cs",
+              "ViewState": "AQIAACkBAAAAAAAAAAAkwDQBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-06-23T03:31:45.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "GVienForm.Designer.cs",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\GVienForm.Designer.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\GVienForm.Designer.cs",
+              "ToolTip": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\GVienForm.Designer.cs",
+              "RelativeToolTip": "ATBM_APP\\GVienForm.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T03:31:44.884Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TTNVForm.cs [Design]",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\TTNVForm.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\TTNVForm.cs",
+              "ToolTip": "C:\\Users\\DAT TRONG\\OneDrive - VNU-HCMUS\\Desktop\\\u0110\u1ED2 \u00C1N\\ATBM_Project\\ATBM_APP\\TTNVForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-06-23T03:31:45.065Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TTSVForm.cs [Design]",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\TTSVForm.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\TTSVForm.cs",
+              "ToolTip": "C:\\Users\\DAT TRONG\\OneDrive - VNU-HCMUS\\Desktop\\\u0110\u1ED2 \u00C1N\\ATBM_Project\\ATBM_APP\\TTSVForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-06-23T03:31:45.068Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ThemDVForm.cs [Design]",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\ThemDVForm.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\ThemDVForm.cs",
+              "ToolTip": "C:\\Users\\DAT TRONG\\OneDrive - VNU-HCMUS\\Desktop\\\u0110\u1ED2 \u00C1N\\ATBM_Project\\ATBM_APP\\ThemDVForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-06-23T03:31:45.078Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ThemDKSVForm.cs [Design]",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\ThemDKSVForm.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\ThemDKSVForm.cs",
+              "ToolTip": "C:\\Users\\DAT TRONG\\OneDrive - VNU-HCMUS\\Desktop\\\u0110\u1ED2 \u00C1N\\ATBM_Project\\ATBM_APP\\ThemDKSVForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-06-23T03:31:45.081Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ThemDKForm.cs [Design]",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\ThemDKForm.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\ThemDKForm.cs",
+              "ToolTip": "C:\\Users\\DAT TRONG\\OneDrive - VNU-HCMUS\\Desktop\\\u0110\u1ED2 \u00C1N\\ATBM_Project\\ATBM_APP\\ThemDKForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-06-23T03:31:45.084Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "GVienForm.cs [Design]",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\GVienForm.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\GVienForm.cs",
+              "ToolTip": "C:\\Users\\DAT TRONG\\OneDrive - VNU-HCMUS\\Desktop\\\u0110\u1ED2 \u00C1N\\ATBM_Project\\ATBM_APP\\GVienForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T03:31:45.089Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GVienForm.cs",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\GVienForm.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\GVienForm.cs",
+              "ToolTip": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\GVienForm.cs",
+              "RelativeToolTip": "ATBM_APP\\GVienForm.cs",
+              "ViewState": "AQIAAH0BAAAAAAAAAAAAAIABAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T03:31:45.092Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SVienForm.cs [Design]",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\SVienForm.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\SVienForm.cs",
+              "ToolTip": "C:\\Users\\DAT TRONG\\OneDrive - VNU-HCMUS\\Desktop\\\u0110\u1ED2 \u00C1N\\ATBM_Project\\ATBM_APP\\SVienForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-06-23T03:31:45.096Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "TDVForm.cs [Design]",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\TDVForm.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\TDVForm.cs",
+              "ToolTip": "C:\\Users\\DAT TRONG\\OneDrive - VNU-HCMUS\\Desktop\\\u0110\u1ED2 \u00C1N\\ATBM_Project\\ATBM_APP\\TDVForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-06-23T03:31:45.099Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "NVCBForm.cs [Design]",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\NVCBForm.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\NVCBForm.cs",
+              "ToolTip": "C:\\Users\\DAT TRONG\\OneDrive - VNU-HCMUS\\Desktop\\\u0110\u1ED2 \u00C1N\\ATBM_Project\\ATBM_APP\\NVCBForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T03:31:45.106Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Role.Designer.cs",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\Role.Designer.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\Role.Designer.cs",
+              "ToolTip": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\Role.Designer.cs",
+              "RelativeToolTip": "ATBM_APP\\Role.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T03:31:45.109Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "User.cs",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\User.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\User.cs",
+              "ToolTip": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\User.cs",
+              "RelativeToolTip": "ATBM_APP\\User.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAowD0AAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T03:31:45.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "User.cs [Design]",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\User.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\User.cs",
+              "ToolTip": "C:\\Users\\DAT TRONG\\OneDrive - VNU-HCMUS\\Desktop\\\u0110\u1ED2 \u00C1N ATBM\\ATBM_Project\\ATBM_APP\\User.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-06-23T03:31:45.114Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Privilege.cs",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\Privilege.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\Privilege.cs",
+              "ToolTip": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\Privilege.cs",
+              "RelativeToolTip": "ATBM_APP\\Privilege.cs",
+              "ViewState": "AQIAADkAAAAAAAAAAAAhwEwAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T03:31:45.117Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Role.cs [Design]",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\Role.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\Role.cs",
+              "ToolTip": "C:\\Users\\DAT TRONG\\OneDrive - VNU-HCMUS\\Desktop\\\u0110\u1ED2 \u00C1N\\ATBM_Project\\ATBM_APP\\Role.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T03:31:45.12Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Role.cs",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\Role.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\Role.cs",
+              "ToolTip": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\Role.cs",
+              "RelativeToolTip": "ATBM_APP\\Role.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAApwD0AAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T03:31:45.123Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Privilege.cs [Design]",
+              "DocumentMoniker": "J:\\atbm_project\\ATBM_Project\\ATBM_APP\\Privilege.cs",
+              "RelativeDocumentMoniker": "ATBM_APP\\Privilege.cs",
+              "ToolTip": "C:\\Users\\DAT TRONG\\OneDrive - VNU-HCMUS\\Desktop\\\u0110\u1ED2 \u00C1N ATBM\\ATBM_Project\\ATBM_APP\\Privilege.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-06-23T03:31:45.126Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

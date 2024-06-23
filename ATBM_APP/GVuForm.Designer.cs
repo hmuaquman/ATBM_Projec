@@ -68,6 +68,8 @@
             this.icon = new System.Windows.Forms.PictureBox();
             this.gvTabControl = new System.Windows.Forms.TabControl();
             this.svTabPage = new System.Windows.Forms.TabPage();
+            this.csSVTextBox = new System.Windows.Forms.TextBox();
+            this.csSVLabel = new System.Windows.Forms.Label();
             this.tctlSVTextBox = new System.Windows.Forms.TextBox();
             this.dtbSVTextBox = new System.Windows.Forms.TextBox();
             this.tctlSVLabel = new System.Windows.Forms.Label();
@@ -141,8 +143,6 @@
             this.temp6 = new System.Windows.Forms.Label();
             this.notificationPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.bellButton = new System.Windows.Forms.Button();
-            this.csSVTextBox = new System.Windows.Forms.TextBox();
-            this.csSVLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.khmoGridView)).BeginInit();
             this.dkTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dkGridView)).BeginInit();
@@ -382,6 +382,7 @@
             this.htgvPCTextBox.Name = "htgvPCTextBox";
             this.htgvPCTextBox.Size = new System.Drawing.Size(269, 26);
             this.htgvPCTextBox.TabIndex = 54;
+            this.htgvPCTextBox.Visible = false;
             // 
             // mhpPCLabel
             // 
@@ -412,6 +413,7 @@
             this.htgvPCLabel.Size = new System.Drawing.Size(88, 20);
             this.htgvPCLabel.TabIndex = 50;
             this.htgvPCLabel.Text = "Họ tên GV";
+            this.htgvPCLabel.Visible = false;
             // 
             // magvPCLabel
             // 
@@ -589,6 +591,24 @@
             this.svTabPage.Text = "Sinh viên";
             this.svTabPage.UseVisualStyleBackColor = true;
             this.svTabPage.Enter += new System.EventHandler(this.svTabPage_Enter);
+            // 
+            // csSVTextBox
+            // 
+            this.csSVTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.csSVTextBox.Location = new System.Drawing.Point(826, 294);
+            this.csSVTextBox.Name = "csSVTextBox";
+            this.csSVTextBox.Size = new System.Drawing.Size(81, 26);
+            this.csSVTextBox.TabIndex = 95;
+            // 
+            // csSVLabel
+            // 
+            this.csSVLabel.AutoSize = true;
+            this.csSVLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.csSVLabel.Location = new System.Drawing.Point(759, 297);
+            this.csSVLabel.Name = "csSVLabel";
+            this.csSVLabel.Size = new System.Drawing.Size(53, 20);
+            this.csSVLabel.TabIndex = 94;
+            this.csSVLabel.Text = "Cơ sở";
             // 
             // tctlSVTextBox
             // 
@@ -846,6 +866,7 @@
             this.ttdvDVTextBox.Name = "ttdvDVTextBox";
             this.ttdvDVTextBox.Size = new System.Drawing.Size(305, 24);
             this.ttdvDVTextBox.TabIndex = 96;
+            this.ttdvDVTextBox.Visible = false;
             this.ttdvDVTextBox.TextChanged += new System.EventHandler(this.ttdvDVTextBox_TextChanged);
             // 
             // ttdvDVLabel
@@ -857,6 +878,7 @@
             this.ttdvDVLabel.Size = new System.Drawing.Size(59, 20);
             this.ttdvDVLabel.TabIndex = 95;
             this.ttdvDVLabel.Text = "Họ tên";
+            this.ttdvDVLabel.Visible = false;
             this.ttdvDVLabel.Click += new System.EventHandler(this.ttdvDVLabel_Click);
             // 
             // mdvDVTextBox
@@ -1335,24 +1357,6 @@
             this.bellButton.UseVisualStyleBackColor = true;
             this.bellButton.Click += new System.EventHandler(this.bellButton_Click);
             // 
-            // csSVTextBox
-            // 
-            this.csSVTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.csSVTextBox.Location = new System.Drawing.Point(826, 294);
-            this.csSVTextBox.Name = "csSVTextBox";
-            this.csSVTextBox.Size = new System.Drawing.Size(81, 26);
-            this.csSVTextBox.TabIndex = 95;
-            // 
-            // csSVLabel
-            // 
-            this.csSVLabel.AutoSize = true;
-            this.csSVLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.csSVLabel.Location = new System.Drawing.Point(759, 297);
-            this.csSVLabel.Name = "csSVLabel";
-            this.csSVLabel.Size = new System.Drawing.Size(53, 20);
-            this.csSVLabel.TabIndex = 94;
-            this.csSVLabel.Text = "Cơ sở";
-            // 
             // GVuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1372,7 +1376,7 @@
             this.Controls.Add(this.icon);
             this.Controls.Add(this.gvTabControl);
             this.Name = "GVuForm";
-            this.Text = "GVuForm";
+            this.Text = "git ";
             this.Load += new System.EventHandler(this.GVuForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.khmoGridView)).EndInit();
             this.dkTabPage.ResumeLayout(false);

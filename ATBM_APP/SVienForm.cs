@@ -340,6 +340,12 @@ namespace ATBM_APP
         private void dkTabPage_Enter(object sender, EventArgs e)
         {
             LoadDataDK();
+            if (dkGridView.Rows.Count > 0)
+            {
+                dkGridView.Rows[0].Selected = true;
+                DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, 0);
+                dkGridView_CellClick(dkGridView, args);
+            }
         }
 
         private void logoutItem_Click(object sender, EventArgs e)

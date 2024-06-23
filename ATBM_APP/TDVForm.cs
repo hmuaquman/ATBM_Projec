@@ -266,6 +266,12 @@ namespace ATBM_APP
                     }
                 }
             }
+            if (pcGridView.Rows.Count > 0)
+            {
+                pcGridView.Rows[0].Selected = true;
+                DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, 0);
+                pcGridView_CellClick(pcGridView, args);
+            }
         }
         private void dkTabPage_Enter(object sender, EventArgs e)
         {
@@ -289,6 +295,12 @@ namespace ATBM_APP
                         MessageBox.Show(ex.Message);
                     }
                 }
+            }
+            if (dkGridView.Rows.Count > 0)
+            {
+                dkGridView.Rows[0].Selected = true;
+                DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, 0);
+                dkGridView_CellClick(dkGridView, args);
             }
         }
         private void infoItem_Click(object sender, EventArgs e)

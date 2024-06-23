@@ -261,26 +261,12 @@ namespace ATBM_APP
 
         private void pcTabPage_Enter(object sender, EventArgs e)
         {
-            using (OracleConnection conn = new OracleConnection(Account.connectString))
-            {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT * FROM ADMIN.PHANCONG", conn))
-                {
-                    try
-                    {
-                        //Mở kết nối
-                        conn.Open();
-                        using (OracleDataAdapter da = new OracleDataAdapter(cmd))
-                        {
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
-                            pcGridView.DataSource = dt;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                }
+            LoadDataPC();
+            if (pcGridView.Rows.Count > 0)
+            {
+                pcGridView.Rows[0].Selected = true;
+                DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, 0);
+                pcGridView_CellClick(pcGridView, args);
             }
         }
         private void dkTabPage_Enter(object sender, EventArgs e)
@@ -308,13 +294,8 @@ namespace ATBM_APP
             }
             if (dkGridView.Rows.Count > 0)
             {
-                // Chọn dòng đầu tiên
                 dkGridView.Rows[0].Selected = true;
-
-                // Tạo DataGridViewCellEventArgs với hàng đầu tiên và cột đầu tiên
                 DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, 0);
-
-                // Gọi phương thức dkGridView_CellClick với đối tượng sender và args
                 dkGridView_CellClick(dkGridView, args);
             }
         }
@@ -534,7 +515,7 @@ namespace ATBM_APP
                             else
                             {
                                 dgkTextBox.Text = temp1.Text;
-                                MessageBox.Show("Không thể cập nhật được do không dạy Sinh viên này");
+                                MessageBox.Show("Không thể cập nhật được do không dạy sinh viên này");
 
                             }
                         }
@@ -586,7 +567,7 @@ namespace ATBM_APP
                             else
                             {
                                 dqtTextBox.Text = temp1.Text;
-                                MessageBox.Show("Không thể cập nhật được do không dạy Sinh viên này");
+                                MessageBox.Show("Không thể cập nhật được do không dạy sinh viên này");
 
                             }
                         }
@@ -638,7 +619,7 @@ namespace ATBM_APP
                             else
                             {
                                 dckTextBox.Text = temp1.Text;
-                                MessageBox.Show("Không thể cập nhật được do không dạy Sinh viên này");
+                                MessageBox.Show("Không thể cập nhật được do không dạy sinh viên này");
 
                             }
                         }
@@ -690,7 +671,7 @@ namespace ATBM_APP
                             else
                             {
                                 dtkTextBox.Text = temp1.Text;
-                                MessageBox.Show("Không thể cập nhật được do không dạy Sinh viên này");
+                                MessageBox.Show("Không thể cập nhật được do không dạy sinh viên này");
 
                             }
                         }
@@ -1163,6 +1144,12 @@ namespace ATBM_APP
         private void nsTabPage_Enter(object sender, EventArgs e)
         {
             LoadDataNS();
+            if (nsGridView.Rows.Count > 0)
+            {
+                nsGridView.Rows[0].Selected = true;
+                DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, 0);
+                nsGridView_CellClick(nsGridView, args);
+            }
         }
 
         private void viewpcapButton_Click(object sender, EventArgs e)
