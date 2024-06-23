@@ -306,6 +306,17 @@ namespace ATBM_APP
                     }
                 }
             }
+            if (dkGridView.Rows.Count > 0)
+            {
+                // Chọn dòng đầu tiên
+                dkGridView.Rows[0].Selected = true;
+
+                // Tạo DataGridViewCellEventArgs với hàng đầu tiên và cột đầu tiên
+                DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, 0);
+
+                // Gọi phương thức dkGridView_CellClick với đối tượng sender và args
+                dkGridView_CellClick(dkGridView, args);
+            }
         }
         private void infoItem_Click(object sender, EventArgs e)
         {
@@ -488,15 +499,16 @@ namespace ATBM_APP
 
         private void editgkButton_Click(object sender, EventArgs e)
         {
+            temp1.Text = dgkTextBox.Text;
             dgkTextBox.Enabled = true;
             dkGridView.Enabled = false;
+            
         }
 
         private void savegkButton_Click(object sender, EventArgs e)
         {
             if (dgkTextBox.Enabled == true)
             {
-               
                 string maNV = Account.username;
                 string maSV = masvTextBox.Text;
                 string maHP = mhpTextBox.Text;
@@ -510,13 +522,21 @@ namespace ATBM_APP
                         cmd.Parameters.Add(new OracleParameter("MASINHVIEN", maSV));
                         cmd.Parameters.Add(new OracleParameter("MANHANVIEN", maNV));
                         cmd.Parameters.Add(new OracleParameter("MAHOCPHAN", maHP));
-                        
+
                         try
                         {
                             conn.Open();
-                            cmd.ExecuteNonQuery();
-                            MessageBox.Show("Cập nhật thành công");
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Cập nhật thành công");
+                            }
+                            else
+                            {
+                                dgkTextBox.Text = temp1.Text;
+                                MessageBox.Show("Không thể cập nhật được do không dạy Sinh viên này");
 
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -533,6 +553,7 @@ namespace ATBM_APP
         {
             dqtTextBox.Enabled = true;
             dkGridView.Enabled = false;
+            temp1.Text = dqtTextBox.Text;
         }
 
         private void saveqtButton_Click(object sender, EventArgs e)
@@ -553,13 +574,21 @@ namespace ATBM_APP
                         cmd.Parameters.Add(new OracleParameter("MASINHVIEN", maSV));
                         cmd.Parameters.Add(new OracleParameter("MANHANVIEN", maNV));
                         cmd.Parameters.Add(new OracleParameter("MAHOCPHAN", maHP));
-                        
+
                         try
                         {
                             conn.Open();
-                            cmd.ExecuteNonQuery();
-                            MessageBox.Show("Cập nhật thành công");
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Cập nhật thành công");
+                            }
+                            else
+                            {
+                                dqtTextBox.Text = temp1.Text;
+                                MessageBox.Show("Không thể cập nhật được do không dạy Sinh viên này");
 
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -576,6 +605,7 @@ namespace ATBM_APP
         {
             dckTextBox.Enabled = true;
             dkGridView.Enabled = false;
+            temp1.Text = dckTextBox.Text;
         }
 
         private void saveckButton_Click(object sender, EventArgs e)
@@ -596,13 +626,21 @@ namespace ATBM_APP
                         cmd.Parameters.Add(new OracleParameter("MASINHVIEN", maSV));
                         cmd.Parameters.Add(new OracleParameter("MANHANVIEN", maNV));
                         cmd.Parameters.Add(new OracleParameter("MAHOCPHAN", maHP));
-                        
+
                         try
                         {
                             conn.Open();
-                            cmd.ExecuteNonQuery();
-                            MessageBox.Show("Cập nhật thành công");
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Cập nhật thành công");
+                            }
+                            else
+                            {
+                                dckTextBox.Text = temp1.Text;
+                                MessageBox.Show("Không thể cập nhật được do không dạy Sinh viên này");
 
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -619,6 +657,7 @@ namespace ATBM_APP
         {
             dtkTextBox.Enabled = true;
             dkGridView.Enabled = false;
+            temp1.Text = dtkTextBox.Text;
         }
 
         private void savetkButton_Click(object sender, EventArgs e)
@@ -639,13 +678,21 @@ namespace ATBM_APP
                         cmd.Parameters.Add(new OracleParameter("MASINHVIEN", maSV));
                         cmd.Parameters.Add(new OracleParameter("MANHANVIEN", maNV));
                         cmd.Parameters.Add(new OracleParameter("MAHOCPHAN", maHP));
-                        
+
                         try
                         {
                             conn.Open();
-                            cmd.ExecuteNonQuery();
-                            MessageBox.Show("Cập nhật thành công");
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Cập nhật thành công");
+                            }
+                            else
+                            {
+                                dtkTextBox.Text = temp1.Text;
+                                MessageBox.Show("Không thể cập nhật được do không dạy Sinh viên này");
 
+                            }
                         }
                         catch (Exception ex)
                         {

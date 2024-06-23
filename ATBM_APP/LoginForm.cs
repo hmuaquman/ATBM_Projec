@@ -28,7 +28,7 @@ namespace ATBM_APP
         {
             // Xử lý khi form được show lại sau khi hide
             Account.username = "ADMIN";
-            Account.password = "admin";
+            Account.password = "ADMIN";
             Account.connectString = @"Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = "
                + Account.host + ")(PORT = " + Account.port + "))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = "
                + Account.service + ")));Password=" + Account.password + ";User ID=" + Account.username;

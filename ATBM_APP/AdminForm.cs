@@ -650,6 +650,7 @@ namespace ATBM_APP
                     {
                         conn.Open();
                         cmd.ExecuteNonQuery(); // Thực thi câu lệnh
+                        MessageBox.Show("Bật Audit thành công");
                     }
                     catch (Exception ex)
                     {
@@ -670,6 +671,7 @@ namespace ATBM_APP
                     {
                         conn.Open();
                         cmd.ExecuteNonQuery();
+                        MessageBox.Show("Tắt Audit thành công");
 
                     }
                     catch (Exception ex)
