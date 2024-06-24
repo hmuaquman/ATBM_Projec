@@ -266,12 +266,12 @@ namespace ATBM_APP
                     }
                 }
             }
-            if (pcGridView.Rows.Count > 0)
-            {
-                pcGridView.Rows[0].Selected = true;
-                DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, 0);
-                pcGridView_CellClick(pcGridView, args);
-            }
+            //if (pcGridView.Rows.Count > 0)
+            //{
+            //    pcGridView.Rows[0].Selected = true;
+            //    DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, 0);
+            //    pcGridView_CellClick(pcGridView, args);
+            //}
         }
         private void dkTabPage_Enter(object sender, EventArgs e)
         {
@@ -750,7 +750,6 @@ namespace ATBM_APP
 
         private void savePCButton_Click(object sender, EventArgs e)
         {
-           
             if (mhpPCComboBox.Enabled == true)
             {
                 string maGV = magvPCComboBox.Text;
@@ -758,14 +757,16 @@ namespace ATBM_APP
                 string hk = hkPCTextBox.Text;
                 string nh = nhPCTextBox.Text;
                 string ct = mctPCTextBox.Text;
+
                 using (OracleConnection conn = new OracleConnection(Account.connectString))
-                {//Khai báo câu lệnh SQL sử dụng
+                {
+                    conn.Open();
                     using (OracleCommand cmd = new OracleCommand("UPDATE ADMIN.PHANCONG SET MAGV = :MAGIANGVIEN, " +
-                        "                                                                   MAHP = :MAHOCPHAN, " +
-                        "                                                                   HK = :HOCKY," +
-                        "                                                                   NAM = :NAMHOC," +
-                        "                                                                   MACT = :CT " +
-                        "                                                                      WHERE MAGV = :MAGV AND MAHP = :MAHP AND HK = :HK AND NAM = :NAM AND MACT = :MACT", conn))
+                        "MAHP = :MAHOCPHAN, " +
+                        "HK = :HOCKY, " +
+                        "NAM = :NAMHOC, " +
+                        "MACT = :CT " +
+                        "WHERE MAGV = :MAGV AND MAHP = :MAHP AND HK = :HK AND NAM = :NAM AND MACT = :MACT", conn))
                     {
                         cmd.Parameters.Add(new OracleParameter("MAGIANGVIEN", maGV));
                         cmd.Parameters.Add(new OracleParameter("MAHOCPHAN", maHP));
@@ -774,12 +775,16 @@ namespace ATBM_APP
                         cmd.Parameters.Add(new OracleParameter("CT", ct));
                         cmd.Parameters.Add(new OracleParameter("MAGV", temp1.Text));
                         cmd.Parameters.Add(new OracleParameter("MAHP", temp2.Text));
-                        cmd.Parameters.Add(new OracleParameter("hk", temp3.Text));
-                        cmd.Parameters.Add(new OracleParameter("nam", temp4.Text));
-                        cmd.Parameters.Add(new OracleParameter("mact", temp5.Text));
+                        cmd.Parameters.Add(new OracleParameter("HK", temp3.Text));
+                        cmd.Parameters.Add(new OracleParameter("NAM", temp4.Text));
+                        cmd.Parameters.Add(new OracleParameter("MACT", temp5.Text));
+
                         try
                         {
-                            conn.Open();
+                            using (OracleCommand commitCmd = new OracleCommand("COMMIT", conn))
+                            {
+                                commitCmd.ExecuteNonQuery();
+                            }
                             cmd.ExecuteNonQuery();
                             MessageBox.Show("Cập nhật thành công");
                             LoadData();
@@ -790,6 +795,7 @@ namespace ATBM_APP
                         }
                     }
                 }
+
                 mhpPCComboBox.Enabled = false;
                 magvPCComboBox.Enabled = false;
                 hkPCTextBox.Enabled = false;
@@ -798,6 +804,8 @@ namespace ATBM_APP
                 pcGridView.Enabled = true;
             }
         }
+
+
 
         private void editPCBbutton_Click(object sender, EventArgs e)
         {

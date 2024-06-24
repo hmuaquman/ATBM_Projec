@@ -918,32 +918,38 @@ namespace ATBM_APP
             {
                 using (OracleConnection conn = new OracleConnection(Account.connectString))
                 {
-                    using (OracleCommand cmd = new OracleCommand("UPDATE ADMIN.KHMO SET " +
-                        "MAHP = :MAHP," +
-                        "HK = :HK, " +
-                        "NAM = :NAM, " +
-                        "MACT = :MACT " +
-                        "WHERE MAHP = :MAHOCPHAN AND HK = :HKY AND NAM = :NAMHOC AND MACT = :MACTRINH", conn))
+                    conn.Open();
+                    using (OracleTransaction transaction = conn.BeginTransaction())
                     {
+                        using (OracleCommand cmd = new OracleCommand("UPDATE ADMIN.KHMO SET " +
+                            "MAHP = :MAHP," +
+                            "HK = :HK, " +
+                            "NAM = :NAM, " +
+                            "MACT = :MACT " +
+                            "WHERE MAHP = :MAHOCPHAN AND HK = :HKY AND NAM = :NAMHOC AND MACT = :MACTRINH", conn))
+                        {
+                            cmd.Transaction = transaction;
 
-                        cmd.Parameters.Add(new OracleParameter("MAHP", mhpKHTextBox.Text));
-                        cmd.Parameters.Add(new OracleParameter("HK", hkKHTextBox.Text));
-                        cmd.Parameters.Add(new OracleParameter("NAM", nhKHTextBox.Text));
-                        cmd.Parameters.Add(new OracleParameter("MACT", mctKHTextBox.Text));
-                        cmd.Parameters.Add(new OracleParameter("MAHOCPHAN", temp1.Text));
-                        cmd.Parameters.Add(new OracleParameter("HKY", temp2.Text));
-                        cmd.Parameters.Add(new OracleParameter("NAMHOC", temp3.Text));
-                        cmd.Parameters.Add(new OracleParameter("MACTRINH", temp4.Text));
-                        try
-                        {
-                            conn.Open();
-                            cmd.ExecuteNonQuery();
-                            MessageBox.Show("Cập nhật thành công");
-                            LoadDataKH();
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
+                            cmd.Parameters.Add(new OracleParameter("MAHP", mhpKHTextBox.Text));
+                            cmd.Parameters.Add(new OracleParameter("HK", hkKHTextBox.Text));
+                            cmd.Parameters.Add(new OracleParameter("NAM", nhKHTextBox.Text));
+                            cmd.Parameters.Add(new OracleParameter("MACT", mctKHTextBox.Text));
+                            cmd.Parameters.Add(new OracleParameter("MAHOCPHAN", temp1.Text));
+                            cmd.Parameters.Add(new OracleParameter("HKY", temp2.Text));
+                            cmd.Parameters.Add(new OracleParameter("NAMHOC", temp3.Text));
+                            cmd.Parameters.Add(new OracleParameter("MACTRINH", temp4.Text));
+                            try
+                            {
+                                cmd.ExecuteNonQuery();
+                                transaction.Commit();
+                                MessageBox.Show("Cập nhật thành công");
+                                LoadDataKH();
+                            }
+                            catch (Exception ex)
+                            {
+                                transaction.Rollback();
+                                MessageBox.Show(ex.Message);
+                            }
                         }
                     }
                 }

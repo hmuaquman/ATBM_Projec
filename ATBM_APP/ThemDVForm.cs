@@ -51,29 +51,29 @@ namespace ATBM_APP
 
         private void mtdvDVTextBox_TextChanged(object sender, EventArgs e)
         {
-            using (OracleConnection conn = new OracleConnection(Account.connectString))
-            {
-                using (OracleCommand cmd = new OracleCommand("SELECT HOTEN FROM ADMIN.NHANSU WHERE MANV = :MANHANVIEN", conn))
-                {
+            //using (OracleConnection conn = new OracleConnection(Account.connectString))
+            //{
+            //    using (OracleCommand cmd = new OracleCommand("SELECT HOTEN FROM ADMIN.NHANSU WHERE MANV = :MANHANVIEN", conn))
+            //    {
 
-                    cmd.Parameters.Add(new OracleParameter("MANHANVIEN", mtdvDVTextBox.Text));
-                    try
-                    {
-                        conn.Open();
-                        using (OracleDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                ttdvDVTextBox.Text = reader["HOTEN"].ToString();
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                }
-            }
+            //        cmd.Parameters.Add(new OracleParameter("MANHANVIEN", mtdvDVTextBox.Text));
+            //        try
+            //        {
+            //            conn.Open();
+            //            using (OracleDataReader reader = cmd.ExecuteReader())
+            //            {
+            //                if (reader.Read())
+            //                {
+            //                    ttdvDVTextBox.Text = reader["HOTEN"].ToString();
+            //                }
+            //            }
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            MessageBox.Show(ex.Message);
+            //        }
+            //    }
+            //}
         }
     }
 }

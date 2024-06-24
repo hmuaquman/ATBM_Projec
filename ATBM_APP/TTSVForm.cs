@@ -47,7 +47,7 @@ namespace ATBM_APP
                 string sdt = sdtSVTextBox.Text;
                 using (OracleConnection conn = new OracleConnection(Account.connectString))
                 {//Khai báo câu lệnh SQL sử dụng
-                    using (OracleCommand cmd = new OracleCommand("UPDATE ADMIN.SINHVIEN SET DT = :SDT, DCHI = :DCHI WHERE MANV = :MANHANVIEN ", conn))
+                    using (OracleCommand cmd = new OracleCommand("UPDATE ADMIN.SINHVIEN SET DT = :SDT, DCHI = :DCHI WHERE MASV = :MANHANVIEN ", conn))
                     {
                         cmd.Parameters.Add(new OracleParameter("DT", sdt));
                         cmd.Parameters.Add(new OracleParameter("DCHI", OracleDbType.NVarchar2)).Value = dc;
@@ -93,7 +93,7 @@ namespace ATBM_APP
                                 dcSVTextBox.Text = reader["DCHI"].ToString();
                                 mnSVTextBox.Text = reader["MANGANH"].ToString();
                                 mctSVTextBox.Text = reader["MACT"].ToString();
-                                tctlSVTextBox.Text = reader["STCTL"].ToString();
+                                tctlSVTextBox.Text = reader["SOTCTL"].ToString();
                                 dtbSVTextBox.Text = reader["DTBTL"].ToString();
                                 csTextBox.Text = reader["COSO"].ToString();
                             }

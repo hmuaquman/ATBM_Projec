@@ -58,11 +58,10 @@ namespace ATBM_APP
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {
                 // Khai báo câu lệnh SQL
-                string query = "SELECT MANV FROM ADMIN.NHANSU ns JOIN ADMIN.DONVI dv ON ns.MADV = dv.MADV WHERE dv.TRGDV = :TRUONGDV";
+                string query = "SELECT MANV FROM ADMIN.NHANSU";
 
                 using (OracleCommand cmd = new OracleCommand(query, conn))
                 {
-                    cmd.Parameters.Add(new OracleParameter("TRGDV", Account.username));
                     try
                     {
                         // Mở kết nối

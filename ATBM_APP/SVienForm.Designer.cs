@@ -67,6 +67,8 @@
             this.notificationPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.bellButton = new System.Windows.Forms.Button();
             this.oracleCommandBuilder1 = new Oracle.ManagedDataAccess.Client.OracleCommandBuilder();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.khmoGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hpGridView)).BeginInit();
             this.hpTabPage.SuspendLayout();
@@ -476,11 +478,33 @@
             this.oracleCommandBuilder1.CatalogLocation = System.Data.Common.CatalogLocation.End;
             this.oracleCommandBuilder1.CatalogSeparator = "@";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(102, 105);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 16);
+            this.label10.TabIndex = 44;
+            this.label10.Text = "label5";
+            this.label10.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(52, 110);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(44, 16);
+            this.label11.TabIndex = 45;
+            this.label11.Text = "label5";
+            this.label11.Visible = false;
+            // 
             // SVienForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 699);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.notificationPanel);
             this.Controls.Add(this.bellButton);
             this.Controls.Add(this.temp6);
@@ -557,5 +581,7 @@
         private System.Windows.Forms.DataGridView dsdkGridView;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }

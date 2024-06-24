@@ -373,6 +373,7 @@ namespace ATBM_APP
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Hủy đăng ký thành công");
                         LoadDataDADK();
+                        LoadDataLMO();
                     }
                     catch (Exception ex)
                     {
@@ -384,8 +385,8 @@ namespace ATBM_APP
 
         private void adddkDKButton_Click(object sender, EventArgs e)
         {
-            string svusr = Account.username;
-            string svpw = Account.password;
+            label10.Text = Account.username;
+            label11.Text = Account.password;
             
             Account.username = "NV008";
             Account.password = "NV008";
@@ -409,16 +410,19 @@ namespace ATBM_APP
                     {
                         //Mở kết nối
                         conn.Open();
-                        temp1.Text = "temp1";
+                        temp1.Text = "";
                         using (OracleDataReader reader = cmd.ExecuteReader())
                         {
                             // Kiểm tra nếu có dòng dữ liệu trả về
                             if (reader.Read())
                             {
-                                temp1.Text = reader["MAGV"].ToString();
-                                
+                                temp1.Text = reader["MAGV"].ToString();  
+                            } else
+                            {
+                                MessageBox.Show("Môn học chưa được phân công dạy.");
+                                temp1.Text = "";
                             }
-                            MessageBox.Show(temp1.Text);
+                            
                             
                         }
                         conn.Close();
@@ -432,46 +436,45 @@ namespace ATBM_APP
 
             }
 
-            
-            using (OracleConnection conn = new OracleConnection(Account.connectString))
-            {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("INSERT INTO ADMIN.DANGKY(MASV,MAGV, MAHP, HK, NAM, MACT) VALUES (:MASV,:MAGV,:MAHP, :HK,:NAM, :MACT) ", conn))
-                {
-                    cmd.Parameters.Add(new OracleParameter("MASV", Account.username));
-                    cmd.Parameters.Add(new OracleParameter("MAGV", temp1.Text));
-                    cmd.Parameters.Add(new OracleParameter("MAHP", temp2.Text));
-                    cmd.Parameters.Add(new OracleParameter("HK", temp4.Text));
-                    cmd.Parameters.Add(new OracleParameter("NAM", temp3.Text));
-                    cmd.Parameters.Add(new OracleParameter("MACT", temp5.Text));
-                    try
+            if (temp1.Text != "")
+            {
+                using (OracleConnection conn = new OracleConnection(Account.connectString))
+                {//Khai báo câu lệnh SQL sử dụng
+                    using (OracleCommand cmd = new OracleCommand("INSERT INTO ADMIN.DANGKY(MASV,MAGV, MAHP, HK, NAM, MACT) VALUES (:MASV,:MAGV,:MAHP, :HK,:NAM, :MACT) ", conn))
                     {
-                        conn.Open();
-                        MessageBox.Show(Account.username);
-                        MessageBox.Show(temp1.Text);
-                        MessageBox.Show(temp2.Text);
-                        MessageBox.Show(temp3.Text);
-                        MessageBox.Show(temp4.Text);
-                        MessageBox.Show(temp5.Text);
-                        
-                        cmd.ExecuteNonQuery();
-                        cmd.Transaction.Commit();
-                        MessageBox.Show("Thêm mới đăng ký thành công");
-                        
-                        LoadDataDADK();
+                        cmd.Parameters.Add(new OracleParameter("MASV", label10.Text));
+
+                        cmd.Parameters.Add(new OracleParameter("MAGV", temp1.Text));
+                        cmd.Parameters.Add(new OracleParameter("MAHP", temp2.Text));
+                        cmd.Parameters.Add(new OracleParameter("HK", temp4.Text));
+                        cmd.Parameters.Add(new OracleParameter("NAM", temp3.Text));
+                        cmd.Parameters.Add(new OracleParameter("MACT", temp5.Text));
+                        try
+                        {
+                            conn.Open();
+
+
+                            cmd.ExecuteNonQuery();
+
+                            MessageBox.Show("Thêm mới đăng ký thành công");
+
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
+
                 }
-
             }
-            Account.username = svusr;
-            Account.password = svpw;
+            Account.username = label10.Text;
+            Account.password = label11.Text;
             Account.connectString = @"Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = "
-              + Account.host + ")(PORT = " + Account.port + "))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = "
-              + Account.service + ")));Password=" + Account.password + ";User ID=" + Account.username;
-
+                + Account.host + ")(PORT = " + Account.port + "))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = "
+                + Account.service + ")));Password=" + Account.password + ";User ID=" + Account.username;
+            LoadDataDADK();
+            
         }
 
         private void dkhpGridView_CellClick(object sender, DataGridViewCellEventArgs e)

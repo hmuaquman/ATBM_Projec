@@ -47,6 +47,7 @@
             this.ttdvDVTextBox.Name = "ttdvDVTextBox";
             this.ttdvDVTextBox.Size = new System.Drawing.Size(305, 22);
             this.ttdvDVTextBox.TabIndex = 106;
+            this.ttdvDVTextBox.Visible = false;
             // 
             // ttdvDVLabel
             // 
@@ -57,6 +58,7 @@
             this.ttdvDVLabel.Size = new System.Drawing.Size(59, 20);
             this.ttdvDVLabel.TabIndex = 105;
             this.ttdvDVLabel.Text = "Họ tên";
+            this.ttdvDVLabel.Visible = false;
             // 
             // mdvDVTextBox
             // 

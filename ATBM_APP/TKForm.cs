@@ -1038,7 +1038,7 @@ namespace ATBM_APP
                     using (OracleCommand cmd = new OracleCommand("UPDATE ADMIN.NHANSU SET MANV = :MANV, " + 
                         "                                                                   HOTEN = :HOTEN, " +
                         "                                                                   PHAI = :PHAI, " +
-                        "                                                                   NGSINH = TO_DATE(:NGSINH,'DD-MM-YYYY')," +
+           //             "                                                                   NGSINH = TO_DATE(:NGSINH,'DD-MM-YYYY')," +
                         "                                                                   PHUCAP = :PHUCAP," +
                         "                                                                   DT = :DT, " +
                         "                                                                   VAITRO = :VAITRO," +
@@ -1047,19 +1047,18 @@ namespace ATBM_APP
                         "                                                                      WHERE MANV = :MANHANVIEN", conn))
                     {
                         //cmd.Parameters.Add(new OracleParameter("NGSINH", OracleDbType.Date)).Value = ns;
-                        cmd.Parameters.Add(new OracleParameter("NGSINH", ns));
-                        cmd.Parameters.Add(new OracleParameter("MANV", maNV));
-                        cmd.Parameters.Add(new OracleParameter("PHUCAP", pc));
+ 
+                        cmd.Parameters.Add(new OracleParameter("MANV", OracleDbType.NVarchar2)).Value = maNV;
                         cmd.Parameters.Add(new OracleParameter("HOTEN", OracleDbType.NVarchar2)).Value = ht;
+                        //cmd.Parameters.Add(new OracleParameter("NGSINH", ns));
                         cmd.Parameters.Add(new OracleParameter("PHAI", OracleDbType.NVarchar2)).Value = phai;
-                        
-                        
+                        cmd.Parameters.Add(new OracleParameter("PHUCAP", OracleDbType.NVarchar2)).Value = pc;
                         cmd.Parameters.Add(new OracleParameter("DT", sdt));
                         cmd.Parameters.Add(new OracleParameter("VAITRO", OracleDbType.NVarchar2)).Value = cv;
-                        cmd.Parameters.Add(new OracleParameter("MADV", dv));
-                        cmd.Parameters.Add(new OracleParameter("COSO", cs));
-                        cmd.Parameters.Add(new OracleParameter("MANHANVIEN", temp1.Text));
-         
+                        cmd.Parameters.Add(new OracleParameter("MADV", OracleDbType.NVarchar2)).Value = dv;
+                        cmd.Parameters.Add(new OracleParameter("COSO", OracleDbType.NVarchar2)).Value = cs;
+                        cmd.Parameters.Add(new OracleParameter("MANHANVIEN", OracleDbType.NVarchar2)).Value = temp1.Text;
+
                         try
                         {
                             conn.Open();
