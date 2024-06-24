@@ -182,18 +182,18 @@
             // magvPCComboBox
             // 
             this.magvPCComboBox.FormattingEnabled = true;
-            this.magvPCComboBox.Location = new System.Drawing.Point(639, 188);
+            this.magvPCComboBox.Location = new System.Drawing.Point(662, 188);
             this.magvPCComboBox.Name = "magvPCComboBox";
-            this.magvPCComboBox.Size = new System.Drawing.Size(267, 26);
+            this.magvPCComboBox.Size = new System.Drawing.Size(244, 26);
             this.magvPCComboBox.TabIndex = 87;
             this.magvPCComboBox.SelectedIndexChanged += new System.EventHandler(this.magvPCComboBox_SelectedIndexChanged);
             // 
             // mhpPCComboBox
             // 
             this.mhpPCComboBox.FormattingEnabled = true;
-            this.mhpPCComboBox.Location = new System.Drawing.Point(641, 99);
+            this.mhpPCComboBox.Location = new System.Drawing.Point(662, 99);
             this.mhpPCComboBox.Name = "mhpPCComboBox";
-            this.mhpPCComboBox.Size = new System.Drawing.Size(267, 26);
+            this.mhpPCComboBox.Size = new System.Drawing.Size(246, 26);
             this.mhpPCComboBox.TabIndex = 86;
             this.mhpPCComboBox.SelectedIndexChanged += new System.EventHandler(this.mhpPCComboBox_SelectedIndexChanged);
             // 
@@ -293,17 +293,17 @@
             // thpPCTextBox
             // 
             this.thpPCTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.thpPCTextBox.Location = new System.Drawing.Point(639, 148);
+            this.thpPCTextBox.Location = new System.Drawing.Point(662, 148);
             this.thpPCTextBox.Name = "thpPCTextBox";
-            this.thpPCTextBox.Size = new System.Drawing.Size(269, 26);
+            this.thpPCTextBox.Size = new System.Drawing.Size(246, 26);
             this.thpPCTextBox.TabIndex = 75;
             // 
             // htgvPCTextBox
             // 
             this.htgvPCTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.htgvPCTextBox.Location = new System.Drawing.Point(637, 229);
+            this.htgvPCTextBox.Location = new System.Drawing.Point(662, 229);
             this.htgvPCTextBox.Name = "htgvPCTextBox";
-            this.htgvPCTextBox.Size = new System.Drawing.Size(269, 26);
+            this.htgvPCTextBox.Size = new System.Drawing.Size(244, 26);
             this.htgvPCTextBox.TabIndex = 74;
             // 
             // mhpPCLabel
@@ -634,41 +634,41 @@
             // mctTextBox
             // 
             this.mctTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.mctTextBox.Location = new System.Drawing.Point(665, 216);
+            this.mctTextBox.Location = new System.Drawing.Point(684, 216);
             this.mctTextBox.Name = "mctTextBox";
-            this.mctTextBox.Size = new System.Drawing.Size(255, 26);
+            this.mctTextBox.Size = new System.Drawing.Size(236, 26);
             this.mctTextBox.TabIndex = 43;
             // 
             // dgkTextBox
             // 
             this.dgkTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dgkTextBox.Location = new System.Drawing.Point(665, 253);
+            this.dgkTextBox.Location = new System.Drawing.Point(684, 253);
             this.dgkTextBox.Name = "dgkTextBox";
-            this.dgkTextBox.Size = new System.Drawing.Size(100, 26);
+            this.dgkTextBox.Size = new System.Drawing.Size(81, 26);
             this.dgkTextBox.TabIndex = 42;
             // 
             // dqtTextBox
             // 
             this.dqtTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dqtTextBox.Location = new System.Drawing.Point(665, 290);
+            this.dqtTextBox.Location = new System.Drawing.Point(684, 290);
             this.dqtTextBox.Name = "dqtTextBox";
-            this.dqtTextBox.Size = new System.Drawing.Size(100, 26);
+            this.dqtTextBox.Size = new System.Drawing.Size(81, 26);
             this.dqtTextBox.TabIndex = 41;
             // 
             // dckTextBox
             // 
             this.dckTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dckTextBox.Location = new System.Drawing.Point(665, 323);
+            this.dckTextBox.Location = new System.Drawing.Point(684, 323);
             this.dckTextBox.Name = "dckTextBox";
-            this.dckTextBox.Size = new System.Drawing.Size(100, 26);
+            this.dckTextBox.Size = new System.Drawing.Size(81, 26);
             this.dckTextBox.TabIndex = 40;
             // 
             // dtkTextBox
             // 
             this.dtkTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dtkTextBox.Location = new System.Drawing.Point(665, 355);
+            this.dtkTextBox.Location = new System.Drawing.Point(684, 355);
             this.dtkTextBox.Name = "dtkTextBox";
-            this.dtkTextBox.Size = new System.Drawing.Size(100, 26);
+            this.dtkTextBox.Size = new System.Drawing.Size(81, 26);
             this.dtkTextBox.TabIndex = 39;
             // 
             // masvTextBox

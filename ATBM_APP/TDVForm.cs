@@ -296,12 +296,12 @@ namespace ATBM_APP
                     }
                 }
             }
-            if (dkGridView.Rows.Count > 0)
-            {
-                dkGridView.Rows[0].Selected = true;
-                DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, 0);
-                dkGridView_CellClick(dkGridView, args);
-            }
+            //if (dkGridView.Rows.Count > 0)
+            //{
+            //    dkGridView.Rows[0].Selected = true;
+            //    DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, 0);
+            //    dkGridView_CellClick(dkGridView, args);
+            //}
         }
         private void infoItem_Click(object sender, EventArgs e)
         {

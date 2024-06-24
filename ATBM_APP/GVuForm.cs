@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -123,7 +124,7 @@ namespace ATBM_APP
                     while (reader.Read())
                     {
                         string notificationText = reader["NOIDUNG"].ToString();
-                        Label label = new Label();
+                        System.Windows.Forms.Label label = new System.Windows.Forms.Label();
                         label.Text = notificationText;
                         label.Width = 200;
                        
@@ -1286,39 +1287,57 @@ namespace ATBM_APP
 
         private void adddkDKButton_Click(object sender, EventArgs e)
         {
-            ThemDKForm themDKForm = new ThemDKForm();
-            themDKForm.ShowDialog();
-            themDKForm.Close();
-            LoadDataDK();
-            dkSearchTextBox.Text = "";
+            DateTime currentDate = DateTime.Now;
+            int currentDay = currentDate.Day;
+            int currentMonth = currentDate.Month;
+
+            if ((currentDay >= 1 && currentDay <= 24) && (currentMonth == 1 || currentMonth == 6 || currentMonth == 9))
+            {
+                ThemDKForm themDKForm = new ThemDKForm();
+                themDKForm.ShowDialog();
+                themDKForm.Close();
+                LoadDataDK();
+                dkSearchTextBox.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Đã hết thời hạn điều chỉnh đăng ký học phần");
+            }
+            
         }
 
         private void deldkDKButton_Click(object sender, EventArgs e)
         {
-            using (OracleConnection conn = new OracleConnection(Account.connectString))
-            {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("DELETE FROM ADMIN.DANGKY WHERE MASV = :MASV AND MAGV = :MAGV AND MAHP = :MAHP AND HK = :HK AND NAM = :NAM AND MACT = :MACT", conn))
-                {
-                    cmd.Parameters.Add(new OracleParameter("MASV",temp1.Text));
-                    cmd.Parameters.Add(new OracleParameter("MAGV",temp2.Text));
-                    cmd.Parameters.Add(new OracleParameter("MAHP",temp3.Text));
-                    cmd.Parameters.Add(new OracleParameter("HK", temp4.Text));
-                    cmd.Parameters.Add(new OracleParameter("NAM",temp5.Text));
-                    cmd.Parameters.Add(new OracleParameter("MACT",temp6.Text));
-                    try
+            if (label1.Text == "")
+            {
+                using (OracleConnection conn = new OracleConnection(Account.connectString))
+                {//Khai báo câu lệnh SQL sử dụng
+                    using (OracleCommand cmd = new OracleCommand("DELETE FROM ADMIN.DANGKY WHERE MASV = :MASV AND MAGV = :MAGV AND MAHP = :MAHP AND HK = :HK AND NAM = :NAM AND MACT = :MACT", conn))
                     {
-                        conn.Open();
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Xóa đăng ký thành công");
-                        LoadDataDK();
-                        dkSearchTextBox.Text = "";
+                        cmd.Parameters.Add(new OracleParameter("MASV", temp1.Text));
+                        cmd.Parameters.Add(new OracleParameter("MAGV", temp2.Text));
+                        cmd.Parameters.Add(new OracleParameter("MAHP", temp3.Text));
+                        cmd.Parameters.Add(new OracleParameter("HK", temp4.Text));
+                        cmd.Parameters.Add(new OracleParameter("NAM", temp5.Text));
+                        cmd.Parameters.Add(new OracleParameter("MACT", temp6.Text));
+                        try
+                        {
+                            conn.Open();
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Xóa đăng ký thành công");
+                            LoadDataDK();
+                            dkSearchTextBox.Text = "";
 
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                     }
                 }
+            } else
+            {
+                MessageBox.Show("Không thể hiệu chỉnh trên các trường đã nhập điểm");
             }
         }
 
@@ -1333,6 +1352,7 @@ namespace ATBM_APP
                 temp4.Text = row.Cells["HK"].Value.ToString();
                 temp5.Text = row.Cells["NAM"].Value.ToString();
                 temp6.Text = row.Cells["MACT"].Value.ToString();
+                label1.Text = row.Cells["DIEMTK"].Value.ToString();
             }
         }
 

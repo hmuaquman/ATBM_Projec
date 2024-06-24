@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ATBM_APP
 {
@@ -29,24 +30,14 @@ namespace ATBM_APP
             khmoGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             khmoGridView.ReadOnly = true;
             hpGridView.ReadOnly = true;
-
-            magvTextBox.Enabled = false;
- 
-            mhpTextBox.Enabled = false;
-            thpTextBox.Enabled = false;
-            hkTextBox.Enabled = false;
-            nhTextBox.Enabled = false;
-            mctTextBox.Enabled = false;
-            dgkTextBox.Enabled = false;
-            dqtTextBox.Enabled = false;
-            dckTextBox.Enabled = false;
-            dtkTextBox.Enabled = false;
             dkGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dkGridView.ReadOnly = true;
             bellButton.Image = Image.FromFile(@"..\\..\\icon\\notice.png");
             bellButton.ImageAlign = ContentAlignment.MiddleCenter;
             InitializeNotificationPanel();
             LoadNotifications();
+            dkhpGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dsdkGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
         private void InitializeNotificationPanel()
         {
@@ -207,116 +198,30 @@ namespace ATBM_APP
 
         private void dkGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dkGridView.Rows[e.RowIndex];
-                magvTextBox.Text = row.Cells["MASV"].Value.ToString();
-                mhpTextBox.Text = row.Cells["MAHP"].Value.ToString();
-                hkTextBox.Text = row.Cells["HK"].Value.ToString();
-                nhTextBox.Text = row.Cells["NAM"].Value.ToString();
-                mctTextBox.Text = row.Cells["MACT"].Value.ToString();
-                temp1.Text = magvTextBox.Text;
-                temp2.Text = mhpTextBox.Text;
-                temp3.Text = hkTextBox.Text;
-                temp4.Text = nhTextBox.Text;
-                temp5.Text = mctTextBox.Text;
-                dgkTextBox.Text = row.Cells["DIEMTHI"].Value.ToString();
-                dckTextBox.Text = row.Cells["DIEMCK"].Value.ToString();
-                dqtTextBox.Text = row.Cells["DIEMQT"].Value.ToString();
-                dtkTextBox.Text = row.Cells["DIEMTK"].Value.ToString();
-            }
+            //if (e.RowIndex >= 0)
+            //{
+            //    DataGridViewRow row = dkGridView.Rows[e.RowIndex];
+            //    magvTextBox.Text = row.Cells["MASV"].Value.ToString();
+            //    mhpTextBox.Text = row.Cells["MAHP"].Value.ToString();
+            //    hkTextBox.Text = row.Cells["HK"].Value.ToString();
+            //    nhTextBox.Text = row.Cells["NAM"].Value.ToString();
+            //    mctTextBox.Text = row.Cells["MACT"].Value.ToString();
+            //    temp1.Text = magvTextBox.Text;
+            //    temp2.Text = mhpTextBox.Text;
+            //    temp3.Text = hkTextBox.Text;
+            //    temp4.Text = nhTextBox.Text;
+            //    temp5.Text = mctTextBox.Text;
+            //    dgkTextBox.Text = row.Cells["DIEMTHI"].Value.ToString();
+            //    dckTextBox.Text = row.Cells["DIEMCK"].Value.ToString();
+            //    dqtTextBox.Text = row.Cells["DIEMQT"].Value.ToString();
+            //    dtkTextBox.Text = row.Cells["DIEMTK"].Value.ToString();
+            //}
         }
-
-
-
-        private void savedkButton_Click(object sender, EventArgs e)
-        {
-            if (dgkTextBox.Enabled == true)
-            {
-                
-                using (OracleConnection conn = new OracleConnection(Account.connectString))
-                {//Khai báo câu lệnh SQL sử dụng
-                    using (OracleCommand cmd = new OracleCommand("UPDATE ADMIN.DANGKY SET MAGV = :MAGV,  MAHP = :MAHP,  HK = :HK, NAM = :NAM, MACT = :MACT WHERE MAGV = :MAGIANGVIEN AND MASV = :MASINHVIEN AND MAHP = :MAHOCPHAN AND HK = :HKY AND NAM = :NAMHOC AND MACT = :MACTR ", conn))
-                    {
-
-                        cmd.Parameters.Add(new OracleParameter("MAGV", magvTextBox.Text));
-                        cmd.Parameters.Add(new OracleParameter("MAHP", mhpTextBox.Text));
-                        cmd.Parameters.Add(new OracleParameter("HK",hkTextBox.Text));
-                        cmd.Parameters.Add(new OracleParameter("NAM", nhTextBox.Text));
-                        cmd.Parameters.Add(new OracleParameter("MACT", mctTextBox.Text));
-                        cmd.Parameters.Add(new OracleParameter("MAGIANGVIEN", temp1.Text));
-                        cmd.Parameters.Add(new OracleParameter("MASINHVIEN", Account.username));
-                        cmd.Parameters.Add(new OracleParameter("MAHOCPHAN", temp2.Text));
-                        cmd.Parameters.Add(new OracleParameter("HKY", temp3.Text));
-                        cmd.Parameters.Add(new OracleParameter("NAMHOC", temp4.Text));
-                        cmd.Parameters.Add(new OracleParameter("MACTR", temp5.Text));
-                        try
-                        {
-                            conn.Open();
-                            cmd.ExecuteNonQuery();
-                            MessageBox.Show("Cập nhật thành công");
-                            LoadDataDK();
-
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
-                    }
-                }
-                magvTextBox.Enabled = false;
-                mhpTextBox.Enabled = false;
-                hkTextBox.Enabled = false;
-                nhTextBox.Enabled = false;
-                mctTextBox.Enabled = false;
-                dkGridView.Enabled = true;
-            }
-        }
-
-        private void editdkButton_Click(object sender, EventArgs e)
-        {
-            magvTextBox.Enabled = true;
-            mhpTextBox.Enabled = true;
-            hkTextBox.Enabled = true;
-            nhTextBox.Enabled = true;
-            mctTextBox.Enabled = true;
-            dkGridView.Enabled = false;
-        }
-
-        private void mhpTextBox_TextChanged(object sender, EventArgs e)
-        {
-            string maHP = mhpTextBox.Text;
-            using (OracleConnection conn = new OracleConnection(Account.connectString))
-            {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT TENHP FROM ADMIN.HOCPHAN WHERE MAHP = :MAHOCPHAN", conn))
-                {
-
-                    cmd.Parameters.Add(new OracleParameter("MAHOCPHAN", maHP));
-                    try
-                    {
-                        conn.Open();
-                        using (OracleDataReader reader = cmd.ExecuteReader())
-                        {
-                            // Kiểm tra nếu có dòng dữ liệu trả về
-                            if (reader.Read())
-                            {
-                                thpTextBox.Text = reader["TENHP"].ToString();
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                }
-            }
-        }
-
         private void LoadDataDK()
         {
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT * FROM ADMIN.DANGKY", conn))
+                using (OracleCommand cmd = new OracleCommand("SELECT dk.HK, dk.NAM, dk.MAHP, hp.TENHP, hp.SOTC, dk.DIEMQT, dk.DIEMTHI, dk.DIEMCK, dk.DIEMTK  FROM ADMIN.DANGKY dk JOIN ADMIN.HOCPHAN hp ON hp.MAHP = dk.MAHP WHERE dk.DIEMTHI IS NOT NULL ", conn))
                 {
                     try
                     {
@@ -340,12 +245,6 @@ namespace ATBM_APP
         private void dkTabPage_Enter(object sender, EventArgs e)
         {
             LoadDataDK();
-            if (dkGridView.Rows.Count > 0)
-            {
-                dkGridView.Rows[0].Selected = true;
-                DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, 0);
-                dkGridView_CellClick(dkGridView, args);
-            }
         }
 
         private void logoutItem_Click(object sender, EventArgs e)
@@ -365,12 +264,241 @@ namespace ATBM_APP
 
         }
 
+       
+
+       
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void LoadDataLMO()
+        {
+            using (OracleConnection conn = new OracleConnection(Account.connectString))
+            {//Khai báo câu lệnh SQL sử dụng
+                string query = "SELECT kh.HK, kh.NAM, kh.MACT,hp.* FROM ADMIN.HOCPHAN hp JOIN ADMIN.KHMO kh ON hp.MAHP = kh.MAHP WHERE kh.HK = ( CASE WHEN EXTRACT(MONTH FROM SYSDATE) BETWEEN 9 AND 12 THEN '1' WHEN EXTRACT(MONTH FROM SYSDATE) BETWEEN 1 AND 4 THEN '2' ELSE '3' END) AND kh.NAM = TO_CHAR(SYSDATE, 'YYYY')";
+                using (OracleCommand cmd = new OracleCommand(query, conn))
+                {
+                    try
+                    {
+                        //Mở kết nối
+                        conn.Open();
+                        using (OracleDataAdapter da = new OracleDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            dkhpGridView.DataSource = dt;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void LoadDataDADK()
+        {
+            using (OracleConnection conn = new OracleConnection(Account.connectString))
+            {//Khai báo câu lệnh SQL sử dụng
+                string query = "SELECT dk.HK,dk.NAM,dk.MACT, hp.*, dk.MAGV  FROM ADMIN.DANGKY dk JOIN ADMIN.HOCPHAN hp ON dk.MAHP = hp.MAHP WHERE dk.HK = ( CASE WHEN EXTRACT(MONTH FROM SYSDATE) BETWEEN 9 AND 12 THEN '1' WHEN EXTRACT(MONTH FROM SYSDATE) BETWEEN 1 AND 4 THEN '2' ELSE '3' END) AND dk.NAM = TO_CHAR(SYSDATE, 'YYYY')";
+                using (OracleCommand cmd = new OracleCommand(query, conn))
+                {
+                    try
+                    {
+                        //Mở kết nối
+                        conn.Open();
+                        using (OracleDataAdapter da = new OracleDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            dsdkGridView.DataSource = dt;
+                           
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
+        private void dkhptabPage_Enter(object sender, EventArgs e)
+        {
+            DateTime currentDate = DateTime.Now;
+            int currentDay = currentDate.Day;
+            int currentMonth = currentDate.Month;
+
+            if ((currentDay >= 1 && currentDay <= 24) && (currentMonth == 1 || currentMonth == 6 || currentMonth == 9))
+            {
+                dsdkGridView.Visible = true;
+                dkhpGridView.Visible = true;
+                deldkDKButton.Visible = true;
+                adddkDKButton.Visible = true;
+                label7.Visible= true;
+                label8.Visible= true;
+                label9.Visible = false;
+                LoadDataLMO();
+                LoadDataDADK();
+            }
+            else
+            {
+                dsdkGridView.Visible = false;
+                dkhpGridView.Visible = false;
+                deldkDKButton.Visible = false;
+                adddkDKButton.Visible = false;
+                label7.Visible = false;
+                label8.Visible = false;
+                label9.Visible = true;
+                
+            }
+        }
+
+        private void deldkDKButton_Click(object sender, EventArgs e)
+        {
+            using (OracleConnection conn = new OracleConnection(Account.connectString))
+            {//Khai báo câu lệnh SQL sử dụng
+                using (OracleCommand cmd = new OracleCommand("DELETE FROM ADMIN.DANGKY WHERE MASV = :MASV AND MAGV = :MAGV AND MAHP = :MAHP AND HK = :HK AND NAM = :NAM AND MACT = :MACT ", conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter("MASV", Account.username));
+                    cmd.Parameters.Add(new OracleParameter("MAGV", temp1.Text));
+                    cmd.Parameters.Add(new OracleParameter("MAHP", temp2.Text));
+                    cmd.Parameters.Add(new OracleParameter("HK", temp4.Text));
+                    cmd.Parameters.Add(new OracleParameter("NAM", temp3.Text));
+                    cmd.Parameters.Add(new OracleParameter("MACT", temp5.Text));
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Hủy đăng ký thành công");
+                        LoadDataDADK();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
+
         private void adddkDKButton_Click(object sender, EventArgs e)
         {
-            ThemDKForm themDKForm = new ThemDKForm();
-            themDKForm.ShowDialog();
-            themDKForm.Close();
-            LoadDataDK();
+            string svusr = Account.username;
+            string svpw = Account.password;
+            
+            Account.username = "NV008";
+            Account.password = "NV008";
+            Account.connectString = @"Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = "
+              + Account.host + ")(PORT = " + Account.port + "))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = "
+              + Account.service + ")));Password=" + Account.password + ";User ID=" + Account.username;
+         
+            
+            using (OracleConnection conn = new OracleConnection(Account.connectString))
+            {//Khai báo câu lệnh SQL sử dụng
+                string query = "SELECT MAGV  FROM ADMIN.PHANCONG  WHERE MAHP = :MAHP AND NAM = :NAM AND HK = :HK AND MACT = :MACT";
+                using (OracleCommand cmd = new OracleCommand(query, conn))
+                {
+
+                    cmd.Parameters.Add(new OracleParameter("MAHP", temp2.Text));
+                    cmd.Parameters.Add(new OracleParameter("NAM", temp3.Text));
+                    cmd.Parameters.Add(new OracleParameter("HK", temp4.Text));
+                    cmd.Parameters.Add(new OracleParameter("MACT", temp5.Text));
+                    
+                    try
+                    {
+                        //Mở kết nối
+                        conn.Open();
+                        temp1.Text = "temp1";
+                        using (OracleDataReader reader = cmd.ExecuteReader())
+                        {
+                            // Kiểm tra nếu có dòng dữ liệu trả về
+                            if (reader.Read())
+                            {
+                                temp1.Text = reader["MAGV"].ToString();
+                                
+                            }
+                            MessageBox.Show(temp1.Text);
+                            
+                        }
+                        conn.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                
+
+            }
+
+            
+            using (OracleConnection conn = new OracleConnection(Account.connectString))
+            {//Khai báo câu lệnh SQL sử dụng
+                using (OracleCommand cmd = new OracleCommand("INSERT INTO ADMIN.DANGKY(MASV,MAGV, MAHP, HK, NAM, MACT) VALUES (:MASV,:MAGV,:MAHP, :HK,:NAM, :MACT) ", conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter("MASV", Account.username));
+                    cmd.Parameters.Add(new OracleParameter("MAGV", temp1.Text));
+                    cmd.Parameters.Add(new OracleParameter("MAHP", temp2.Text));
+                    cmd.Parameters.Add(new OracleParameter("HK", temp4.Text));
+                    cmd.Parameters.Add(new OracleParameter("NAM", temp3.Text));
+                    cmd.Parameters.Add(new OracleParameter("MACT", temp5.Text));
+                    try
+                    {
+                        conn.Open();
+                        MessageBox.Show(Account.username);
+                        MessageBox.Show(temp1.Text);
+                        MessageBox.Show(temp2.Text);
+                        MessageBox.Show(temp3.Text);
+                        MessageBox.Show(temp4.Text);
+                        MessageBox.Show(temp5.Text);
+                        
+                        cmd.ExecuteNonQuery();
+                        cmd.Transaction.Commit();
+                        MessageBox.Show("Thêm mới đăng ký thành công");
+                        
+                        LoadDataDADK();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+
+            }
+            Account.username = svusr;
+            Account.password = svpw;
+            Account.connectString = @"Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = "
+              + Account.host + ")(PORT = " + Account.port + "))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = "
+              + Account.service + ")));Password=" + Account.password + ";User ID=" + Account.username;
+
+        }
+
+        private void dkhpGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dkhpGridView.Rows[e.RowIndex];
+                temp2.Text = row.Cells["MAHP"].Value.ToString();
+                temp3.Text = row.Cells["NAM"].Value.ToString();
+                temp4.Text = row.Cells["HK"].Value.ToString();
+                temp5.Text = row.Cells["MACT"].Value.ToString();
+                
+            }
+        }
+
+        private void dsdkGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dsdkGridView.Rows[e.RowIndex];
+                temp1.Text = row.Cells["MAGV"].Value.ToString();
+                temp2.Text = row.Cells["MAHP"].Value.ToString();
+                temp3.Text = row.Cells["NAM"].Value.ToString();
+                temp4.Text = row.Cells["HK"].Value.ToString();
+                temp5.Text = row.Cells["MACT"].Value.ToString();
+
+            }
         }
     }
 }

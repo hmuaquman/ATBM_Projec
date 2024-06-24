@@ -68,6 +68,8 @@
             this.logo = new System.Windows.Forms.PictureBox();
             this.admTabControl = new System.Windows.Forms.TabControl();
             this.userTabPage = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.createUsButton = new System.Windows.Forms.Button();
             this.dropUsButton = new System.Windows.Forms.Button();
             this.changePassButtton = new System.Windows.Forms.Button();
@@ -83,8 +85,6 @@
             this.fgausrDKLabel = new System.Windows.Forms.Label();
             this.fgaDKSearchTextBox = new System.Windows.Forms.TextBox();
             this.fgadkGridView = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.saGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.privGridView)).BeginInit();
             this.privTabPage.SuspendLayout();
@@ -548,6 +548,26 @@
             this.userTabPage.UseVisualStyleBackColor = true;
             this.userTabPage.Enter += new System.EventHandler(this.userTabPage_Enter);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label2.Location = new System.Drawing.Point(752, 96);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 20);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Password";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label1.Location = new System.Drawing.Point(752, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 20);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "User";
+            // 
             // createUsButton
             // 
             this.createUsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -695,26 +715,6 @@
             this.fgadkGridView.RowTemplate.Height = 24;
             this.fgadkGridView.Size = new System.Drawing.Size(888, 158);
             this.fgadkGridView.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(752, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 20);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "User";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.Location = new System.Drawing.Point(752, 96);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 20);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Password";
             // 
             // AdminForm
             // 

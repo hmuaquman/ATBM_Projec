@@ -143,6 +143,7 @@
             this.temp6 = new System.Windows.Forms.Label();
             this.notificationPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.bellButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.khmoGridView)).BeginInit();
             this.dkTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dkGridView)).BeginInit();
@@ -175,18 +176,18 @@
             // magvPCComboBox
             // 
             this.magvPCComboBox.FormattingEnabled = true;
-            this.magvPCComboBox.Location = new System.Drawing.Point(651, 152);
+            this.magvPCComboBox.Location = new System.Drawing.Point(687, 152);
             this.magvPCComboBox.Name = "magvPCComboBox";
-            this.magvPCComboBox.Size = new System.Drawing.Size(267, 26);
+            this.magvPCComboBox.Size = new System.Drawing.Size(231, 26);
             this.magvPCComboBox.TabIndex = 69;
             this.magvPCComboBox.SelectedIndexChanged += new System.EventHandler(this.magvPCComboBox_SelectedIndexChanged);
             // 
             // mhpPCComboBox
             // 
             this.mhpPCComboBox.FormattingEnabled = true;
-            this.mhpPCComboBox.Location = new System.Drawing.Point(653, 63);
+            this.mhpPCComboBox.Location = new System.Drawing.Point(687, 63);
             this.mhpPCComboBox.Name = "mhpPCComboBox";
-            this.mhpPCComboBox.Size = new System.Drawing.Size(267, 26);
+            this.mhpPCComboBox.Size = new System.Drawing.Size(233, 26);
             this.mhpPCComboBox.TabIndex = 68;
             this.mhpPCComboBox.SelectedIndexChanged += new System.EventHandler(this.mhpPCComboBox_SelectedIndexChanged);
             // 
@@ -370,9 +371,9 @@
             // thpPCTextBox
             // 
             this.thpPCTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.thpPCTextBox.Location = new System.Drawing.Point(651, 112);
+            this.thpPCTextBox.Location = new System.Drawing.Point(687, 112);
             this.thpPCTextBox.Name = "thpPCTextBox";
-            this.thpPCTextBox.Size = new System.Drawing.Size(269, 26);
+            this.thpPCTextBox.Size = new System.Drawing.Size(233, 26);
             this.thpPCTextBox.TabIndex = 55;
             // 
             // htgvPCTextBox
@@ -1089,9 +1090,9 @@
             // mhpHPTextBox
             // 
             this.mhpHPTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.mhpHPTextBox.Location = new System.Drawing.Point(655, 106);
+            this.mhpHPTextBox.Location = new System.Drawing.Point(683, 106);
             this.mhpHPTextBox.Name = "mhpHPTextBox";
-            this.mhpHPTextBox.Size = new System.Drawing.Size(269, 26);
+            this.mhpHPTextBox.Size = new System.Drawing.Size(241, 26);
             this.mhpHPTextBox.TabIndex = 105;
             this.mhpHPTextBox.TextChanged += new System.EventHandler(this.mhpHPTextBox_TextChanged);
             // 
@@ -1117,9 +1118,9 @@
             // thpHPTextBox
             // 
             this.thpHPTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.thpHPTextBox.Location = new System.Drawing.Point(657, 150);
+            this.thpHPTextBox.Location = new System.Drawing.Point(683, 150);
             this.thpHPTextBox.Name = "thpHPTextBox";
-            this.thpHPTextBox.Size = new System.Drawing.Size(269, 26);
+            this.thpHPTextBox.Size = new System.Drawing.Size(243, 26);
             this.thpHPTextBox.TabIndex = 102;
             this.thpHPTextBox.TextChanged += new System.EventHandler(this.thpHPTextBox_TextChanged);
             // 
@@ -1248,9 +1249,9 @@
             // mhpKHTextBox
             // 
             this.mhpKHTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.mhpKHTextBox.Location = new System.Drawing.Point(643, 136);
+            this.mhpKHTextBox.Location = new System.Drawing.Point(671, 136);
             this.mhpKHTextBox.Name = "mhpKHTextBox";
-            this.mhpKHTextBox.Size = new System.Drawing.Size(269, 26);
+            this.mhpKHTextBox.Size = new System.Drawing.Size(241, 26);
             this.mhpKHTextBox.TabIndex = 105;
             // 
             // nhKHTextBox
@@ -1273,9 +1274,9 @@
             // thpKHTextBox
             // 
             this.thpKHTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.thpKHTextBox.Location = new System.Drawing.Point(643, 200);
+            this.thpKHTextBox.Location = new System.Drawing.Point(671, 200);
             this.thpKHTextBox.Name = "thpKHTextBox";
-            this.thpKHTextBox.Size = new System.Drawing.Size(269, 26);
+            this.thpKHTextBox.Size = new System.Drawing.Size(241, 26);
             this.thpKHTextBox.TabIndex = 102;
             // 
             // mhpKHLabel
@@ -1357,11 +1358,22 @@
             this.bellButton.UseVisualStyleBackColor = true;
             this.bellButton.Click += new System.EventHandler(this.bellButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 110);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "label5";
+            this.label1.Visible = false;
+            // 
             // GVuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(977, 596);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.notificationPanel);
             this.Controls.Add(this.bellButton);
             this.Controls.Add(this.temp6);
@@ -1521,5 +1533,6 @@
         private System.Windows.Forms.Button bellButton;
         private System.Windows.Forms.TextBox csSVTextBox;
         private System.Windows.Forms.Label csSVLabel;
+        private System.Windows.Forms.Label label1;
     }
 }

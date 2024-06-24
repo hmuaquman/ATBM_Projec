@@ -322,41 +322,41 @@
             // mctTextBox
             // 
             this.mctTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.mctTextBox.Location = new System.Drawing.Point(665, 216);
+            this.mctTextBox.Location = new System.Drawing.Point(688, 216);
             this.mctTextBox.Name = "mctTextBox";
-            this.mctTextBox.Size = new System.Drawing.Size(255, 26);
+            this.mctTextBox.Size = new System.Drawing.Size(232, 26);
             this.mctTextBox.TabIndex = 43;
             // 
             // dgkTextBox
             // 
             this.dgkTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dgkTextBox.Location = new System.Drawing.Point(665, 253);
+            this.dgkTextBox.Location = new System.Drawing.Point(688, 253);
             this.dgkTextBox.Name = "dgkTextBox";
-            this.dgkTextBox.Size = new System.Drawing.Size(100, 26);
+            this.dgkTextBox.Size = new System.Drawing.Size(77, 26);
             this.dgkTextBox.TabIndex = 42;
             // 
             // dqtTextBox
             // 
             this.dqtTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dqtTextBox.Location = new System.Drawing.Point(665, 290);
+            this.dqtTextBox.Location = new System.Drawing.Point(688, 290);
             this.dqtTextBox.Name = "dqtTextBox";
-            this.dqtTextBox.Size = new System.Drawing.Size(100, 26);
+            this.dqtTextBox.Size = new System.Drawing.Size(77, 26);
             this.dqtTextBox.TabIndex = 41;
             // 
             // dckTextBox
             // 
             this.dckTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dckTextBox.Location = new System.Drawing.Point(665, 323);
+            this.dckTextBox.Location = new System.Drawing.Point(688, 323);
             this.dckTextBox.Name = "dckTextBox";
-            this.dckTextBox.Size = new System.Drawing.Size(100, 26);
+            this.dckTextBox.Size = new System.Drawing.Size(77, 26);
             this.dckTextBox.TabIndex = 40;
             // 
             // dtkTextBox
             // 
             this.dtkTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dtkTextBox.Location = new System.Drawing.Point(665, 355);
+            this.dtkTextBox.Location = new System.Drawing.Point(688, 355);
             this.dtkTextBox.Name = "dtkTextBox";
-            this.dtkTextBox.Size = new System.Drawing.Size(100, 26);
+            this.dtkTextBox.Size = new System.Drawing.Size(77, 26);
             this.dtkTextBox.TabIndex = 39;
             // 
             // masvTextBox

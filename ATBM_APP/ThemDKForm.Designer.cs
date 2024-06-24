@@ -49,12 +49,14 @@
             this.tgvTextBox = new System.Windows.Forms.TextBox();
             this.mgvLabel = new System.Windows.Forms.Label();
             this.tgvLabel = new System.Windows.Forms.Label();
+            this.dkhpGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dkhpGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // htsvTextBox
             // 
             this.htsvTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.htsvTextBox.Location = new System.Drawing.Point(163, 124);
+            this.htsvTextBox.Location = new System.Drawing.Point(710, 126);
             this.htsvTextBox.Name = "htsvTextBox";
             this.htsvTextBox.Size = new System.Drawing.Size(269, 26);
             this.htsvTextBox.TabIndex = 62;
@@ -62,7 +64,7 @@
             // mhpTextBox
             // 
             this.mhpTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.mhpTextBox.Location = new System.Drawing.Point(163, 225);
+            this.mhpTextBox.Location = new System.Drawing.Point(710, 209);
             this.mhpTextBox.Name = "mhpTextBox";
             this.mhpTextBox.Size = new System.Drawing.Size(269, 26);
             this.mhpTextBox.TabIndex = 61;
@@ -71,14 +73,14 @@
             // thpTextBox
             // 
             this.thpTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.thpTextBox.Location = new System.Drawing.Point(163, 259);
+            this.thpTextBox.Location = new System.Drawing.Point(710, 243);
             this.thpTextBox.Name = "thpTextBox";
             this.thpTextBox.Size = new System.Drawing.Size(269, 26);
             this.thpTextBox.TabIndex = 60;
             // 
             // hkTextBox
             // 
-            this.hkTextBox.Location = new System.Drawing.Point(109, 300);
+            this.hkTextBox.Location = new System.Drawing.Point(656, 284);
             this.hkTextBox.Name = "hkTextBox";
             this.hkTextBox.Size = new System.Drawing.Size(100, 22);
             this.hkTextBox.TabIndex = 59;
@@ -86,7 +88,7 @@
             // nhTextBox
             // 
             this.nhTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.nhTextBox.Location = new System.Drawing.Point(265, 298);
+            this.nhTextBox.Location = new System.Drawing.Point(812, 282);
             this.nhTextBox.Name = "nhTextBox";
             this.nhTextBox.Size = new System.Drawing.Size(167, 24);
             this.nhTextBox.TabIndex = 58;
@@ -94,15 +96,16 @@
             // mctTextBox
             // 
             this.mctTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.mctTextBox.Location = new System.Drawing.Point(177, 333);
+            this.mctTextBox.Location = new System.Drawing.Point(724, 317);
             this.mctTextBox.Name = "mctTextBox";
             this.mctTextBox.Size = new System.Drawing.Size(255, 26);
             this.mctTextBox.TabIndex = 57;
+            this.mctTextBox.TextChanged += new System.EventHandler(this.mctTextBox_TextChanged);
             // 
             // masvTextBox
             // 
             this.masvTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.masvTextBox.Location = new System.Drawing.Point(164, 89);
+            this.masvTextBox.Location = new System.Drawing.Point(711, 91);
             this.masvTextBox.Name = "masvTextBox";
             this.masvTextBox.Size = new System.Drawing.Size(268, 26);
             this.masvTextBox.TabIndex = 56;
@@ -112,7 +115,7 @@
             // 
             this.mctLabel.AutoSize = true;
             this.mctLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.mctLabel.Location = new System.Drawing.Point(42, 336);
+            this.mctLabel.Location = new System.Drawing.Point(589, 320);
             this.mctLabel.Name = "mctLabel";
             this.mctLabel.Size = new System.Drawing.Size(129, 20);
             this.mctLabel.TabIndex = 55;
@@ -122,7 +125,7 @@
             // 
             this.mhpLabel.AutoSize = true;
             this.mhpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.mhpLabel.Location = new System.Drawing.Point(42, 228);
+            this.mhpLabel.Location = new System.Drawing.Point(589, 212);
             this.mhpLabel.Name = "mhpLabel";
             this.mhpLabel.Size = new System.Drawing.Size(105, 20);
             this.mhpLabel.TabIndex = 54;
@@ -132,7 +135,7 @@
             // 
             this.thpLabel.AutoSize = true;
             this.thpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.thpLabel.Location = new System.Drawing.Point(42, 262);
+            this.thpLabel.Location = new System.Drawing.Point(589, 246);
             this.thpLabel.Name = "thpLabel";
             this.thpLabel.Size = new System.Drawing.Size(110, 20);
             this.thpLabel.TabIndex = 53;
@@ -142,7 +145,7 @@
             // 
             this.hkLabel.AutoSize = true;
             this.hkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.hkLabel.Location = new System.Drawing.Point(42, 300);
+            this.hkLabel.Location = new System.Drawing.Point(589, 284);
             this.hkLabel.Name = "hkLabel";
             this.hkLabel.Size = new System.Drawing.Size(61, 20);
             this.hkLabel.TabIndex = 52;
@@ -152,7 +155,7 @@
             // 
             this.nhLabel.AutoSize = true;
             this.nhLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.nhLabel.Location = new System.Drawing.Point(215, 302);
+            this.nhLabel.Location = new System.Drawing.Point(762, 286);
             this.nhLabel.Name = "nhLabel";
             this.nhLabel.Size = new System.Drawing.Size(44, 20);
             this.nhLabel.TabIndex = 51;
@@ -162,7 +165,7 @@
             // 
             this.htsvLabel.AutoSize = true;
             this.htsvLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.htsvLabel.Location = new System.Drawing.Point(42, 127);
+            this.htsvLabel.Location = new System.Drawing.Point(589, 129);
             this.htsvLabel.Name = "htsvLabel";
             this.htsvLabel.Size = new System.Drawing.Size(86, 20);
             this.htsvLabel.TabIndex = 50;
@@ -172,7 +175,7 @@
             // 
             this.msvLabel.AutoSize = true;
             this.msvLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.msvLabel.Location = new System.Drawing.Point(42, 93);
+            this.msvLabel.Location = new System.Drawing.Point(589, 95);
             this.msvLabel.Name = "msvLabel";
             this.msvLabel.Size = new System.Drawing.Size(103, 20);
             this.msvLabel.TabIndex = 49;
@@ -182,7 +185,7 @@
             // 
             this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.title.Location = new System.Drawing.Point(136, 33);
+            this.title.Location = new System.Drawing.Point(683, 35);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(174, 29);
             this.title.TabIndex = 115;
@@ -190,7 +193,7 @@
             // 
             // addDKButton
             // 
-            this.addDKButton.Location = new System.Drawing.Point(285, 384);
+            this.addDKButton.Location = new System.Drawing.Point(832, 368);
             this.addDKButton.Name = "addDKButton";
             this.addDKButton.Size = new System.Drawing.Size(114, 40);
             this.addDKButton.TabIndex = 118;
@@ -200,7 +203,7 @@
             // 
             // cancelDKButton
             // 
-            this.cancelDKButton.Location = new System.Drawing.Point(76, 384);
+            this.cancelDKButton.Location = new System.Drawing.Point(623, 368);
             this.cancelDKButton.Name = "cancelDKButton";
             this.cancelDKButton.Size = new System.Drawing.Size(112, 40);
             this.cancelDKButton.TabIndex = 117;
@@ -211,7 +214,7 @@
             // mgvTextBox
             // 
             this.mgvTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.mgvTextBox.Location = new System.Drawing.Point(163, 160);
+            this.mgvTextBox.Location = new System.Drawing.Point(710, 162);
             this.mgvTextBox.Name = "mgvTextBox";
             this.mgvTextBox.Size = new System.Drawing.Size(269, 26);
             this.mgvTextBox.TabIndex = 122;
@@ -220,16 +223,17 @@
             // tgvTextBox
             // 
             this.tgvTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.tgvTextBox.Location = new System.Drawing.Point(163, 194);
+            this.tgvTextBox.Location = new System.Drawing.Point(710, 196);
             this.tgvTextBox.Name = "tgvTextBox";
             this.tgvTextBox.Size = new System.Drawing.Size(269, 26);
             this.tgvTextBox.TabIndex = 121;
+            this.tgvTextBox.Visible = false;
             // 
             // mgvLabel
             // 
             this.mgvLabel.AutoSize = true;
             this.mgvLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.mgvLabel.Location = new System.Drawing.Point(42, 163);
+            this.mgvLabel.Location = new System.Drawing.Point(589, 165);
             this.mgvLabel.Name = "mgvLabel";
             this.mgvLabel.Size = new System.Drawing.Size(112, 20);
             this.mgvLabel.TabIndex = 120;
@@ -239,17 +243,30 @@
             // 
             this.tgvLabel.AutoSize = true;
             this.tgvLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.tgvLabel.Location = new System.Drawing.Point(42, 197);
+            this.tgvLabel.Location = new System.Drawing.Point(589, 199);
             this.tgvLabel.Name = "tgvLabel";
             this.tgvLabel.Size = new System.Drawing.Size(117, 20);
             this.tgvLabel.TabIndex = 119;
             this.tgvLabel.Text = "Tên giảng viên";
+            this.tgvLabel.Visible = false;
+            // 
+            // dkhpGridView
+            // 
+            this.dkhpGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dkhpGridView.Location = new System.Drawing.Point(30, 26);
+            this.dkhpGridView.Name = "dkhpGridView";
+            this.dkhpGridView.RowHeadersWidth = 51;
+            this.dkhpGridView.RowTemplate.Height = 24;
+            this.dkhpGridView.Size = new System.Drawing.Size(520, 437);
+            this.dkhpGridView.TabIndex = 123;
+            this.dkhpGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dkhpGridView_CellClick);
             // 
             // ThemDKForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 442);
+            this.ClientSize = new System.Drawing.Size(1000, 497);
+            this.Controls.Add(this.dkhpGridView);
             this.Controls.Add(this.mgvTextBox);
             this.Controls.Add(this.tgvTextBox);
             this.Controls.Add(this.mgvLabel);
@@ -273,6 +290,8 @@
             this.Controls.Add(this.msvLabel);
             this.Name = "ThemDKForm";
             this.Text = "ThemDKForm";
+            this.Load += new System.EventHandler(this.ThemDKForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dkhpGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,5 +320,6 @@
         private System.Windows.Forms.TextBox tgvTextBox;
         private System.Windows.Forms.Label mgvLabel;
         private System.Windows.Forms.Label tgvLabel;
+        private System.Windows.Forms.DataGridView dkhpGridView;
     }
 }
