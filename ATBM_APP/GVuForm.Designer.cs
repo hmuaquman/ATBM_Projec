@@ -1253,6 +1253,7 @@
             this.mhpKHTextBox.Name = "mhpKHTextBox";
             this.mhpKHTextBox.Size = new System.Drawing.Size(241, 26);
             this.mhpKHTextBox.TabIndex = 105;
+            this.mhpKHTextBox.TextChanged += new System.EventHandler(this.mhpKHTextBox_TextChanged);
             // 
             // nhKHTextBox
             // 

@@ -330,7 +330,7 @@ namespace ATBM_APP
             int currentDay = currentDate.Day;
             int currentMonth = currentDate.Month;
 
-            if ((currentDay >= 1 && currentDay <= 24) && (currentMonth == 1 || currentMonth == 6 || currentMonth == 9))
+            if ((currentDay >= 1 && currentDay <= 14) && (currentMonth == 1 || currentMonth == 5 || currentMonth == 9))
             {
                 dsdkGridView.Visible = true;
                 dkhpGridView.Visible = true;

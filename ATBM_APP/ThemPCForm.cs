@@ -55,13 +55,25 @@ namespace ATBM_APP
         private void ThemPCForm_Load(object sender, EventArgs e)
         {
             LoadDataTHEMPC();
+            string query;
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {
                 // Khai báo câu lệnh SQL
-                string query = "SELECT MANV FROM ADMIN.NHANSU";
+                if (Account.username != "NV001")
+                {
+                    query = "SELECT MANV FROM ADMIN.NHANSU";
+                }
+                else
+                {
+                    query = "SELECT MANV FROM ADMIN.NHANSU WHERE MADV = :MADV";
+                }
 
                 using (OracleCommand cmd = new OracleCommand(query, conn))
                 {
+                    if(Account.username == "NV001")
+                    {
+                        cmd.Parameters.Add(new OracleParameter("MADV", "VPK"));
+                    }
                     try
                     {
                         // Mở kết nối

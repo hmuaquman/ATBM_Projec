@@ -583,7 +583,7 @@ namespace ATBM_APP
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {
                 // Khai báo câu lệnh SQL
-                string query = "SELECT MANV FROM ADMIN.view_decrypted_nhansu ns JOIN ADMIN.DONVI dv ON ns.MADV = dv.MADV WHERE dv.MADV = :MADV";
+                string query = "SELECT MANV FROM ADMIN.NHANSU ns JOIN ADMIN.DONVI dv ON ns.MADV = dv.MADV WHERE dv.MADV = :MADV";
 
                 using (OracleCommand cmd = new OracleCommand(query, conn))
                 {
@@ -1297,7 +1297,7 @@ namespace ATBM_APP
             int currentDay = currentDate.Day;
             int currentMonth = currentDate.Month;
 
-            if ((currentDay >= 1 && currentDay <= 24) && (currentMonth == 1 || currentMonth == 6 || currentMonth == 9))
+            if ((currentDay >= 1 && currentDay <= 14) && (currentMonth == 1 || currentMonth == 5 || currentMonth == 9))
             {
                 ThemDKForm themDKForm = new ThemDKForm();
                 themDKForm.ShowDialog();
@@ -1366,6 +1366,11 @@ namespace ATBM_APP
         {
             TTNVForm tTNVForm = new TTNVForm();
             tTNVForm.Show();
+        }
+
+        private void mhpKHTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

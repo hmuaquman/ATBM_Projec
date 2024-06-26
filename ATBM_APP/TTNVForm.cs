@@ -31,7 +31,7 @@ namespace ATBM_APP
         {
             using (OracleConnection conn = new OracleConnection(Account.connectString))
             {//Khai báo câu lệnh SQL sử dụng
-                using (OracleCommand cmd = new OracleCommand("SELECT * FROM ADMIN.view_decrypted_nhansu ns JOIN ADMIN.DONVI dv ON ns.MADV = dv.MADV AND MANV = :MANHANVIEN", conn))
+                using (OracleCommand cmd = new OracleCommand("SELECT * FROM ADMIN.view_decrypted_nhansu", conn))
                 {
                     cmd.Parameters.Add(new OracleParameter("MANHANVIEN", Account.username));
                     try
@@ -50,7 +50,7 @@ namespace ATBM_APP
                                 nsTextBox.Text = nsTextBox.Text.Substring(0, 10);
                                 sdtTextBox.Text = reader["DT"].ToString();
                                 pcTextBox.Text = reader["PHUCAP"].ToString();
-                                dvTextBox.Text = reader["TENDV"].ToString();
+                                dvTextBox.Text = reader["MADV"].ToString();
                                 csTextBox.Text = reader["COSO"].ToString();
                             }
                         }

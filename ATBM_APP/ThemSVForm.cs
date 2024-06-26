@@ -46,7 +46,7 @@ namespace ATBM_APP
                     cmd.Parameters.Add(new OracleParameter("MANGANH", mnSVTextBox.Text));
                     cmd.Parameters.Add(new OracleParameter("COSO", csTextBox.Text));
 
-                    MessageBox.Show(cmd.CommandText);
+                 
                     try
                     {
                         conn.Open();
